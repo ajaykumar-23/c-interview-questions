@@ -1,0 +1,431 @@
+Please reproduce the following issue, so that we can debug.
+Looks like device id is wrong here? But lets reproduce and debug.
+tinyplay -D hw:0,11 -P &
+Logs location:
+\\lab2836\Dropbox\MDM\4.14_audio\12_02_2020\dtmf_tone_4.14
+Steps to reproduce:
+1.Boot up the device.
+2.Camp the device in QXDM (GSM/WCDMA/LTE).
+3.Open command prompt and issue below commands:
+tinymix "PRI_MI2S_RX_Voice Mixer DTMF" 1
+tinymix 'SLIM RX1 MUX' 'AIF1_PB'
+tinymix 'SLIM RX2 MUX' 'AIF1_PB'
+tinymix 'MI2S_RX Channels' 'Two'
+tinymix 'RX1 MIX1 INP1' 'RX1'
+tinymix 'RX2 MIX1 INP1' 'RX2'
+tinymix 'HPHL DAC Switch' 1
+tinymix 'HPHL Volume' '20'
+tinymix 'HPHR Volume' '20'
+tinymix 'CLASS_H_DSM MUX' 'DSM_HPHL_RX1'
+tinymix 'RX1 Digital Volume' '95'
+tinymix 'RX2 Digital Volume' '95'
+tinyplay -D hw:0,11 -P &
+4.In other command prompt, issue below command.
+tinymix 'DTMF_Generate Rx Low High Duration Gain' 697 1209 -1 100
+
+Observation on 4.14 after giving commands:
+C:\Users\asiahyd>adb shell
+/ # tinymix "PRI_MI2S_RX_Voice Mixer DTMF" 1
+/ # tinymix 'SLIM RX1 MUX' 'AIF1_PB'
+/ # tinymix 'SLIM RX2 MUX' 'AIF1_PB'
+/ # tinymix 'MI2S_RX Channels' 'Two'
+/ # tinymix 'RX1 MIX1 INP1' 'RX1'
+/ # tinymix 'RX2 MIX1 INP1' 'RX2'
+/ # tinymix 'HPHL DAC Switch' 1
+/ # tinymix 'HPHL Volume' '20'
+/ # tinymix 'HPHR Volume' '20'
+/ # tinymix 'CLASS_H_DSM MUX' 'DSM_HPHL_RX1'
+/ # tinymix 'RX1 Digital Volume' '95'
+/ # tinymix 'RX2 Digital Volume' '95'
+/ # tinyplay -D hw:0,11 -P &
+/ # Unable to open file '-D'
+
+C:\Users\asiahyd>adb shell
+/ # tinymix 'DTMF_Generate Rx Low High Duration Gain' 697 1209 -1 100
+Error: invalid value for index 2
+
+Actual result: Error while trying to generate DTMF tone .
+Expected result: Must be able to hear DTMF tone.
+
+-----------------------------------------------------------------------------------------------------------------
+Please reproduce this issue.
+
+Steps to reproduce:
+1.After device boots up.
+2.Push a vorbis file in shell:  adb push \\LABMACHINE-879\Dropbox\leclips\vorbis /data/
+3.Issue the below command to play the vorbis file using hal_play_test application:
+hal_play_test -f /data/02_SAD_BUT_TRUE_VBR_45kbps_Stereo_48khz_0x152E_0x10100300_0x2_0x10C15.bin -k 45000,48000,1 -t 7 -r 48000 -c 2 -v 0.5
+
+*Observations: *
+1. Playback is not getting stopped within a time limit.
+2.Manually stop the playback : ctrl+Z
+
+*Actual result: *
+After stopping hal_play_test application manually, vorbis is still getting played continously till 20sec's .
+
+*Expected output: *
+Playback should be stopped after a time limit or should be stopped immediately after hal_play_test application is ended manually.
+---------------------------------------------------------------------------------------------------------------------
+./poky/build/tmp-glibc/work/armv7a-vfp-neon-oe-linux-gnueabi/tinyalsa/git-r1/git/tinyplay.c
+------------------------------------------------------------------------------------------------------------------
+Steps to reproduce:
+1.Boot up the device.
+2.Check for sound cards: adb shell cat /proc/asound/cards.
+3.Record audio with below commands using handset/handset/speaker mode.
+Headset:
+tinymix 'MI2S_TX Channels' 'One'
+tinymix 'AIF1_CAP Mixer SLIM TX7' 1
+tinymix 'SLIM TX7 MUX' 'DEC5'
+tinymix 'DEC5 MUX' 'ADC2'
+tinymix 'DEC5 Volume' '67'
+tinymix 'ADC2 Volume' '100'
+tinymix 'MultiMedia1 Mixer PRI_MI2S_TX' 1
+
+tinycap /data/rec_headset.wav or tinycap /data/rec_headset.wav -r 48000
+Note: Refer below link for commands to record in handset/speaker http://qwiki.qualcomm.com/mdmaudio/Mdm9x07 (replace amix with tinymix commands)
+4.Playback the recorded file using below tinymix commands:
+Headset:
+
+tinymix 'PRI_MI2S_RX Audio Mixer MultiMedia1' 1
+tinymix 'SLIM RX1 MUX' 'AIF1_PB'
+tinymix 'SLIM RX2 MUX' 'AIF1_PB'
+tinymix 'MI2S_RX Channels' 'Two'
+tinymix 'RX1 MIX1 INP1' 'RX1'
+tinymix 'RX2 MIX1 INP1' 'RX2'
+tinymix 'HPHL DAC Switch' 1
+tinymix 'HPHL Volume' '80'
+tinymix 'HPHR Volume' '80'
+tinymix 'CLASS_H_DSM MUX' 'DSM_HPHL_RX1'
+tinymix 'RX1 Digital Volume' '67'
+tinymix 'RX2 Digital Volume' '67'
+
+tinyplay /data/rec_headset.wav
+
+Observations: Below is error while playback of recorded file.
+/ # tinyplay /data/rec_handset_or_spkr.wav
+Error: '/data/rec_handset_or_spkr.wav' is not a riff/wave file
+Actual result: Unable to playback the recorded file using tinymix commands.
+Expected Result: Should be able to hear audio while playback of recorded wav file.
+-------------------------------------------------------------------------------------
+Audio Capture case commands(Provided by bala):
+Capture:
+
+tinymix 'AIF1_CAP Mixer SLIM TX7' 1
+
+tinymix 'MI2S_TX Channels' 'One'
+
+tinymix 'SLIM TX7 MUX' 'DEC8'
+
+tinymix 'DEC8 MUX' 'ADC5'
+
+tinymix 'DEC8 Volume' '67'
+
+tinymix 'ADC5 Volume' '67'
+
+tinymix 'MultiMedia1 Mixer PRI_MI2S_TX' 1
+
+tinycap /data/rec.wav -r 48000
+
+Observation: Audio capture case is failing with default tz image where as passing with tzbsp_no_xpu.mbn image (as communicated with Arun/bala).
+
+Commands to playback audio format’s files(Ex: WAV,AAC,VORBIS) using hal_play_test  application.
+-->Push MP3 file into device : adb push \\LABMACHINE-879\Dropbox\leclips\mp3 /data/
+
+-->Playback the mp3 file: hal_play_test -f /data/Anukoneledhugaa.mp3 -t 2 -d 2 -v 0.1 -r 44100 -c 2
+
+Please find the below link, where you can find commands for all audio format’s in detail:
+
+Link: http://qwiki.qualcomm.com/quic/MM/Audio/LE/HAL_Wrapper#Wav_file_playback
+
+Observation: On 4.14 kernel, while playback of MP3/VORBIS/WMA/AAC file the bytes are read by hal_play_test app, but not able to hear audio.
+--------------------------------------------------------------------------------------------------
+The basic WAV playback is working fine as expected with tinyplay commands(given by bala).
+
+But in MM_audio_LBT_test plan which I got from Qualcomm POC, we test playback of different audio format file’s using hal_play_test application.
+
+WAV playback is failing with hal_play_test application
+
+Commands to playback audio format’s files(Ex: WAV,AAC,VORBIS) using hal_play_test  application.
+
+-->Push WAV file into device : adb push \\LABMACHINE-879\Dropbox\leclips\wav /data/
+
+-->Playback the WAV file: adb shell hal_play_test  -f /data/yesterday_48KHz.wav -v 0.5
+
+Please find the below link, where you can find commands to test for all audio format’s in detail:
+
+Link: http://qwiki.qualcomm.com/quic/MM/Audio/LE/HAL_Wrapper#Wav_file_playback
+------------------------------------------------------------------------------------------
+Could you please share logs ? (for MDM plz check with QCOM leads) as MDM does not have logcat I think and I need logs for user-space also along with kernel logs.
+
+Suggestion - 
+
+adb root / remount
+adb shell
+#hal_play_test  -f /data/yesterday_48KHz.wav -v 0.5
+'#' is shell in which you can execute above commands and capture the prints you get and share.
+--------------------------------------------------------------------------
+can you try playback with below command 
+
+ #hal_play_test -f /data/yesterday_48KHz.wav -v 0.5 -F 8
+---------------------------------------------------------------------
+Validated Audio TC’s on 1/14 build with TZ NO_XPU image, Please find observations below.
+
+Meta: \\lab6120\Dropbox\Shashank_Builds\USBBAMsupporttoRMNET\MDM9607.LE.2.1.2-00001-NBOOT.NEFS.INT-2_0115_220724
+
+Apps:   \\crmhyd\builds627\TEST\LE.UM.3.4.2-01003-9x07.Int-2\apps_proc\poky\build\tmp-glibc\deploy\images
+
+TZ NO_XPU Path:  [TZ/bigelow/zipbuild253/INTEGRATION/TZ.BF.2.5.c9-00062-M9607AAAAANAAT-1/trustzone_images/build/ms/bin/MARAANAA]TZ\\bigelow\zipbuild253\INTEGRATION\TZ.BF.2.5.c9-00062-M9607AAAAANAAT-1\trustzone_images\build\ms\bin\MARAANAA
+
+Please find below logcat & kernel logs for wav format.
+
+Logs : \\lab2836\Dropbox\MDM\4.14_audio\20102020
+Observations:
+
+Audio record : Working as expected using Tinymix commands.
+tinymix 'AIF1_CAP Mixer SLIM TX7' 1
+tinymix 'MI2S_TX Channels' 'One'
+tinymix 'SLIM TX7 MUX' 'DEC8'
+tinymix 'DEC8 MUX' 'ADC5'
+tinymix 'DEC8 Volume' '67'
+tinymix 'ADC5 Volume' '67'
+tinymix 'MultiMedia1 Mixer PRI_MI2S_TX' 1
+tinycap /data/rec.wav -r 48000
+hal_play_test app: Wav playback was working as expected.
+Using hal_play_test app I have validated wav file playback with below command provided by Nikhil in mail below.
+hal_play_test -f /data/yesterday_48KHz.wav -v 0.5 -F 8   
+hal_play_test app :  Not working as expected.(Need to validate different audio format’s)
+· Dev team need to provide inputs to validate different audio formats as provide for above case(which flag is to be set for each audio format).
+
+· For example Deep buffer -F 8 : wav, compress offload(-F 10) : MP3,  to test audio format’s(mp3, AAC,flac, alac, vorbis, wma, mp2, eac3).
+
+· Hal_play_test command’s used on 3.18 are not working on 4.14 kernel.
+---------------------------------------------------------------------------------------------------------------
+Please take below lib ION gerrits as well to resolve libion compilation issues.
+
+https://review-android.quicinc.com/#/c/3009597
+
+https://review-android.quicinc.com/#/c/3016205/
+
+@Sunayana M (Temp): Please validate the voice call on below build , once the crash issue resolved with QXDM connection.
+
+\\c-bkpati-linux\workspace\LE_Jan24\poky\build\tmp-glibc\deploy\images\mdm9607
+
+For 3.18 kernel ----amix utility will work.
+
+For 4.14 kernel ---- tinymix commands needs to be executed(amix was not supporting)
+
+Voice call:
+
+tinymix 'MI2S_RX Channels' 'One'
+
+tinymix 'SLIM RX1 MUX' 'AIF1_PB'
+
+tinymix 'RX7 MIX1 INP1' 'RX1'
+
+tinymix 'COMP0 Switch' 1
+
+tinymix 'RX7 Digital Volume' '87'
+
+tinymix 'AIF1_CAP Mixer SLIM TX7' 1
+
+tinymix 'MI2S_TX Channels' 'One'
+
+tinymix 'SLIM TX7 MUX' 'DEC8'
+
+tinymix 'DEC8 MUX' 'ADC5'
+
+tinymix 'DEC8 Volume' '67'
+
+tinymix 'ADC5 Volume' '67'
+
+tinymix 'PRI_MI2S_RX_Voice Mixer CSVoice' 1
+
+tinymix 'Voice_Tx Mixer PRI_MI2S_TX_Voice' 1
+----------------------------------------------------------------------------------------------
+Below are observation on voice-call using tinymix commands and Audio Playback/Record
+
+Logs_path: \\lab2836\Dropbox\MDM\4.14_audio\29_01_2020
+
+1.Audio Playback using hal_play_test application and record/playback using tinymix commands :
+
+ 
+
+S.no
+
+Test_Case_Name
+
+Test_Suite
+
+Feature_Area
+
+Status (4.14)
+
+Result on 3.18
+
+1
+
+WAV
+
+manual playback
+
+audio_decode
+
+PASS
+
+PASS
+
+2
+
+AAC
+
+manual playback
+
+audio_decode
+
+PASS
+
+PASS
+
+3
+
+FLAC
+
+manual playback
+
+audio_decode
+
+FAIL
+
+FAIL
+
+4
+
+ALAC
+
+manual playback
+
+audio_decode
+
+FAIL
+
+FAIL
+
+5
+
+VORBIS
+
+manual playback
+
+audio_decode
+
+PASS
+
+PASS
+
+6
+
+WMA
+
+manual playback
+
+audio_decode
+
+PASS
+
+PASS
+
+7
+
+MP2
+
+manual playback
+
+audio_decode
+
+FAIL
+
+FAIL
+
+8
+
+AC3
+
+manual playback
+
+audio_decode
+
+FAIL
+
+FAIL
+
+9
+
+mp3
+
+manual playback
+
+audio_decode
+
+PASS
+
+PASS
+
+10
+
+EAC3
+
+manual playback
+
+audio_decode
+
+FAIL
+
+FAIL
+
+11
+
+Record – “tinymix commands”
+
+Manual_record()
+
+audio_decode
+
+PASS(tz_no_xpu.mbn)
+
+FAIL(tz.mbn image)
+
+PASS
+
+12
+
+Playback – “tinymix commands”
+
+Manual_playback
+
+audio_decode
+
+PASS
+
+PASS
+
+2.Voice-call using tinymix commands:
+
+Note: Require tinyplay and tinyrec commands to validate voice call(loopback call) using tinymix commands.
+
+3.Voice call through “QMI test Pro” tool:
+
+Able to initiate call by enabling CSD(core sound driver), but not able to hear audio in headphone/speaker/handset mode.
+
+From putty logs: below are observations with tz_no_xpu.mbn image(Note: with tz.mbn we are seeing failure and no logs are being generated in putty  )
+
+[ 3344.283210] send_afe_cal_type cal_block not found!!
+
+[ 3344.299562] qdsp_cvp_callback: cmd = 0x13169 returned error = 0x1
+
+[ 3344.299612] got NACK from CVP create session response
+
+[ 3344.304725] voice_send_cvp_create_cmd: DSP returned error[ADSP_EFAILED]
+
+[ 3344.314020] voice_setup_vocproc: CVP create failed err:-131
+
+[ 3344.316126] setup voice failed

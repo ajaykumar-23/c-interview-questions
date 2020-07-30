@@ -1,0 +1,49 @@
+Summary:
+In intel i worked on GPMRB(Gordonpeak module reference board) and Apollolake NUC(Next unit of computing).
+There some of the issues we are facing in audio.
+1.ASoC no BE DAIs are enabled on GPMRB.
+For this we have modified some files in sound/soc/soc-pcm.c
+                                        sound/soc/codec/tdf8532.c
+				        sound/soc/intel/boards/bxt_tdf8532.c
+and created patch file,that patch file is added into the spec file and build the images using make build.
+After that we got rpms,extract that rpms using rpm2cpio command.
+After that create the boot and rootfs image.Then flash the images on the board using intel platform flash tool.
+we are taking the logs using dmesg command.
+
+
+2.HDMI audio not working properly on APL NUC. 
+Tested in img 31050 APL NUC
+APL NUC board is connected to the Samsung TV for test the audio.We are playing a video from video youtube.
+Issue is first boot the audio from youtube is playing normally.
+After first reboot the audio from youtube is breaking but video playing smoothly.
+After second reboot the audio from youtube is not observed but video playing smoothly.
+
+For that we are added debug prints in HDMI related files to localize the issue.
+sound/pci/hda/hda_bind.c
+sound/pci/hda/hda_intel.c
+sound/pci/hda/patch_hdmi.c
+sound/core/pcm_lib.c
+For debugging purpose we are using FTRACE Function in kernel.For that we have to enable the following functions
+in config file of kernel.
+ CONFIG_FUNCTION_TRACER 
+ CONFIG_FUNCTION_GRAPH_TRACER
+ CONFIG_STACK_TRACER
+ CONFIG_DYNAMIC_FTRACE
+
+We collected the dynamic debug logs using below command. 
+sudo echo -n 'file pcm_lib.c +p' | sudo tee /sys/kernel/debug/dynamic_debug/control
+
+For test the sound on the APL NUC we use aplay command.
+aplay -Dplughw:0,3 example.wav
+Here 0 is card number
+     3 is device number i.e HDMI
+
+
+gsg script for create boot and rootfs image.
+ias image(intel automotive service image)
+iasimage is a utility program for creating Intel Automotive Service (IAS) images, a binary file format understood by bootloaders to load and initialize Operating Systems or Hypervisors.
+Create an image (including kernel cmdline, kernel, hypervisor binary etc.)
+Attach a signature to an IAS image
+Extract components from an IAS image
+iasimage create -o iasImage -i 0x30300 -d priv_key.pem cmdline.txt bzImage initrd
+for creating ias image we need bootargs.txt,private pem key and command line arguments.

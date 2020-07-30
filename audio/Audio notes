@@ -1,0 +1,41 @@
+Audio basics:
+/home/people/akothapally/android/system/media/audio/include/system/audio.h
+Audio format  is a 32-bit word that consists of:
+main format field (upper 8 bits)
+sub format field (lower 24 bits).
+The main format indicates the main codec type. The sub format field indicates options and parameters for each format. The sub format is mainly
+used for record to indicate for instance the requested bitrate or profile.It can also be used for certain formats to give informations not present in the encoded audio stream (e.g. octet alignement for AMR).
+
+/* the audio output flags serve two purposes:
+ * - when an AudioTrack is created they indicate a "wish" to be connected to an
+ * output stream with attributes corresponding to the specified flags
+ * - when present in an output profile descriptor listed for a particular audio
+ * hardware module, they indicate that an output stream can be opened that
+ * supports the attributes indicated by the flags.
+ * the audio policy manager will try to match the flags in the request
+ * (when getOuput() is called) to an available output stream.
+
+/* The audio input flags are analogous to audio output flags.
+ * Currently they are used only when an AudioRecord is created,
+ * to indicate a preference to be connected to an input stream with
+ * attributes corresponding to the specified flags.
+
+/home/people/akothapally/android/hardware/qcom/audio/hal/audio_hw.h
+/* These are the supported use cases by the hardware.
+ * Each usecase is mapped to a specific PCM device.
+ * Refer to pcm_device_table[].
+
+ * tinyAlsa library interprets period size as number of frames
+ * one frame = channel_count * sizeof (pcm sample)
+ * so if format = 16-bit PCM and channels = Stereo, frame size = 2 ch * 2 = 4 bytes
+ * DEEP_BUFFER_OUTPUT_PERIOD_SIZE = 1024 means 1024 * 4 = 4096 bytes
+ * We should take care of returning proper size when AudioFlinger queries for
+ * the buffer size of an input/output stream
+ */
+
+
+Important filepaths:
+/home/people/akothapally/android/device/qcom/msm8996/media_codecs.xml (qcom file)
+/home/people/akothapally/android/frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml (google file)
+/home/people/akothapally/android/hardware/qcom/audio/configs/msm8996/mixer_paths.xml
+

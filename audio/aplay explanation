@@ -1,0 +1,41 @@
+snd_pcm_info_alloca
+snd_output_stdio_attach
+command = argv[0];
+	file_type = FORMAT_DEFAULT;
+	if (strstr(argv[0], "arecord")) {
+		stream = SND_PCM_STREAM_CAPTURE;
+		file_type = FORMAT_WAVE;
+		command = "arecord";
+		start_delay = 1;
+		direction = stdout;
+	} else if (strstr(argv[0], "aplay")) {
+		stream = SND_PCM_STREAM_PLAYBACK;
+		command = "aplay";
+		direction = stdin;
+	} else {
+		error(_("command should be named either arecord or aplay"));
+		return 1;
+	}
+if (strstr(argv[0], "aplay")
+The getopt() function parses the command-line arguments.  Its
+       arguments argc and argv are the argument count and array as passed to
+       the main() function on program invocation
+
+
+int snd_pcm_open( snd_pcm_t **handle, 
+                  int card, 
+                  int device, 
+                  int mode );
+Create a handle and open a connection to a specified audio interface
+snd_pcm_info
+snd_pcm_hw_params_alloca
+snd_pcm_hw_params_any
+snd_pcm_hw_params_set_access is used to set the transfer mode I've been talking about at the start of this document. There are two types of transfer modes:
+SND_PCM_ACCESS_MMAP_INTERLEAVED
+SND_PCM_ACCESS_MMAP_NONINTERLEAVED
+After that, we set the sample rate of our stream, in Hz. Note that the functions we use is called snd_pcm_hw_params_set_rate_near,
+snd_pcm_hw_params_set_buffer_size_near
+snd_pcm_sw_params_set_start_threshold
+snd_pcm_sw_params_set_avail_min
+set_start_threshold tells ALSA when to start playing. In this case, we tell it to wait until our buffer is almost full.
+set_avail_min tells ALSA when to notify us. In this case, we want to be able to write at least period_size samples to the buffer without blocking.

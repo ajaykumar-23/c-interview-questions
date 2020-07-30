@@ -1,0 +1,91 @@
+C-programing:
+
+1.Find the given number is a power of 2 or not ?
+
+#include <stdio.h>
+unsigned int countSetBits(int n)
+{
+    unsigned int count = 0;
+    while (n) {
+        n &= (n - 1);
+        count++;
+    }
+    return count;
+}
+int main()
+{
+   int i;
+   printf("enter a number");
+   scanf("%d",&i);
+   printf("%d\n", countSetBits(i));
+   return 0;
+}
+
+2.Change the bits in a particular places in a number(In hardcore)?
+
+https://www.geeksforgeeks.org/modify-bit-given-position/
+
+3.void pointer.
+
+void pointer is also called as generic pointer.A void pointer is a pointer that has no associated data type with it. A void pointer can hold address of any type and can be typcasted to any type.
+int a = 10; 
+char b = 'x'; 
+  
+void *p = &a;  // void pointer holds address of int 'a' 
+p = &b; // void pointer holds address of char 'b' 
+
+#include<stdio.h> 
+int main() 
+{ 
+    int a[2] = {1, 2}; 
+    void *ptr = &a;                                  //doubt
+    ptr = ptr + sizeof(int); 
+    printf("%d", *(int *)ptr); 
+    return 0; 
+}
+o/p is 2. 
+It has some limitations −
+
+1) Pointer arithmetic is not possible with void pointer due to its concrete size.
+
+2) It can’t be used as dereferenced.
+
+
+4.About static keyword.
+
+https://www.geeksforgeeks.org/static-variables-in-c/
+https://www.geeksforgeeks.org/what-are-static-functions-in-c/
+https://stackoverflow.com/questions/572547/what-does-static-mean-in-c
+Initialized static variables are stored in the data segment of the C program whereas uninitialized ones are stored in the BSS segment.
+
+Another information about static: If a variable is global and static, it has the life time of the C program, but it has file scope. It is visible only in that file.
+There are 2 cases:
+
+(1) Local variables declared static: Allocated in data segment instead of stack. Its value retains when you call the function again.
+
+(2) Global variables or functions declared static: Invisible outside compilation unit (i.e. are local symbols in symbol table during linking)
+
+system programming:
+
+1.Interrupt mechanism.
+
+
+2.Explain about memory hierarchy.
+
+
+3.Concept of virtual memory.
+
+
+4.What is cache memory and its functionality.
+
+
+5.About preemption method.
+
+
+Audio:
+
+1.why we use static in your driver.
+
+
+2.what is probe function and its functionality.
+

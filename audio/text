@@ -1,0 +1,2237 @@
+As per IT9415003, we have created the account in our CICDIM build server
+IP: 192.168.205.250
+Name: akothapally                   ssh akothapally@192.168.205.250
+Pwd:  AkotHapAlLy@789!@#
+-------------------------------------
+ip addr for ssh
+ajaykumar@192.168.202.115
+Innominds@123
+----------------------------------------
+akothapally@cicdim:~/android$ source build/envsetup.sh
+including device/generic/mini-emulator-arm64/vendorsetup.sh
+including device/generic/mini-emulator-armv7-a-neon/vendorsetup.sh
+including device/generic/mini-emulator-x86_64/vendorsetup.sh
+including device/generic/mini-emulator-x86/vendorsetup.sh
+including device/qcom/common/vendorsetup.sh
+including vendor/qcom/proprietary/common/vendorsetup.sh
+including sdk/bash_completion/adb.bash
+akothapally@cicdim:~/android$ lunch msm8996-userdebug
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=7.0
+TARGET_PRODUCT=msm8996
+TARGET_BUILD_VARIANT=userdebug
+TARGET_BUILD_TYPE=release
+TARGET_BUILD_APPS=
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-a
+TARGET_CPU_VARIANT=kryo
+TARGET_2ND_ARCH=arm
+TARGET_2ND_ARCH_VARIANT=armv7-a-neon
+TARGET_2ND_CPU_VARIANT=cortex-a53
+HOST_ARCH=x86_64
+HOST_2ND_ARCH=x86
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-3.19.0-66-generic-x86_64-with-Ubuntu-14.04-trusty
+HOST_CROSS_OS=windows
+HOST_CROSS_ARCH=x86
+HOST_CROSS_2ND_ARCH=x86_64
+HOST_BUILD_TYPE=release
+BUILD_ID=NRD90M
+OUT_DIR=out
+============================================
+--------------------------------------------------------------------------------------------
+hardware/qcom/audio/mm-audio/aenc-qcelp13/qdsp6/inc/aenc_svr.h:63:27: note: expanded from macro 'DEBUG_PRINT'
+#define DEBUG_PRINT       LOGI
+                          ^
+hardware/qcom/audio/mm-audio/aenc-qcelp13/qdsp6/inc/aenc_svr.h:59:14: note: expanded from macro 'LOGI'
+#define LOGI ALOGI
+             ^
+system/core/include/log/log.h:128:51: note: expanded from macro 'ALOGI'
+#define ALOGI(...) ((void)ALOG(LOG_INFO, LOG_TAG, __VA_ARGS__))
+                                                  ^~~~~~~~~~~
+system/core/include/log/log.h:453:38: note: expanded from macro 'ALOG'
+    LOG_PRI(ANDROID_##priority, tag, __VA_ARGS__)
+                                     ^~~~~~~~~~~
+system/core/include/log/log.h:461:37: note: expanded from macro 'LOG_PRI'
+    android_printLog(priority, tag, __VA_ARGS__)
+                                    ^~~~~~~~~~~
+system/core/include/log/log.h:618:36: note: expanded from macro 'android_printLog'
+    __android_log_print(prio, tag, fmt)
+                                   ^~~
+hardware/qcom/audio/mm-audio/aenc-qcelp13/qdsp6/src/omx_qcelp13_aenc.cpp:4300:31: warning: implicit conversion changes signedness: 'int' to 'OMX_U32' (aka 'unsigned int') [-Wsign-conversion]
+            execute_omx_flush(-1,false);
+            ~~~~~~~~~~~~~~~~~ ^~
+hardware/qcom/audio/mm-audio/aenc-qcelp13/qdsp6/src/omx_qcelp13_aenc.cpp:4428:19: warning: explicitly assigning value of variable of type 'OMX_BUFFERHEADERTYPE **' to itself [-Wself-assign]
+        bufferHdr = bufferHdr;
+        ~~~~~~~~~ ^ ~~~~~~~~~
+hardware/qcom/audio/mm-audio/aenc-qcelp13/qdsp6/src/omx_qcelp13_aenc.cpp:4429:14: warning: explicitly assigning value of variable of type 'OMX_U32' (aka 'unsigned int') to itself [-Wself-assign]
+        port = port;
+        ~~~~ ^ ~~~~
+66 warnings generated.
+ninja: build stopped: subcommand failed.
+make: *** [ninja_wrapper] Error 1
+
+#### make failed to build some targets (02:39:40 (hh:mm:ss)) ####
+--------------------------------------------------------------------------------------------
+export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4096m"
+out/host/linux-x86/bin/jack-admin kill-server
+out/host/linux-x86/bin/jack-admin start-server
+------------------------------------
+Try  export USE_NINJA=false it will disable ninja
+------------------------------------------
+  DTC     arch/arm64/boot/dts/qcom/apq8096-v2-dragonboard.dtb
+  DTC     arch/arm64/boot/dts/qcom/apq8096-v2-pmi8994-mtp.dtb
+  DTC     arch/arm64/boot/dts/qcom/apq8096-v3-auto-dragonboard.dtb
+  DTC     arch/arm64/boot/dts/qcom/msm8996-v3-pm8004-mmxf-adp.dtb
+  DTC     arch/arm64/boot/dts/qcom/msm8996-v3-pmi8994-mtp.dtb
+  CAT     arch/arm64/boot/Image.gz-dtb
+make[2]: Leaving directory `/home/people/akothapally/android/out/target/product/msm8996/obj/kernel/msm-3.18'
+make[1]: Leaving directory `/home/people/akothapally/android/kernel/msm-3.18'
+make -C kernel/msm-3.18 O=../../out/target/product/msm8996/obj/kernel/msm-3.18 ARCH=arm64 CROSS_COMPILE=aarch64-linux-android- KCFLAGS=-mno-android modules
+make[1]: Entering directory `/home/people/akothapally/android/kernel/msm-3.18'
+make[2]: Entering directory `/home/people/akothapally/android/out/target/product/msm8996/obj/kernel/msm-3.18'
+  CHK     include/config/kernel.release
+  GEN     ./Makefile
+  CHK     include/generated/uapi/linux/version.h
+  Using /home/people/akothapally/android/kernel/msm-3.18 as source for kernel
+  CHK     include/generated/utsrelease.h
+  CALL    /home/people/akothapally/android/kernel/msm-3.18/scripts/checksyscalls.sh
+  Building modules, stage 2.
+  MODPOST 13 modules
+make[2]: Leaving directory `/home/people/akothapally/android/out/target/product/msm8996/obj/kernel/msm-3.18'
+make[1]: Leaving directory `/home/people/akothapally/android/kernel/msm-3.18'
+make -C kernel/msm-3.18 O=../../out/target/product/msm8996/obj/kernel/msm-3.18 INSTALL_MOD_PATH=../../../system INSTALL_MOD_STRIP=1 ARCH=arm64 CROSS_COMPILE=aarch64-linux-android- modules_install
+make[1]: Entering directory `/home/people/akothapally/android/kernel/msm-3.18'
+make[2]: Entering directory `/home/people/akothapally/android/out/target/product/msm8996/obj/kernel/msm-3.18'
+  INSTALL block/test-iosched.ko
+  INSTALL crypto/ansi_cprng.ko
+  INSTALL drivers/char/rdbg.ko
+  INSTALL drivers/gud/MobiCoreDriver/mcDrvModule.ko
+  INSTALL drivers/input/evbug.ko
+  INSTALL drivers/mmc/card/mmc_block_test.ko
+  INSTALL drivers/mmc/card/mmc_test.ko
+  INSTALL drivers/net/wireless/ath/wil6210/wil6210.ko
+  INSTALL drivers/scsi/ufs/ufs_test.ko
+  INSTALL drivers/video/backlight/backlight.ko
+  INSTALL drivers/video/backlight/generic_bl.ko
+  INSTALL drivers/video/backlight/lcd.ko
+  INSTALL net/bridge/br_netfilter.ko
+  DEPMOD  3.18.31-g61d88ca
+make[2]: Leaving directory `/home/people/akothapally/android/out/target/product/msm8996/obj/kernel/msm-3.18'
+make[1]: Leaving directory `/home/people/akothapally/android/kernel/msm-3.18'
+mdpath=`find out/target/product/msm8996/system/lib/modules -type f -name modules.dep`; if [ "$mdpath" != "" ];then mpath=`dirname $mdpath`; ko=`find $mpath/kernel -type f -name *.ko`; for i in $ko; do mv $i out/target/product/msm8996/system/lib/modules/; done; fi
+mdpath=`find out/target/product/msm8996/system/lib/modules -type f -name modules.dep`; if [ "$mdpath" != "" ];then mpath=`dirname $mdpath`; rm -rf $mpath; fi
+
+#### make failed to build some targets (09:24 (mm:ss)) ####
+ -------------------------------------------------------
+find: `src': No such file or directory
+find: `../commonutil/src': No such file or directory
+/bin/bash: line 0: cd: cts/tests/libcore/ojluni/resources: No such file or directory
+find: `../../libs/commonutil/src': No such file or directory
+find: `src': No such file or directory
+find: `src': No such file or directory
+cat: device/qcom/msm8996/public.libraries.vendor.txt: No such file or directory
+---------------------------------------------------
+make[1]: Entering directory `/home/people/akothapally/android/kernel/msm-3.18'
+make[2]: Entering directory `/home/people/akothapally/android/out/target/product/msm8996/obj/kernel/msm-3.18'
+  INSTALL block/test-iosched.ko
+  INSTALL crypto/ansi_cprng.ko
+  INSTALL drivers/char/rdbg.ko
+  INSTALL drivers/gud/MobiCoreDriver/mcDrvModule.ko
+  INSTALL drivers/input/evbug.ko
+  INSTALL drivers/mmc/card/mmc_block_test.ko
+  INSTALL drivers/mmc/card/mmc_test.ko
+  INSTALL drivers/net/wireless/ath/wil6210/wil6210.ko
+  INSTALL drivers/scsi/ufs/ufs_test.ko
+  INSTALL drivers/video/backlight/backlight.ko
+  INSTALL drivers/video/backlight/generic_bl.ko
+  INSTALL drivers/video/backlight/lcd.ko
+  INSTALL net/bridge/br_netfilter.ko
+  DEPMOD  3.18.31-g61d88ca
+make[2]: Leaving directory `/home/people/akothapally/android/out/target/product/msm8996/obj/kernel/msm-3.18'
+make[1]: Leaving directory `/home/people/akothapally/android/kernel/msm-3.18'
+mdpath=`find out/target/product/msm8996/system/lib/modules -type f -name modules.dep`; if [ "$mdpath" != "" ];then mpath=`dirname $mdpath`; ko=`find $mpath/kernel -type f -name *.ko`; for i in $ko; do mv $i out/target/product/msm8996/system/lib/modules/; done; fi
+mdpath=`find out/target/product/msm8996/system/lib/modules -type f -name modules.dep`; if [ "$mdpath" != "" ];then mpath=`dirname $mdpath`; rm -rf $mpath; fi
+---------------------------------------
+1|msm8996:/ # tinyplay /sdcard/Music/file_example_WAV_1MG.wav 0,0                                                                            
+Playing sample: 2 ch, 8000 hz, 16 bit
+Error playing sample
+msm8996:/ # tinyplay /sdcard/Music/file_example_WAV_1MG.wav 1,1                                                                              
+Playing sample: 2 ch, 8000 hz, 16 bit
+Error playing sample
+-------------------------------------
+akothapally@cicdim:~/android/bootable/bootloader/lk$ git am ~/8096_Open-Q_820_Android_BSP-N-3.3/Source_Package/patches/bootable/bootloader/lk/0001-Intrinsyc-logo-addition.patch
+Applying: Intrinsyc logo addition
+----------------------------------------------------------------
+ajaykumar@IM-PC-143:~/images$ ./flashall.sh 
+< waiting for any device >
+target reported max download size of 536870912 bytes
+sending 'boot' (54989 KB)...
+OKAY [  3.230s]
+writing 'boot'...
+OKAY [  0.993s]
+finished. total time: 4.222s
+target reported max download size of 536870912 bytes
+erasing 'cache'...
+OKAY [  0.021s]
+sending 'cache' (6248 KB)...
+OKAY [  0.277s]
+writing 'cache'...
+OKAY [  0.084s]
+finished. total time: 0.381s
+target reported max download size of 536870912 bytes
+sending 'persist' (4704 KB)...
+OKAY [  0.228s]
+writing 'persist'...
+OKAY [  0.100s]
+finished. total time: 0.327s
+target reported max download size of 536870912 bytes
+erasing 'userdata'...
+OKAY [  0.041s]
+sending 'userdata' (155281 KB)...
+OKAY [  6.144s]
+writing 'userdata'...
+OKAY [  1.424s]
+finished. total time: 7.609s
+target reported max download size of 536870912 bytes
+erasing 'system'...
+OKAY [  0.013s]
+sending sparse 'system' 1/4 (508663 KB)...
+OKAY [ 20.817s]
+writing 'system' 1/4...
+OKAY [  7.322s]
+sending sparse 'system' 2/4 (511843 KB)...
+OKAY [ 21.974s]
+writing 'system' 2/4...
+OKAY [  6.680s]
+sending sparse 'system' 3/4 (519884 KB)...
+OKAY [ 21.916s]
+writing 'system' 3/4...
+OKAY [  9.624s]
+sending sparse 'system' 4/4 (128682 KB)...
+OKAY [  5.397s]
+writing 'system' 4/4...
+OKAY [  1.095s]
+finished. total time: 94.838s
+target reported max download size of 536870912 bytes
+sending 'recovery' (57425 KB)...
+OKAY [  2.379s]
+writing 'recovery'...
+OKAY [  0.438s]
+finished. total time: 2.818s
+rebooting...
+
+finished. total time: 0.071s
+----------------------------------------------------
+msm8996:/ $ tinyplay /sdcard/Music/file_example_WAV_1MG.wav 0,0                                                                              
+cannot open device '/dev/snd/pcmC0D0p'
+Unable to open PCM device 0.
+--------------------------------------------------
+ajaykumar@IM-PC-143:~$ adb shell
+msm8996:/ # tinyplay /sdcard/Music/file_example_WAV_1MG.wav 0,0                                                                              
+Playing sample: 2 ch, 8000 hz, 16 bit
+Error playing sample
+---------------------------------------------
+1|msm8996:/ # tinycap /sdcard/Music/file.wav 0,0                                                                                             
+Capturing sample: 2 ch, 44100 hz, 16 bit
+start errorCaptured 0 frames
+-----------------------------------------------------
+akothapally@cicdim:~/android$ source build/envsetup.sh 
+including device/generic/mini-emulator-arm64/vendorsetup.sh
+including device/generic/mini-emulator-armv7-a-neon/vendorsetup.sh
+including device/generic/mini-emulator-x86_64/vendorsetup.sh
+including device/generic/mini-emulator-x86/vendorsetup.sh
+including device/qcom/common/vendorsetup.sh
+including vendor/qcom/proprietary/common/vendorsetup.sh
+including sdk/bash_completion/adb.bash
+akothapally@cicdim:~/android$ lunch 
+aosp_arm64-eng                  mini_emulator_x86_64-userdebug  msm8916_32-userdebug            msm8992-userdebug
+aosp_arm-eng                    mini_emulator_x86-userdebug     msm8916_64-userdebug            msm8994-userdebug
+aosp_mips64-eng                 mpq8092-userdebug               msm8937_32-userdebug            msm8996-userdebug
+aosp_mips-eng                   msm8226-userdebug               msm8937_64-userdebug            msm_bronze-userdebug
+aosp_x86_64-eng                 msm8610-userdebug               msm8952_32-userdebug            msmcobalt_32-userdebug
+aosp_x86-eng                    msm8909_512-userdebug           msm8952_64-userdebug            msmcobalt-userdebug
+apq8084-userdebug               msm8909-userdebug               msm8953_32-userdebug            msmfalcon_32-userdebug
+m_e_arm-userdebug               msm8916_32_512-userdebug        msm8953_64-userdebug            msmfalcon_64-userdebug
+mini_emulator_arm64-userdebug   msm8916_32_k64-userdebug        msm8974-userdebug               
+akothapally@cicdim:~/android$ lunch 
+
+You're building on Linux
+
+Lunch menu... pick a combo:
+     1. aosp_arm-eng
+     2. aosp_arm64-eng
+     3. aosp_mips-eng
+     4. aosp_mips64-eng
+     5. aosp_x86-eng
+     6. aosp_x86_64-eng
+     7. mini_emulator_arm64-userdebug
+     8. m_e_arm-userdebug
+     9. mini_emulator_x86_64-userdebug
+     10. mini_emulator_x86-userdebug
+     11. msm8974-userdebug
+     12. msm8610-userdebug
+     13. msm8226-userdebug
+     14. apq8084-userdebug
+     15. mpq8092-userdebug
+     16. msm_bronze-userdebug
+     17. msm8916_32-userdebug
+     18. msm8916_32_512-userdebug
+     19. msm8916_32_k64-userdebug
+     20. msm8916_64-userdebug
+     21. msm8994-userdebug
+     22. msm8996-userdebug
+     23. msm8909-userdebug
+     24. msm8909_512-userdebug
+     25. msm8992-userdebug
+     26. msm8952_64-userdebug
+     27. msm8952_32-userdebug
+     28. msm8937_32-userdebug
+     29. msm8937_64-userdebug
+     30. msm8953_32-userdebug
+     31. msm8953_64-userdebug
+     32. msmcobalt-userdebug
+     33. msmcobalt_32-userdebug
+     34. msmfalcon_64-userdebug
+     35. msmfalcon_32-userdebug
+
+Which would you like? [aosp_arm-eng] 22
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=7.0
+TARGET_PRODUCT=msm8996
+TARGET_BUILD_VARIANT=userdebug
+TARGET_BUILD_TYPE=release
+TARGET_BUILD_APPS=
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-a
+TARGET_CPU_VARIANT=kryo
+TARGET_2ND_ARCH=arm
+TARGET_2ND_ARCH_VARIANT=armv7-a-neon
+TARGET_2ND_CPU_VARIANT=cortex-a53
+HOST_ARCH=x86_64
+HOST_2ND_ARCH=x86
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-3.19.0-66-generic-x86_64-with-Ubuntu-14.04-trusty
+HOST_CROSS_OS=windows
+HOST_CROSS_ARCH=x86
+HOST_CROSS_2ND_ARCH=x86_64
+HOST_BUILD_TYPE=release
+BUILD_ID=OpenQ820_N_v3.3
+OUT_DIR=out
+============================================
+akothapally@cicdim:~/android$ cd external/tinyalsa/
+akothapally@cicdim:~/android/external/tinyalsa$ mm
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=7.0
+TARGET_PRODUCT=msm8996
+TARGET_BUILD_VARIANT=userdebug
+TARGET_BUILD_TYPE=release
+TARGET_BUILD_APPS=
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-a
+TARGET_CPU_VARIANT=kryo
+TARGET_2ND_ARCH=arm
+TARGET_2ND_ARCH_VARIANT=armv7-a-neon
+TARGET_2ND_CPU_VARIANT=cortex-a53
+HOST_ARCH=x86_64
+HOST_2ND_ARCH=x86
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-3.19.0-66-generic-x86_64-with-Ubuntu-14.04-trusty
+HOST_CROSS_OS=windows
+HOST_CROSS_ARCH=x86
+HOST_CROSS_2ND_ARCH=x86_64
+HOST_BUILD_TYPE=release
+BUILD_ID=OpenQ820_N_v3.3
+OUT_DIR=out
+============================================
+make: Entering directory `/home/people/akothapally/android'
+Running kati to generate build-msm8996-mmm-external_tinyalsa_Android.mk.ninja...
+out/build-msm8996-mmm-external_tinyalsa_Android.mk.ninja is missing, regenerating...
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=7.0
+TARGET_PRODUCT=msm8996
+TARGET_BUILD_VARIANT=userdebug
+TARGET_BUILD_TYPE=release
+TARGET_BUILD_APPS=
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-a
+TARGET_CPU_VARIANT=kryo
+TARGET_2ND_ARCH=arm
+TARGET_2ND_ARCH_VARIANT=armv7-a-neon
+TARGET_2ND_CPU_VARIANT=cortex-a53
+HOST_ARCH=x86_64
+HOST_2ND_ARCH=x86
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-3.19.0-66-generic-x86_64-with-Ubuntu-14.04-trusty
+HOST_CROSS_OS=windows
+HOST_CROSS_ARCH=x86
+HOST_CROSS_2ND_ARCH=x86_64
+HOST_BUILD_TYPE=release
+BUILD_ID=OpenQ820_N_v3.3
+OUT_DIR=out
+============================================
+PRODUCT_COPY_FILES device/qcom/common/media/media_profiles.xml:system/etc/media_profiles.xml ignored.
+PRODUCT_COPY_FILES device/qcom/common/media/media_codecs.xml:system/etc/media_codecs.xml ignored.
+No private recovery resources for TARGET_DEVICE msm8996
+Starting build with ninja
+ninja: Entering directory `.'
+[100% 36/36] host StaticLib: libtinyalsa_32 (out/host/linux-x86/obj32/STATIC_LIBRARIES/libtinyalsa_intermediates/libtinyalsa.a)
+make: Leaving directory `/home/people/akothapally/android'
+
+#### make completed successfully (12 seconds) ####
+----------------------------------------------------------------
+ajaykumar@IM-PC-143:~/Downloads$ adb push libtinyalsa.so /system/lib64 
+adb: error: failed to copy 'libtinyalsa.so' to '/system/lib64/libtinyalsa.so': remote couldn't create file: Read-only file system
+libtinyalsa.so: 0 files pushed. 10.3 MB/s (86974 bytes in 0.008s)
+
+adb root                                                                       
+adb remount
+chmod 777 libtinyalsa.so
+adb push libtinyalsa.so /system/lib64
+
+2009  adb root
+ 2010  adb remount
+ 2011  adb reboot
+ 2012  ls libtinyalsa.so 
+ 2013  ls -al libtinyalsa.so 
+ 2014  chmod 777 libtinyalsa.so
+------------------------------------------------
+134|msm8996:/ # tinyplay /sdcard/Music/file_example_WAV_1MG.wav 0,0                                                                          
+CANNOT LINK EXECUTABLE "tinyplay": "/system/lib64/libtinyalsa.so" has unexpected e_machine: 62
+Aborted
+---------------------------------
+msm8996:/system/lib # ls -lrt libtinyalsa.so                                                                                                 
+-rw-r--r-- 1 root root 26420 2020-01-14 09:20 libtinyalsa.so
+
+msm8996:/system/lib # ls -lrt libtinyalsa.so                                                                                                 
+-rw-r--r-- 1 root root 86974 2020-01-17 12:30 libtinyalsa.so
+--------------------------------------------------------------
+
+
+akothapally@cicdim:~/android$source build/envsetup.sh
+including device/generic/mini-emulator-arm64/vendorsetup.sh
+including device/generic/mini-emulator-armv7-a-neon/vendorsetup.sh
+including device/generic/mini-emulator-x86_64/vendorsetup.sh
+including device/generic/mini-emulator-x86/vendorsetup.sh
+including device/qcom/common/vendorsetup.sh
+including vendor/qcom/proprietary/common/vendorsetup.sh
+including sdk/bash_completion/adb.bash
+akothapally@cicdim:~/android$ lunch
+
+You're building on Linux
+
+Lunch menu... pick a combo:
+     1. aosp_arm-eng
+     2. aosp_arm64-eng
+     3. aosp_mips-eng
+     4. aosp_mips64-eng
+     5. aosp_x86-eng
+     6. aosp_x86_64-eng
+     7. mini_emulator_arm64-userdebug
+     8. m_e_arm-userdebug
+     9. mini_emulator_x86_64-userdebug
+     10. mini_emulator_x86-userdebug
+     11. msm8974-userdebug
+     12. msm8610-userdebug
+     13. msm8226-userdebug
+     14. apq8084-userdebug
+     15. mpq8092-userdebug
+     16. msm_bronze-userdebug
+     17. msm8916_32-userdebug
+     18. msm8916_32_512-userdebug
+     19. msm8916_32_k64-userdebug
+     20. msm8916_64-userdebug
+     21. msm8994-userdebug
+     22. msm8996-userdebug
+     23. msm8909-userdebug
+     24. msm8909_512-userdebug
+     25. msm8992-userdebug
+     26. msm8952_64-userdebug
+     27. msm8952_32-userdebug
+     28. msm8937_32-userdebug
+     29. msm8937_64-userdebug
+     30. msm8953_32-userdebug
+     31. msm8953_64-userdebug
+     32. msmcobalt-userdebug
+     33. msmcobalt_32-userdebug
+     34. msmfalcon_64-userdebug
+     35. msmfalcon_32-userdebug
+
+Which would you like? [aosp_arm-eng] 22
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=7.0
+TARGET_PRODUCT=msm8996
+TARGET_BUILD_VARIANT=userdebug
+TARGET_BUILD_TYPE=release
+TARGET_BUILD_APPS=
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-a
+TARGET_CPU_VARIANT=kryo
+TARGET_2ND_ARCH=arm
+TARGET_2ND_ARCH_VARIANT=armv7-a-neon
+TARGET_2ND_CPU_VARIANT=cortex-a53
+HOST_ARCH=x86_64
+HOST_2ND_ARCH=x86
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-3.19.0-66-generic-x86_64-with-Ubuntu-14.04-trusty
+HOST_CROSS_OS=windows
+HOST_CROSS_ARCH=x86
+HOST_CROSS_2ND_ARCH=x86_64
+HOST_BUILD_TYPE=release
+BUILD_ID=OpenQ820_N_v3.3
+OUT_DIR=out
+============================================
+akothapally@cicdim:~/android$ cd external/tinyalsa/
+akothapally@cicdim:~/android/external/tinyalsa$ mm
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=7.0
+TARGET_PRODUCT=msm8996
+TARGET_BUILD_VARIANT=userdebug
+TARGET_BUILD_TYPE=release
+TARGET_BUILD_APPS=
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-a
+TARGET_CPU_VARIANT=kryo
+TARGET_2ND_ARCH=arm
+TARGET_2ND_ARCH_VARIANT=armv7-a-neon
+TARGET_2ND_CPU_VARIANT=cortex-a53
+HOST_ARCH=x86_64
+HOST_2ND_ARCH=x86
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-3.19.0-66-generic-x86_64-with-Ubuntu-14.04-trusty
+HOST_CROSS_OS=windows
+HOST_CROSS_ARCH=x86
+HOST_CROSS_2ND_ARCH=x86_64
+HOST_BUILD_TYPE=release
+BUILD_ID=OpenQ820_N_v3.3
+OUT_DIR=out
+============================================
+make: Entering directory `/home/people/akothapally/android'
+Running kati to generate build-msm8996-mmm-external_tinyalsa_Android.mk.ninja...
+No need to regenerate ninja file
+Starting build with ninja
+ninja: Entering directory `.'
+[100% 12/12] Install: out/target/product/msm8996/system/bin/tinyplay
+make: Leaving directory `/home/people/akothapally/android'
+
+#### make completed successfully (2 seconds) ####
+
+After that copy tinyplay file into /system/bin/ path
+----------------------------------------------------------------------------------
+msm8996:/ # tinyplay /sdcard/Music/file_example_WAV_1MG.wav 0,0                                                                              
+In pcm open function Pllaying sample is: 2 ch, 8000 hz, 16 bit
+Error in playing sample
+In pcm write functionmsm8996:/ # 
+--------------------------------------------------------
+After addind debug prints 
+make: Entering directory `/home/people/akothapally/android'
+Running kati to generate build-msm8996-mmm-external_tinyalsa_Android.mk.ninja...
+No need to regenerate ninja file
+Starting build with ninja
+ninja: Entering directory `.'
+[100% 9/9] Install: out/target/product/msm8996/system/bin/tinyplay
+make: Leaving directory `/home/people/akothapally/android'
+1|msm8996:/ # tinyplay /sdcard/Music/file_example_WAV_1MG.wav 0,0                                                                            
+In play sample function
+In pcm params get function
+In pcm open function Playing sample : 2 ch, 8000 hz, 16 bit
+This is pcm open function
+In pcm write function
+Error in playing sample
+error is here
+In playing sample function
+msm8996:/ # 
+---------------------------------------------------------------
+1|msm8996:/ # tinycap /sdcard/Music/file.wav                                                                                                 
+Capturing sample: 2 ch, 44100 hz, 16 bit
+start errorCaptured 0 frames
+------------------------------------------
+pr_debug("%s\n", __func__);
+printk("Ajay %s %d",__func__,__LINE__);
+ALOGD("Ajay in policy %s %d",__func__,__LINE__);
+ALOGV("Ajay verbose policy %s %d",__func__,__LINE__);
+----------------------------------------------------------------
+msm8996:/ # dmesg | grep Ajay                                                                                                                
+[   51.640431] Ajayq6 msm_pcm_open 537Ajayq6 msm_pcm_open 537
+[  107.212304] Ajayq6 msm_pcm_open 537
+[  107.230799] Ajayq6 msm_pcm_open 537 MSM8996 Media1: ASoC: no backend DAIs enabled for MSM8996 Media1
+-------------------------------------------------------------------
+ pr_debug("%s\n", __func__);
+tinyplay file_example_WAV_1MG.wav -D 0
+1.tinymix 'RX3 MIX1 INP1' 'RX1'
+   tinymix 'SPK DAC Switch' 1  (if Speaker device).
+2.tinymix 'PRI_MI2S_RX Audio Mixer MultiMedia1' 1 (Enable DSP over MI2S)
+3.tinyplay filename.wav  (PCM audio play)
+------------------------------------------------------------------------
+1.tinymix 'RX1 MIX1 INP1' 'RX1'
+2.tinymix 'RX2 MIX1 INP1' 'RX2'​
+3.tinymix 'RDAC2 MUX' 'RX2'​
+4.tinymix 'HPHL' 'Switch'​
+5.tinymix 'HPHR' 'Switch'​
+6.tinymix 'MI2S_RX Channels' 'Two'
+----------------------------------------------
+/sys/kernel/debug/asoc
+-------------------------------------------------
+There is nothing wrong in the kernel driver side, judging from what I can see.  It's the standard message appearing when you don't set up the audio routing.
+You need to set up routing properly by adjusting each mixer element.  It's usually done via UCM profile invoked by PulseAudio.
+
+That kernel message should be rate-limited and more informative
+-------------------------------------------------------
+01-01 07:37:04.500   741   741 D msm8974_platform: platform_init: Loading mixer file: /system/etc/mixer_paths_tasha.xml
+<path name="compress-offload-playback2">
+        <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia7" value="1" />
+  <path name="headphones">
+        <ctl name="SLIM RX2 MUX" value="AIF4_PB" />
+        <ctl name="SLIM RX3 MUX" value="AIF4_PB" />
+        <ctl name="SLIM_6_RX Channels" value="Two" />
+        <ctl name="RX INT1_2 MUX" value="RX2" />
+        <ctl name="RX INT2_2 MUX" value="RX3" />
+        <ctl name="RX INT1 DEM MUX" value="CLSH_DSM_OUT" />
+        <ctl name="RX INT2 DEM MUX" value="CLSH_DSM_OUT" />
+-----------------------------------------------------------------
+msm8996:/ # tinymix 'SLIMBUS_0_RX Audio Mixer MultiMedia7' '1'                 
+msm8996:/ # tinymix 'SLIM RX2 MUX' 'AIF4_PB'                                   
+msm8996:/ # tinymix 'SLIM RX3 MUX' 'AIF4_PB'                                   
+msm8996:/ # tinymix 'SLIM_6_RX Channels' 'Two'                                 
+msm8996:/ # tinymix 'RX INT1_2 MUX' 'RX2'                                      
+msm8996:/ # tinymix 'RX INT2_2 MUX' 'RX3'                                      
+msm8996:/ # tinymix 'RX INT1 DEM MUX' 'CLSH_DSM_OUT'                           
+msm8996:/ # tinymix 'RX INT2 DEM MUX' 'CLSH_DSM_OUT'
+-------------------------------------------------------------------------
+msm8996:/ # dmesg | grep Ajay
+[  209.190580] Ajayq6 msm_pcm_open 537
+[  209.208244] Ajayq6 msm_pcm_open 537 MSM8996 Media1: ASoC: no backend DAIs enabled for MSM8996 Media1
+[ 2968.229884] Ajayq6 msm_pcm_open 537
+[ 2968.249043] Ajayq6 msm_pcm_open 537 MSM8996 Media1: ASoC: no backend DAIs enabled for MSM8996 Media1
+[ 2986.009795] Ajayq6 msm_pcm_open 537
+[ 2986.028387] Ajayq6 msm_pcm_open 537 MSM8996 Media1: ASoC: no backend DAIs enabled for MSM8996 Media1
+[ 3013.551899] Ajayq6 msm_pcm_open 537
+[ 3013.568636] Ajayq6 msm_pcm_open 537 MSM8996 Media1: ASoC: no backend DAIs enabled for MSM8996 Media1
+[ 3046.851068] Ajayq6 msm_pcm_open 537
+[ 3046.871877] Ajayq6 msm_pcm_open 537
+[ 3088.291372] Ajayq6 msm_pcm_open 537
+[ 3088.310545] Ajayq6 msm_pcm_open 537
+[ 4247.033134] Ajayq6 msm_pcm_open 537
+[ 4247.055616] Ajayq6 msm_pcm_open 537
+[ 4279.988804] Ajayq6 msm_pcm_open 537
+[ 4280.008467] Ajayq6 msm_pcm_open 537
+[ 4285.927461] Ajayq6 msm_pcm_open 537
+[ 4285.949024] Ajayq6 msm_pcm_open 537
+[ 4714.070606] Ajayq6 msm_pcm_open 537
+[ 4714.090766] Ajayq6 msm_pcm_open 537
+[ 4785.291127] Ajayq6 msm_pcm_open 537
+[ 4785.311528] Ajayq6 msm_pcm_open 537
+[ 5671.425187] Ajayq6 msm_pcm_open 537Ajayq6 msm_pcm_open 537
+-------------------------------------------------------------------------
+for tinyplay tinymix settings
+tinymix 'SLIMBUS_6_RX Audio Mixer MultiMedia1' '1'
+for headphones          
+tinymix 'SLIM RX2 MUX' 'AIF4_PB'          
+tinymix 'SLIM RX3 MUX' 'AIF4_PB'                                  
+tinymix 'SLIM_6_RX Channels' 'Two'                                
+tinymix 'RX INT1_2 MUX' 'RX2'                                      
+tinymix 'RX INT2_2 MUX' 'RX3'                                      
+tinymix 'RX INT1 DEM MUX' 'CLSH_DSM_OUT'                          
+tinymix 'RX INT2 DEM MUX' 'CLSH_DSM_OUT'
+----------------------------------------------------------------------------
+01-01 03:53:36.134   717   952 I audio_hw_primary: select_devices Selected apptype: 69937
+01-01 03:53:36.137   717   952 D audio_hw_primary: select_devices: done
+01-01 03:53:41.936   717   952 D audio_hw_primary: select_devices for use case (low-latency-playback)
+01-01 03:53:41.936   717   952 D audio_hw_primary: select_devices: out_snd_device(8: headphones) in_snd_device(0: )
+01-01 03:53:41.960   717   952 I audio_hw_primary: select_devices Selected apptype: 69937
+01-01 03:53:41.962   717   952 D audio_hw_primary: select_devices: done
+01-01 03:53:48.299   717   952 D audio_hw_primary: select_devices for use case (low-latency-playback)
+01-01 03:53:48.300   717   952 D audio_hw_primary: select_devices: out_snd_device(8: headphones) in_snd_device(0: )
+01-01 03:53:48.330   717   952 I audio_hw_primary: select_devices Selected apptype: 69937
+01-01 03:53:48.333   717   952 D audio_hw_primary: select_devices: done
+01-01 03:53:51.851   717   952 D audio_hw_primary: select_devices for use case (low-latency-playback)
+01-01 03:53:51.851   717   952 D audio_hw_primary: select_devices: out_snd_device(8: headphones) in_snd_device(0: )
+01-01 03:53:51.869   717   952 I audio_hw_primary: select_devices Selected apptype: 69937
+01-01 03:53:51.871   717   952 D audio_hw_primary: select_devices: done
+01-01 03:53:53.980   717   952 D audio_hw_primary: select_devices for use case (low-latency-playback)
+01-01 03:54:10.475   717   952 D audio_hw_primary: select_devices for use case (low-latency-playback)
+01-01 03:54:10.475   717   952 D audio_hw_primary: select_devices: out_snd_device(8: headphones) in_snd_device(0: )
+01-01 03:54:10.490   717   952 I audio_hw_primary: select_devices Selected apptype: 69937
+01-01 03:54:10.496   717   952 D audio_hw_primary: select_devices: done
+01-01 03:55:05.836   717   952 D audio_hw_primary: select_devices for use case (low-latency-playback)
+01-01 03:55:05.836   717   952 D audio_hw_primary: select_devices: out_snd_device(8: headphones) in_snd_device(0: )
+01-01 03:55:05.852   717   952 I audio_hw_primary: select_devices Selected apptype: 69937
+01-01 03:55:05.855   717   952 D audio_hw_primary: select_devices: done
+01-01 03:55:08.327   717   952 D audio_hw_primary: select_devices for use case (low-latency-playback)
+01-01 03:55:10.002   717   952 D audio_hw_primary: select_devices for use case (low-latency-playback)
+01-01 03:55:11.109   717   952 D audio_hw_primary: select_devices for use case (low-latency-playback)
+01-01 03:55:11.883   717   952 D audio_hw_primary: select_devices for use case (low-latency-playback)
+01-01 03:56:04.333   717  3437 D audio_hw_primary: select_devices for use case (compress-offload-playback2)
+01-01 03:56:04.333   717  3437 D audio_hw_primary: select_devices: out_snd_device(8: headphones) in_snd_device(0: )
+01-01 03:56:04.348   717  3437 I audio_hw_primary: select_devices Selected apptype: 69936
+01-01 03:56:04.351   717  3437 D audio_hw_primary: select_devices: done
+---------------------------------------------------------------------------------------------------------
+tinymix 'SLIMBUS_6_RX Audio Mixer MultiMedia1' '1'   for compress-offload-playback2      for play a song tinyplay settings
+for Headphones
+msm8996:/ # tinymix 'SLIM RX2 MUX' 'AIF4_PB'           
+msm8996:/ # tinymix 'SLIM RX3 MUX' 'AIF4_PB'
+msm8996:/ # tinymix 'SLIM_6_RX Channels' 'Two'
+msm8996:/ # tinymix 'RX INT1_2 MUX' 'RX2'
+msm8996:/ # tinymix 'RX INT2_2 MUX' 'RX3'
+msm8996:/ # tinymix 'RX INT1 DEM MUX' 'CLSH_DSM_OUT'
+msm8996:/ # tinymix 'RX INT2 DEM MUX' 'CLSH_DSM_OUT'
+
+msm8996:/ #  tinymix 'MultiMedia1 Mixer TERT_MI2S_TX' '1'​    for record a song tinycap settings            
+msm8996:/ # tinymix 'AIF1_CAP Mixer SLIM TX0' '1'                              
+msm8996:/ # tinymix 'SLIM_0_TX Channels' 'One'                                 
+msm8996:/ # tinymix 'SLIM TX0 MUX' 'DEC0'                                      
+127|msm8996:/ # tinymix 'ADC MUX0' 'AMIC'                                      
+msm8996:/ # tinymix 'AMIC MUX0' 'ADC2'                                         
+msm8996:/ # tinymix 'IIR0 INP0 MUX' 'DEC0'                                     
+msm8996:/ # tinycap /sdcard/Music/27.wav                                       
+Capturing sample: 2 ch, 44100 hz, 16 bit
+-----------------------------------------------
+01-01 01:16:45.154   733  3548 D msm8974_platform: platform_set_capture_codec_backend_cfg:txbecf: afe: SLIM_0_TX Format mixer set to 16 bit
+01-01 01:16:45.154   733  3548 D msm8974_platform: platform_set_capture_codec_backend_cfg:txbecf: afe: SLIM_0_TX SampleRate set to KHZ_48
+	
+153	BOOL	1	QCHAT_Tx Mixer SLIM_0_TX_QCHAT           Off
+293	BOOL	1	QUAT_MI2S_RX Port Mixer SLIM_0_TX        Off
+298	BOOL	1	TERT_MI2S_RX Port Mixer SLIM_0_TX        Off
+303	BOOL	1	SEC_MI2S_RX Port Mixer SLIM_0_TX         Off
+312	BOOL	1	PRI_MI2S_RX Port Mixer SLIM_0_TX         Off
+316	BOOL	1	SLIMBUS_6_RX Port Mixer SLIM_0_TX        Off
+335	BOOL	1	INTERNAL_BT_SCO_RX Port Mixer SLIM_0_TX  Off
+340	BOOL	1	SEC_AUXPCM_RX Port Mixer SLIM_0_TX       Off
+343	BOOL	1	AUX_PCM_RX Port Mixer SLIM_0_TX          Off
+347	BOOL	1	SLIMBUS_0_RX Port Mixer SLIM_0_TX        Off
+381	BOOL	1	VoLTE Stub Tx Mixer SLIM_0_TX            Off
+390	BOOL	1	Voice2 Stub Tx Mixer SLIM_0_TX           Off
+405	BOOL	1	Voice Stub Tx Mixer SLIM_0_TX            Off
+474	BOOL	1	VoiceMMode2_Tx Mixer SLIM_0_TX_MMode2    Off
+483	BOOL	1	VoiceMMode1_Tx Mixer SLIM_0_TX_MMode1    Off
+492	BOOL	1	VoWLAN_Tx Mixer SLIM_0_TX_VoWLAN         Off
+501	BOOL	1	VoLTE_Tx Mixer SLIM_0_TX_VoLTE           Off
+511	BOOL	1	Voip_Tx Mixer SLIM_0_TX_Voip             Off
+520	BOOL	1	Voice2_Tx Mixer SLIM_0_TX_Voice2         Off
+529	BOOL	1	Voice_Tx Mixer SLIM_0_TX_Voice           Off
+750	BOOL	1	MultiMedia8 Mixer SLIM_0_TX              Off
+767	BOOL	1	MultiMedia6 Mixer SLIM_0_TX              Off
+780	BOOL	1	MultiMedia5 Mixer SLIM_0_TX              Off
+796	BOOL	1	MultiMedia4 Mixer SLIM_0_TX              Off
+811	BOOL	1	MultiMedia3 Mixer SLIM_0_TX              Off
+831	BOOL	1	MultiMedia2 Mixer SLIM_0_TX              Off
+847	BOOL	1	MultiMedia1 Mixer SLIM_0_TX              Off
+
+[ 1798.729243] tasha_codec tasha_codec: ASoC: PRE_PMU: RX INT1 DAC event failed: -22
+----------------------------------------------------------------------------------------
+ <path name="headset-mic">
+        <path name="adc2" />
+        <ctl name="ADC2 Volume" value="12" />
+<path name="adc2">
+        <ctl name="AIF1_CAP Mixer SLIM TX0" value="1"/>
+        <ctl name="SLIM_0_TX Channels" value="One" />
+        <ctl name="SLIM TX0 MUX" value="DEC0" />
+        <ctl name="ADC MUX0" value="AMIC" />
+        <ctl name="AMIC MUX0" value="ADC2" />
+        <ctl name="IIR0 INP0 MUX" value="DEC0" />
+                
+msm8996:/ # tinymix 'AIF1_CAP Mixer SLIM TX0' '1'
+msm8996:/ # tinymix 'SLIM_0_TX Channels' 'One'
+msm8996:/ # tinymix 'SLIM TX0 MUX' 'DEC0'
+127|msm8996:/ # tinymix 'ADC MUX0' 'AMIC'                                      
+msm8996:/ # tinymix 'AMIC MUX0' 'ADC2'                                         
+msm8996:/ # tinymix 'IIR0 INP0 MUX' 'DEC0' 
+--------------------------------------------------------
+130|msm8996:/ # tinymix 'MultiMedia1 Mixer TERT_MI2S_TX' '1'​                     
+msm8996:/ # tinymix 'DEC1 MUX' 'ADC2'​                                          
+Invalid mixer control
+msm8996:/ # tinymix 'ADC2 MUX' 'INP2'                                          
+Invalid mixer control
+msm8996:/ #  tinymix 'MultiMedia1 Mixer TERT_MI2S_TX' '1'​    for record a song tinycap settings            
+msm8996:/ # tinymix 'AIF1_CAP Mixer SLIM TX0' '1'                              
+msm8996:/ # tinymix 'SLIM_0_TX Channels' 'One'                                 
+msm8996:/ # tinymix 'SLIM TX0 MUX' 'DEC0'                                      
+127|msm8996:/ # tinymix 'ADC MUX0' 'AMIC'                                      
+msm8996:/ # tinymix 'AMIC MUX0' 'ADC2'                                         
+msm8996:/ # tinymix 'IIR0 INP0 MUX' 'DEC0'                                     
+msm8996:/ # tinycap /sdcard/Music/27.wav                                       
+Capturing sample: 2 ch, 44100 hz, 16 bit
+-----------------------------------------------
+[ 8157.708159] Ajayq6 msm_pcm_open 537
+[ 8157.709846] afe_get_cal_topology_id: [AFE_TOPOLOGY_CAL] not initialized for this port 4101
+[ 8159.160633] event_handler: reclaimed all bufs
+-------------------------------------------------------------------------------------------------------------
+[ 8157.708159] Ajayq6 msm_pcm_open 537                app record dmesg
+[ 8157.709846] afe_get_cal_topology_id: [AFE_TOPOLOGY_CAL] not initialized for this port 4101
+[ 8159.160633] event_handler: reclaimed all bufs
+[10050.972556] <<-GTP-INFO->> System resume.
+[10050.972566] gpio-125 (GTP INT IRQ): _gpiod_direction_output_raw: tried to set a GPIO tied to an IRQ as output
+[10050.991154] <<-GTP-INFO->> GTP wakeup sleep.
+[10050.991165] gpio-125 (GTP INT IRQ): _gpiod_direction_output_raw: tried to set a GPIO tied to an IRQ as output
+msm8996:/ # echo -n 'file soc-dapm.c +p' > /sys/kernel/debug/dynamic_debug/control                                                           
+msm8996:/ # dmesg
+[ 8157.708159] Ajayq6 msm_pcm_open 537
+[ 8157.709846] afe_get_cal_topology_id: [AFE_TOPOLOGY_CAL] not initialized for this port 4101
+[ 8159.160633] event_handler: reclaimed all bufs
+[10050.972556] <<-GTP-INFO->> System resume.
+[10050.972566] gpio-125 (GTP INT IRQ): _gpiod_direction_output_raw: tried to set a GPIO tied to an IRQ as output
+[10050.991154] <<-GTP-INFO->> GTP wakeup sleep.
+[10050.991165] gpio-125 (GTP INT IRQ): _gpiod_direction_output_raw: tried to set a GPIO tied to an IRQ as output
+[10103.729523] Ajayq6 msm_pcm_open 537
+[10194.260913] event_handler: reclaimed all bufs
+[10194.276620] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget BE_IN
+[10194.276635] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget MM_UL1
+[10194.276640] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget SLIMBUS_0_TX
+[10194.276645] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget TERT_MI2S_TX
+[10194.276651] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget MultiMedia1 Mixer
+[10194.276658] msm-dai-fe soc:qcom,msm-dai-fe: dapm: powering down widget MultiMedia1 Capture
+[10194.291505] tasha_codec tasha_codec: dapm: powering down widget AIF1 CAP
+[10194.296270] tasha_codec tasha_codec: dapm: powering down widget AIF1_CAP Mixer
+[10194.296288] tasha_codec tasha_codec: dapm: powering down widget DMIC0
+[10194.296599] tasha_codec tasha_codec: dapm: powering down widget Digital Mic3
+[10194.296610] tasha_codec tasha_codec: dapm: powering down widget Digital Mic0
+[10194.296619] tasha_codec tasha_codec: dapm: powering down widget MIC BIAS1
+[10194.297034] tasha_codec tasha_codec: dapm: powering down widget SLIM TX7 MUX
+[10194.297045] tasha_codec tasha_codec: dapm: powering down widget DMIC MUX7
+[10194.297054] tasha_codec tasha_codec: dapm: powering down widget ADC MUX7
+[10194.297667] tasha_codec tasha_codec: dapm: powering down widget AIF1 Capture
+[10194.297681] tasha_codec tasha_codec: dapm: powering down widget MCLK TX
+[10204.070352] <<-GTP-INFO->> System resume.
+[10204.070361] gpio-125 (GTP INT IRQ): _gpiod_direction_output_raw: tried to set a GPIO tied to an IRQ as output
+[10204.090938] <<-GTP-INFO->> GTP wakeup sleep.
+[10204.090946] gpio-125 (GTP INT IRQ): _gpiod_direction_output_raw: tried to set a GPIO tied to an IRQ as output
+[10207.363404] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added MM_UL1 in widget list pos 0
+[10207.363436] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added AUDIO_REF_EC_UL1 MUX in widget list pos 1
+[10207.363456] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added MultiMedia1 Mixer in widget list pos 2
+[10207.363477] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added SLIMBUS_0_TX in widget list pos 3
+[10207.363495] msm-dai-q6-dev soc:qcom,msm-dai-q6:qcom,msm-dai-q6-sb-0-tx: ASoC: added Slimbus Capture in widget list pos 4
+[10207.363510] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added BE_IN in widget list pos 5
+[10207.363524] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added TERT_MI2S_TX in widget list pos 6
+[10207.363541] msm-dai-q6-mi2s soc:qcom,msm-dai-mi2s:qcom,msm-dai-q6-mi2s-tert: ASoC: added Tertiary MI2S Capture in widget list pos 7
+[10207.365826] Ajayq6 msm_pcm_open 537
+[10207.389679] tasha_codec tasha_codec: dapm: powering up widget MCLK TX
+[10207.409950] tasha_codec tasha_codec: dapm: powering up widget MIC BIAS1
+[10207.411315] tasha_codec tasha_codec: dapm: powering up widget AIF1 Capture
+[10207.411325] tasha_codec tasha_codec: dapm: powering up widget DMIC0
+[10207.411870] tasha_codec tasha_codec: dapm: powering up widget Digital Mic3
+[10207.411877] tasha_codec tasha_codec: dapm: powering up widget Digital Mic0
+[10207.411882] tasha_codec tasha_codec: dapm: powering up widget SLIM TX7 MUX
+[10207.411908] tasha_codec tasha_codec: dapm: powering up widget DMIC MUX7
+[10207.411913] tasha_codec tasha_codec: dapm: powering up widget ADC MUX7
+[10207.413081] tasha_codec tasha_codec: dapm: powering up widget AIF1_CAP Mixer
+[10207.413087] tasha_codec tasha_codec: dapm: powering up widget AIF1 CAP
+[10207.446271] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget BE_IN
+[10207.446292] msm-dai-fe soc:qcom,msm-dai-fe: dapm: powering up widget MultiMedia1 Capture
+[10207.446301] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget MultiMedia1 Mixer
+[10207.446309] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget MM_UL1
+[10207.446317] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget SLIMBUS_0_TX
+[10207.446324] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget TERT_MI2S_TX
+
+-------------------------------------------------------------------------------------------------
+[10320.228443] <<-GTP-INFO->> System resume.   tinycap demsg
+[10320.228455] gpio-125 (GTP INT IRQ): _gpiod_direction_output_raw: tried to set a GPIO tied to an IRQ as output
+[10320.241511] <<-GTP-INFO->> GTP wakeup sleep.
+[10320.241523] gpio-125 (GTP INT IRQ): _gpiod_direction_output_raw: tried to set a GPIO tied to an IRQ as output
+[10418.612438] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added MM_UL1 in widget list pos 0
+[10418.612453] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added AUDIO_REF_EC_UL1 MUX in widget list pos 1
+[10418.612461] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added MultiMedia1 Mixer in widget list pos 2
+[10418.612469] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added TERT_MI2S_TX in widget list pos 3
+[10418.612477] msm-dai-q6-mi2s soc:qcom,msm-dai-mi2s:qcom,msm-dai-q6-mi2s-tert: ASoC: added Tertiary MI2S Capture in widget list pos 4
+[10418.612482] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added BE_IN in widget list pos 5
+[10418.614621] Ajayq6 msm_pcm_open 537
+[10418.649349] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget BE_IN
+[10418.649382] msm-dai-fe soc:qcom,msm-dai-fe: dapm: powering up widget MultiMedia1 Capture
+[10418.649391] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget MultiMedia1 Mixer
+[10418.649400] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget MM_UL1
+[10418.649409] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget TERT_MI2S_TX
+[10430.751467] event_handler: reclaimed all bufs
+[10430.767073] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget BE_IN
+[10430.767150] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget MM_UL1
+[10430.767185] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget TERT_MI2S_TX
+[10430.767224] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget MultiMedia1 Mixer
+[10430.767262] msm-dai-fe soc:qcom,msm-dai-fe: dapm: powering down widget MultiMedia1 Capture
+---------------------------------------------------------
+ tinymix 'MultiMedia1 Mixer TERT_MI2S_TX' '1'​    for record a song tinycap settings            
+<path name="dmic1">
+        <ctl name="AIF1_CAP Mixer SLIM TX7" value="1"/>
+        <ctl name="SLIM_0_TX Channels" value="One" />
+        <ctl name="SLIM TX7 MUX" value="DEC7" />
+        <ctl name="ADC MUX7" value="DMIC" />
+        <ctl name="DMIC MUX7" value="DMIC0" />
+        <ctl name="IIR0 INP0 MUX" value="DEC7" />
+tinymix 'MultiMedia1 Mixer SLIM_0_TX' '1'
+tinymix 'MultiMedia1 Mixer TERT_MI2S_TX' '1'
+tinymix 'AIF1_CAP Mixer SLIM TX7' '1'
+tinymix 'SLIM_0_TX Channels' 'One'                                                                                               
+tinymix 'SLIM TX7 MUX' 'DEC7'                                                                                                    
+tinymix 'ADC MUX7' 'DMIC'                                                                                                        
+tinymix 'DMIC MUX7' 'DMIC0'                                                                                                      
+tinymix 'IIR0 INP0 MUX' 'DEC7' 
+---------------------------------------------------------------------------------------
+[ 4791.121558] afe_get_cal_topology_id: [AFE_TOPOLOGY_CAL] not initialized for this port 4101    after above settings tinycap output
+[ 4810.381073] event_handler: reclaimed all bufs
+[ 4916.023689] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added MM_UL1 in widget list pos 0
+[ 4916.023718] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added AUDIO_REF_EC_UL1 MUX in widget list pos 1
+[ 4916.023736] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added MultiMedia1 Mixer in widget list pos 2
+[ 4916.023751] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added TERT_MI2S_TX in widget list pos 3
+[ 4916.023767] msm-dai-q6-mi2s soc:qcom,msm-dai-mi2s:qcom,msm-dai-q6-mi2s-tert: ASoC: added Tertiary MI2S Capture in widget list pos 4
+[ 4916.023776] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added BE_IN in widget list pos 5
+[ 4916.026562] Ajayq6 msm_pcm_open 537
+[ 4916.029154] afe_get_cal_topology_id: [AFE_TOPOLOGY_CAL] not initialized for this port 4101
+[ 4916.062744] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget BE_IN
+[ 4916.062808] msm-dai-fe soc:qcom,msm-dai-fe: dapm: powering up widget MultiMedia1 Capture
+[ 4916.062844] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget MultiMedia1 Mixer
+[ 4916.062878] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget MM_UL1
+[ 4916.062909] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget TERT_MI2S_TX
+[ 4930.027008] event_handler: reclaimed all bufs
+[ 4930.041795] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget BE_IN
+[ 4930.041959] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget MM_UL1
+[ 4930.042005] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget TERT_MI2S_TX
+[ 4930.042046] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget MultiMedia1 Mixer
+[ 4930.042084] msm-dai-fe soc:qcom,msm-dai-fe: dapm: powering down widget MultiMedia1 Capture
+-----------------------------------------------------------------------------------------------------------
+
+[10207.363404] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added MM_UL1 in widget list pos 0     record app dapm output
+[10207.363436] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added AUDIO_REF_EC_UL1 MUX in widget list pos 1
+[10207.363456] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added MultiMedia1 Mixer in widget list pos 2
+[10207.363477] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added SLIMBUS_0_TX in widget list pos 3😜️
+[10207.363495] msm-dai-q6-dev soc:qcom,msm-dai-q6:qcom,msm-dai-q6-sb-0-tx: ASoC: added Slimbus Capture in widget list pos 4😜️
+[10207.363510] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added BE_IN in widget list pos 5
+[10207.363524] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added TERT_MI2S_TX in widget list pos 6
+[10207.363541] msm-dai-q6-mi2s soc:qcom,msm-dai-mi2s:qcom,msm-dai-q6-mi2s-tert: ASoC: added Tertiary MI2S Capture in widget list pos 7
+----------------------------------------------------------------------------------------
+[ 9196.459887] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added MM_UL1 in widget list pos 0
+[ 9196.459917] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added AUDIO_REF_EC_UL1 MUX in widget list pos 1
+[ 9196.459932] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added MultiMedia1 Mixer in widget list pos 2
+[ 9196.459948] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added SLIMBUS_0_TX in widget list pos 3
+[ 9196.459966] msm-dai-q6-dev soc:qcom,msm-dai-q6:qcom,msm-dai-q6-sb-0-tx: ASoC: added Slimbus Capture in widget list pos 4
+[ 9196.459975] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added BE_IN in widget list pos 5
+[ 9196.459984] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added TERT_MI2S_TX in widget list pos 6
+[ 9196.459997] msm-dai-q6-mi2s soc:qcom,msm-dai-mi2s:qcom,msm-dai-q6-mi2s-tert: ASoC: added Tertiary MI2S Capture in widget list pos 7
+[ 9196.463129] Ajayq6 msm_pcm_open 537
+😜️[ 9196.466053] afe_get_cal_topology_id: [AFE_TOPOLOGY_CAL] not initialized for this port 4101
+😜️[ 9196.483638] afe_get_cal_topology_id: [AFE_TOPOLOGY_CAL] not initialized for this port 16385
+[ 9196.508424] tasha_codec tasha_codec: dapm: powering up widget MCLK TX
+[ 9196.548851] tasha_codec tasha_codec: dapm: powering up widget MIC BIAS1
+[ 9196.550725] tasha_codec tasha_codec: dapm: powering up widget AIF1 Capture
+[ 9196.550807] tasha_codec tasha_codec: dapm: powering up widget DMIC0
+[ 9196.552743] tasha_codec tasha_codec: dapm: powering up widget Digital Mic3
+[ 9196.552796] tasha_codec tasha_codec: dapm: powering up widget Digital Mic0
+[ 9196.552835] tasha_codec tasha_codec: dapm: powering up widget SLIM TX7 MUX
+[ 9196.552867] tasha_codec tasha_codec: dapm: powering up widget DMIC MUX7
+[ 9196.552897] tasha_codec tasha_codec: dapm: powering up widget ADC MUX7
+[ 9196.556881] tasha_codec tasha_codec: dapm: powering up widget AIF1_CAP Mixer
+[ 9196.556941] tasha_codec tasha_codec: dapm: powering up widget AIF1 CAP
+[ 9196.600995] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget BE_IN
+[ 9196.601062] msm-dai-fe soc:qcom,msm-dai-fe: dapm: powering up widget MultiMedia1 Capture
+[ 9196.601097] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget MultiMedia1 Mixer
+[ 9196.601132] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget MM_UL1
+[ 9196.601164] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget SLIMBUS_0_TX
+[ 9196.601194] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget TERT_MI2S_TX
+[ 9204.983797] event_handler: reclaimed all bufs
+[ 9205.007850] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget BE_IN
+[ 9205.007945] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget MM_UL1
+[ 9205.007979] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget SLIMBUS_0_TX
+[ 9205.008016] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget TERT_MI2S_TX
+[ 9205.008064] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget MultiMedia1 Mixer
+[ 9205.008111] msm-dai-fe soc:qcom,msm-dai-fe: dapm: powering down widget MultiMedia1 Capture
+[ 9205.042073] tasha_codec tasha_codec: dapm: powering down widget AIF1 CAP
+[ 9205.051530] tasha_codec tasha_codec: dapm: powering down widget AIF1_CAP Mixer
+[ 9205.051578] tasha_codec tasha_codec: dapm: powering down widget DMIC0
+[ 9205.052585] tasha_codec tasha_codec: dapm: powering down widget Digital Mic3
+[ 9205.052623] tasha_codec tasha_codec: dapm: powering down widget Digital Mic0
+[ 9205.052655] tasha_codec tasha_codec: dapm: powering down widget MIC BIAS1
+[ 9205.053059] tasha_codec tasha_codec: dapm: powering down widget SLIM TX7 MUX
+[ 9205.053092] tasha_codec tasha_codec: dapm: powering down widget DMIC MUX7
+[ 9205.053129] tasha_codec tasha_codec: dapm: powering down widget ADC MUX7
+[ 9205.054192] tasha_codec tasha_codec: dapm: powering down widget AIF1 Capture
+[ 9205.054226] tasha_codec tasha_codec: dapm: powering down widget MCLK TX
+---------------------------------------------------------------------------------
+[  763.474092] Ajayq6 msm_pcm_open 537Ajayq6 msm_pcm_open 537
+[  807.213882] q6asm_callback: cmd = 0x10bcd returned error = 0x1
+[  807.218799] __q6asm_cmd: DSP returned error[ADSP_EFAILED] opcode 68557             after tinycap play a wav dmesg error
+---------------------------------------------------------------------------------------
+After play a song using tinyplay dapm flow
+observations:dapm: powering up widget MultiMedia1 Playback,SLIMBUS_6_RX Audio Mixer,MM_DL1
+[ 1172.112692] Ajayq6 msm_pcm_open 537                
+[ 1172.115426] q6asm_callback: cmd = 0x10bcd returned error = 0x1
+[ 1172.120392] __q6asm_cmd: DSP returned error[ADSP_EFAILED] opcode 68557
+[ 1172.133249] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added MM_DL1 in widget list pos 0
+[ 1172.133283] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added SLIMBUS_6_RX Audio Mixer in widget list pos 1
+[ 1172.133292] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added SLIMBUS_6_RX in widget list pos 2
+[ 1172.133306] msm-dai-q6-dev soc:qcom,msm-dai-q6:qcom,msm-dai-q6-sb-6-rx: ASoC: added Slimbus6 Playback in widget list pos 3
+[ 1172.133315] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added BE_OUT in widget list pos 4
+[ 1172.133493] Ajayq6 msm_pcm_open 537
+[ 1172.139311] tasha_codec tasha_codec: dapm: powering up widget HPHR
+[ 1172.139340] tasha_codec tasha_codec: dapm: powering up widget HPHL
+[ 1172.139351] tasha_codec tasha_codec: dapm: powering up widget RX_BIAS
+[ 1172.139360] tasha_codec tasha_codec: dapm: powering up widget MCLK
+[ 1172.177562] tasha_codec tasha_codec: dapm: powering up widget AIF4 Playback
+[ 1172.177586] tasha_codec tasha_codec: dapm: powering up widget SLIM RX3 MUX
+[ 1172.177597] tasha_codec tasha_codec: dapm: powering up widget SLIM RX2 MUX
+[ 1172.177605] tasha_codec tasha_codec: dapm: powering up widget RX INT2 INTERP
+[ 1172.177613] tasha_codec tasha_codec: dapm: powering up widget RX INT1 INTERP
+[ 1172.177620] tasha_codec tasha_codec: dapm: powering up widget RX INT2 DEM MUX
+[ 1172.177628] tasha_codec tasha_codec: dapm: powering up widget RX INT1 DEM MUX
+[ 1172.183416] tasha_codec tasha_codec: dapm: powering up widget RX INT1_2 MUX
+[ 1172.183726] tasha_codec tasha_codec: dapm: powering up widget RX INT2_2 MUX
+[ 1172.184353] tasha_codec tasha_codec: dapm: powering up widget RX INT2 DAC
+[ 1172.184365] tasha_codec tasha_codec: dapm: powering up widget RX INT1 DAC
+[ 1172.198578] tasha_codec tasha_codec: dapm: powering up widget SLIM RX3
+[ 1172.198593] tasha_codec tasha_codec: dapm: powering up widget SLIM RX2
+[ 1172.198602] tasha_codec tasha_codec: dapm: powering up widget RX INT2 SEC MIX
+[ 1172.198611] tasha_codec tasha_codec: dapm: powering up widget RX INT1 SEC MIX
+[ 1172.198620] tasha_codec tasha_codec: dapm: powering up widget RX INT2 MIX2
+[ 1172.198627] tasha_codec tasha_codec: dapm: powering up widget RX INT1 MIX2
+[ 1172.198636] tasha_codec tasha_codec: dapm: powering up widget AIF4 PB
+[ 1172.203698] tasha_codec tasha_codec: dapm: powering up widget HPHR PA
+[ 1172.203711] tasha_codec tasha_codec: dapm: powering up widget HPHL PA
+[ 1172.231000] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget BE_OUT
+[ 1172.231065] msm-dai-fe soc:qcom,msm-dai-fe: dapm: powering up widget MultiMedia1 Playback
+[ 1172.231102] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget SLIMBUS_6_RX Audio Mixer
+[ 1172.231136] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget MM_DL1
+[ 1172.231166] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget SLIMBUS_6_RX
+[ 1205.401361] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget BE_OUT
+[ 1205.401500] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget MM_DL1
+[ 1205.401535] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget SLIMBUS_6_RX
+[ 1205.401572] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget SLIMBUS_6_RX Audio Mixer
+[ 1205.401609] msm-dai-fe soc:qcom,msm-dai-fe: dapm: powering down widget MultiMedia1 Playback
+[ 1205.863021] tasha_codec tasha_codec: dapm: powering down widget HPHR
+[ 1205.863091] tasha_codec tasha_codec: dapm: powering down widget HPHL
+[ 1205.863131] tasha_codec tasha_codec: dapm: powering down widget AIF4 PB
+[ 1205.883767] tasha_codec tasha_codec: dapm: powering down widget HPHR PA
+[ 1205.883844] tasha_codec tasha_codec: dapm: powering down widget HPHL PA
+[ 1205.899720] tasha_codec tasha_codec: dapm: powering down widget SLIM RX3
+[ 1205.899783] tasha_codec tasha_codec: dapm: powering down widget SLIM RX2
+[ 1205.899818] tasha_codec tasha_codec: dapm: powering down widget RX INT2 SEC MIX
+[ 1205.899850] tasha_codec tasha_codec: dapm: powering down widget RX INT1 SEC MIX
+[ 1205.899879] tasha_codec tasha_codec: dapm: powering down widget RX INT2 MIX2
+[ 1205.899909] tasha_codec tasha_codec: dapm: powering down widget RX INT1 MIX2
+[ 1205.899941] tasha_codec tasha_codec: dapm: powering down widget RX INT2 DAC
+[ 1205.899970] tasha_codec tasha_codec: dapm: powering down widget RX INT1 DAC
+[ 1205.920621] tasha_codec tasha_codec: dapm: powering down widget SLIM RX3 MUX
+[ 1205.920684] tasha_codec tasha_codec: dapm: powering down widget SLIM RX2 MUX
+[ 1205.920720] tasha_codec tasha_codec: dapm: powering down widget RX INT2 INTERP
+[ 1205.920752] tasha_codec tasha_codec: dapm: powering down widget RX INT1 INTERP
+[ 1205.920782] tasha_codec tasha_codec: dapm: powering down widget RX INT2 DEM MUX
+[ 1205.920811] tasha_codec tasha_codec: dapm: powering down widget RX INT1 DEM MUX
+[ 1205.935551] tasha_codec tasha_codec: dapm: powering down widget RX INT1_2 MUX
+[ 1205.936048] tasha_codec tasha_codec: dapm: powering down widget RX INT2_2 MUX
+[ 1205.936537] tasha_codec tasha_codec: dapm: powering down widget AIF4 Playback
+[ 1205.936584] tasha_codec tasha_codec: dapm: powering down widget RX_BIAS
+[ 1205.936620] tasha_codec tasha_codec: dapm: powering down widget MCLK
+------------------------------------------------------------------------------------
+akothapally@cicdim:~/android/hardware/qcom/audio/configs/msm8996$ vim mixer_paths_tasha.xml
+make -j4 bootimage    this command will give the kernel changes in the android code
+------------------------------------------------------------------------------------------
+ Enable dynamic logs for Audio
+echo -n 'file apq8084.c +p' > /sys/kernel/debug/dynamic_debug/control   
+echo -n 'file soc-core.c +p' > /sys/kernel/debug/dynamic_debug/control 
+echo -n 'file soc-dapm.c +p' > /sys/kernel/debug/dynamic_debug/control      
+echo -n 'file msm-pcm-voice-v2.c +p' > /sys/kernel/debug/dynamic_debug/control
+echo -n 'file msm-dai-q6-v2.c +p' > /sys/kernel/debug/dynamic_debug/control
+echo -n 'file msm-pcm-afe-v2.c +p' > /sys/kernel/debug/dynamic_debug/control
+echo -n 'file msm-pcm-routing-v2.c +p' > /sys/kernel/debug/dynamic_debug/control
+echo -n 'file msm-pcm-q6-v2.c +p' > /sys/kernel/debug/dynamic_debug/control
+echo -n 'file q6adm.c +p' > /sys/kernel/debug/dynamic_debug/control
+echo -n 'file q6afe.c +p' > /sys/kernel/debug/dynamic_debug/control
+echo -n 'file q6asm.c +p' > /sys/kernel/debug/dynamic_debug/control
+--------------------------------------------------------------------------------------------------------
+dmesg output when play a wav file using app and enable dynamic log for  soc-dapm.c file
+observations:dapm: powering up widget MultiMedia7 Playback,SLIMBUS_6_RX Audio Mixer,MM_DL7
+[12614.172004] <<-GTP-INFO->> System resume.
+[12614.172017] gpio-125 (GTP INT IRQ): _gpiod_direction_output_raw: tried to set a GPIO tied to an IRQ as output
+[12614.191818] <<-GTP-INFO->> GTP wakeup sleep.
+[12614.191830] gpio-125 (GTP INT IRQ): _gpiod_direction_output_raw: tried to set a GPIO tied to an IRQ as output
+[12620.979875] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added MM_DL7 in widget list pos 0
+[12620.979896] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added SLIMBUS_6_RX Audio Mixer in widget list pos 1
+[12620.979904] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added SLIMBUS_6_RX in widget list pos 2
+[12620.979914] msm-dai-q6-dev soc:qcom,msm-dai-q6:qcom,msm-dai-q6-sb-6-rx: ASoC: added Slimbus6 Playback in widget list pos 3
+[12620.979922] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added BE_OUT in widget list pos 4
+[12620.990535] tasha_codec tasha_codec: dapm: powering up widget HPHR
+[12620.990548] tasha_codec tasha_codec: dapm: powering up widget HPHL
+[12620.990554] tasha_codec tasha_codec: dapm: powering up widget RX_BIAS
+[12620.990558] tasha_codec tasha_codec: dapm: powering up widget MCLK
+[12621.016376] tasha_codec tasha_codec: dapm: powering up widget AIF4 Playback
+[12621.016392] tasha_codec tasha_codec: dapm: powering up widget SLIM RX3 MUX
+[12621.016400] tasha_codec tasha_codec: dapm: powering up widget SLIM RX2 MUX
+[12621.016406] tasha_codec tasha_codec: dapm: powering up widget RX INT2 INTERP
+[12621.016412] tasha_codec tasha_codec: dapm: powering up widget RX INT1 INTERP
+[12621.016419] tasha_codec tasha_codec: dapm: powering up widget RX INT2 DEM MUX
+[12621.016425] tasha_codec tasha_codec: dapm: powering up widget RX INT1 DEM MUX
+[12621.021846] tasha_codec tasha_codec: dapm: powering up widget RX INT1_2 MUX
+[12621.022169] tasha_codec tasha_codec: dapm: powering up widget RX INT2_2 MUX
+[12621.022539] tasha_codec tasha_codec: dapm: powering up widget RX INT2 DAC
+[12621.022548] tasha_codec tasha_codec: dapm: powering up widget RX INT1 DAC
+[12621.034206] tasha_codec tasha_codec: dapm: powering up widget SLIM RX3
+[12621.034220] tasha_codec tasha_codec: dapm: powering up widget SLIM RX2
+[12621.034227] tasha_codec tasha_codec: dapm: powering up widget RX INT2 SEC MIX
+[12621.034233] tasha_codec tasha_codec: dapm: powering up widget RX INT1 SEC MIX
+[12621.034239] tasha_codec tasha_codec: dapm: powering up widget RX INT2 MIX2
+[12621.034245] tasha_codec tasha_codec: dapm: powering up widget RX INT1 MIX2
+[12621.034252] tasha_codec tasha_codec: dapm: powering up widget AIF4 PB
+[12621.038941] tasha_codec tasha_codec: dapm: powering up widget HPHR PA
+[12621.038956] tasha_codec tasha_codec: dapm: powering up widget HPHL PA
+[12621.072734] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget BE_OUT
+[12621.072749] msm-dai-fe soc:qcom,msm-dai-fe: dapm: powering up widget MultiMedia7 Playback
+[12621.072754] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget SLIMBUS_6_RX Audio Mixer
+[12621.072759] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget MM_DL7
+[12621.072764] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget SLIMBUS_6_RX
+[12639.223588] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget BE_OUT
+[12639.223605] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget MM_DL7
+[12639.223611] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget SLIMBUS_6_RX
+[12639.223619] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget SLIMBUS_6_RX Audio Mixer
+[12639.223626] msm-dai-fe soc:qcom,msm-dai-fe: dapm: powering down widget MultiMedia7 Playback
+[12639.226475] tasha_codec tasha_codec: dapm: powering down widget HPHR
+[12639.226487] tasha_codec tasha_codec: dapm: powering down widget HPHL
+[12639.226494] tasha_codec tasha_codec: dapm: powering down widget AIF4 PB
+[12639.237782] tasha_codec tasha_codec: dapm: powering down widget HPHR PA
+[12639.237795] tasha_codec tasha_codec: dapm: powering down widget HPHL PA
+[12639.251420] tasha_codec tasha_codec: dapm: powering down widget SLIM RX3
+[12639.251432] tasha_codec tasha_codec: dapm: powering down widget SLIM RX2
+[12639.251437] tasha_codec tasha_codec: dapm: powering down widget RX INT2 SEC MIX
+[12639.251441] tasha_codec tasha_codec: dapm: powering down widget RX INT1 SEC MIX
+[12639.251446] tasha_codec tasha_codec: dapm: powering down widget RX INT2 MIX2
+[12639.251450] tasha_codec tasha_codec: dapm: powering down widget RX INT1 MIX2
+[12639.251456] tasha_codec tasha_codec: dapm: powering down widget RX INT2 DAC
+[12639.251460] tasha_codec tasha_codec: dapm: powering down widget RX INT1 DAC
+[12639.262660] tasha_codec tasha_codec: dapm: powering down widget SLIM RX3 MUX
+[12639.262670] tasha_codec tasha_codec: dapm: powering down widget SLIM RX2 MUX
+[12639.262675] tasha_codec tasha_codec: dapm: powering down widget RX INT2 INTERP
+[12639.262680] tasha_codec tasha_codec: dapm: powering down widget RX INT1 INTERP
+[12639.262685] tasha_codec tasha_codec: dapm: powering down widget RX INT2 DEM MUX
+[12639.262689] tasha_codec tasha_codec: dapm: powering down widget RX INT1 DEM MUX
+[12639.268802] tasha_codec tasha_codec: dapm: powering down widget RX INT1_2 MUX
+[12639.269071] tasha_codec tasha_codec: dapm: powering down widget RX INT2_2 MUX
+[12639.269327] tasha_codec tasha_codec: dapm: powering down widget AIF4 Playback
+[12639.269334] tasha_codec tasha_codec: dapm: powering down widget RX_BIAS
+[12639.269339] tasha_codec tasha_codec: dapm: powering down widget MCLK
+[12641.026511] AudioOut_5D (3274) used greatest stack depth: 9480 bytes left
+----------------------------------------------------------------------------
+ASoC Architecture qualcomm platforms:
+MSM frontend CPU driver − /kernel/sound/soc/msm/msm-dai-fe.c 
+MSM Hexagon audio platform driver − /kernel/sound/soc/msm/msm-pcm-q6.c 
+MSM Hexagon routing platform driver − /kernel/sound/soc/msm/msm-pcm-routing.c 
+MSM Hexagon backend CPU driver − /kernel/sound/soc/msm/msm-dai-q6.c 
+Q6 voice platform drivers − kernel/sound/soc/msm/msm-pcm-voice.c and msm-pcm-voip.c 
+ALSA codec drivers − /kernel/sound/soc/codecs/wcd9310.c, wcd9310-tables.c, etc. (for WCD9310 codec) 
+I2C/SLIMbus drivers − /kernel/drivers/slimbus/slim-msm-ctrl.c, slimbus.c 
+ASM driver − kernel/sound/soc/msm/qdsp6/q6asm.c 
+ADM driver − kernel/sound/soc/msm/qdsp6/q6adm.c 
+AFE driver − kernel/sound/soc/msm/qdsp6/q6afe.c 
+Voice driver − kernel/sound/soc/msm/qdsp6/q6voice.c 
+Platform-specific machine driver − msm8960.c (for MSM8960), MDM9x15 (for MDM9x15), etc. 
+AFE − Audio Frontend 
+ASM − Audio Stream Manager 
+ADM − Audio Device Manager 
+VSM − Voice Stream Manager
+The routing map for the DSP defined as intercon in msm-pcm-routing.c describes the various routing paths or devices to which the different types of streams can be routed. Each record in the  table is a collection of three entries. Reading from right to left, the first entry is the audio source, the second is the control (if any), and the third is the audio sink for the corresponding physical  hardware route it represents, e.g.: 
+{"SLIMBUS_6_RX Audio Mixer", "MultiMedia1","MM_DL1"},
+{"SLIMBUS_6_RX Audio Mixer", "MultiMedia2","MM_DL2"}
+{"SLIMBUS_0_RX Audio Mixer", "MultiMedia1", "MM_DL1"}  
+{"SLIMBUS_0_RX", NULL, "SLIMBUS_0_RX Audio Mixer"} 
+MM_DL1 (Multimedia Downlink 1) is a playback stream that in the first example above is a  source that is routed to a mixer in the DSP called SLIMBUS_0_RX Audio Mixer. In the next example, SLIMBUS_0_RX Audio Mixer is the source whose output is routed to the SLIMBUS_0_RX port connected to the hardware codec. 
+The audio route map describes the various stream routes supported by the DSP firmware. 
+-------------------------------------------------------------------------------------------------------------
+Record a ringtone from mobile through app and enable logs for soc-dapm.c for checking which widges power-up and power-down.
+[  127.079289] Ajayq6 msm_pcm_open 536
+[  214.885426] event_handler: reclaimed all bufs
+[  214.896138] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget BE_IN
+[  214.896158] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget MM_UL1
+[  214.896166] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget SLIMBUS_0_TX
+[  214.896176] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget MultiMedia1 Mixer
+[  214.896185] msm-dai-fe soc:qcom,msm-dai-fe: dapm: powering down widget MultiMedia1 Capture
+[  214.909627] tasha_codec tasha_codec: dapm: powering down widget AMIC2
+[  214.909645] tasha_codec tasha_codec: dapm: powering down widget AIF1 CAP
+[  214.919660] tasha_codec tasha_codec: dapm: powering down widget AIF1_CAP Mixer
+[  214.919864] tasha_codec tasha_codec: dapm: powering down widget ADC2
+[  214.921073] tasha_codec tasha_codec: dapm: powering down widget ANCRight Headset Mic
+[  214.921094] tasha_codec tasha_codec: dapm: powering down widget ANCLeft Headset Mic
+[  214.921121] tasha_codec tasha_codec: dapm: powering down widget Headset Mic
+[  214.921142] tasha_codec tasha_codec: dapm: powering down widget MIC BIAS2
+[  214.925202] tasha_codec tasha_codec: dapm: powering down widget SLIM TX0 MUX
+[  214.925219] tasha_codec tasha_codec: dapm: powering down widget AMIC MUX0
+[  214.925231] tasha_codec tasha_codec: dapm: powering down widget ADC MUX0
+[  214.926563] tasha_codec tasha_codec: dapm: powering down widget AIF1 Capture
+[  214.926574] tasha_codec tasha_codec: dapm: powering down widget MCLK TX
+[  214.971708] AudioIn_46 (2981) used greatest stack depth: 9256 bytes left
+[  221.711416] <<-GTP-INFO->> System resume.
+[  221.711426] gpio-125 (GTP INT IRQ): _gpiod_direction_output_raw: tried to set a GPIO tied to an IRQ as output
+[  221.732500] <<-GTP-INFO->> GTP wakeup sleep.
+[  221.732513] gpio-125 (GTP INT IRQ): _gpiod_direction_output_raw: tried to set a GPIO tied to an IRQ as output
+[  227.430548] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added MM_UL1 in widget list pos 0
+[  227.430565] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added AUDIO_REF_EC_UL1 MUX in widget list pos 1
+[  227.430574] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added MultiMedia1 Mixer in widget list pos 2
+[  227.430584] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added SLIMBUS_0_TX in widget list pos 3
+[  227.430593] msm-dai-q6-dev soc:qcom,msm-dai-q6:qcom,msm-dai-q6-sb-0-tx: ASoC: added Slimbus Capture in widget list pos 4
+[  227.430599] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added BE_IN in widget list pos 5
+[  227.430735] Ajayq6 msm_pcm_open 536
+[  227.456143] tasha_codec tasha_codec: dapm: powering up widget AMIC2😀️
+[  227.456160] tasha_codec tasha_codec: dapm: powering up widget MCLK TX
+[  227.481494] tasha_codec tasha_codec: dapm: powering up widget MIC BIAS2
+[  227.485359] tasha_codec tasha_codec: dapm: powering up widget AIF1 Capture
+[  227.485374] tasha_codec tasha_codec: dapm: powering up widget ADC2
+[  227.486083] tasha_codec tasha_codec: dapm: powering up widget ANCRight Headset Mic
+[  227.486096] tasha_codec tasha_codec: dapm: powering up widget ANCLeft Headset Mic
+[  227.486105] tasha_codec tasha_codec: dapm: powering up widget Headset Mic
+[  227.486113] tasha_codec tasha_codec: dapm: powering up widget SLIM TX0 MUX
+[  227.486121] tasha_codec tasha_codec: dapm: powering up widget AMIC MUX0
+[  227.486128] tasha_codec tasha_codec: dapm: powering up widget ADC MUX0
+[  227.491203] tasha_codec tasha_codec: dapm: powering up widget AIF1_CAP Mixer
+[  227.491228] tasha_codec tasha_codec: dapm: powering up widget AIF1 CAP😀️
+[  227.521578] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget BE_IN
+[  227.521758] msm-dai-fe soc:qcom,msm-dai-fe: dapm: powering up widget MultiMedia1 Capture
+[  227.521774] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget MultiMedia1 Mixer
+[  227.521783] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget MM_UL1
+[  227.521790] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget SLIMBUS_0_TX
+------------------------------------------------------------------------------------------------------------
+Played a recorded file using music app and enable logs for soc-dapm.c for which widges power-down and power-up.
+[  360.761470] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added MM_DL1 in widget list pos 0
+[  360.761497] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added SLIMBUS_6_RX Audio Mixer in widget list pos 1
+[  360.761506] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added SLIMBUS_6_RX in widget list pos 2
+[  360.761516] msm-dai-q6-dev soc:qcom,msm-dai-q6:qcom,msm-dai-q6-sb-6-rx: ASoC: added Slimbus6 Playback in widget list pos 3
+[  360.761524] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added BE_OUT in widget list pos 4
+[  360.761671] Ajayq6 msm_pcm_open 536
+[  360.766110] tasha_codec tasha_codec: dapm: powering up widget HPHR
+[  360.766128] tasha_codec tasha_codec: dapm: powering up widget HPHL
+[  360.766136] tasha_codec tasha_codec: dapm: powering up widget RX_BIAS
+[  360.766141] tasha_codec tasha_codec: dapm: powering up widget MCLK
+[  360.799168] tasha_codec tasha_codec: dapm: powering up widget AIF4 Playback
+[  360.799183] tasha_codec tasha_codec: dapm: powering up widget SLIM RX3 MUX
+[  360.799189] tasha_codec tasha_codec: dapm: powering up widget SLIM RX2 MUX
+[  360.799194] tasha_codec tasha_codec: dapm: powering up widget RX INT2 INTERP
+[  360.799199] tasha_codec tasha_codec: dapm: powering up widget RX INT1 INTERP
+[  360.799204] tasha_codec tasha_codec: dapm: powering up widget RX INT2 DEM MUX
+[  360.799208] tasha_codec tasha_codec: dapm: powering up widget RX INT1 DEM MUX
+[  360.805705] tasha_codec tasha_codec: dapm: powering up widget RX INT1_2 MUX
+[  360.805933] tasha_codec tasha_codec: dapm: powering up widget RX INT2_2 MUX
+[  360.806255] tasha_codec tasha_codec: dapm: powering up widget RX INT2 DAC
+[  360.806263] tasha_codec tasha_codec: dapm: powering up widget RX INT1 DAC
+[  360.815294] tasha_codec tasha_codec: dapm: powering up widget SLIM RX3
+[  360.815308] tasha_codec tasha_codec: dapm: powering up widget SLIM RX2
+[  360.815314] tasha_codec tasha_codec: dapm: powering up widget RX INT2 SEC MIX
+[  360.815319] tasha_codec tasha_codec: dapm: powering up widget RX INT1 SEC MIX
+[  360.815324] tasha_codec tasha_codec: dapm: powering up widget RX INT2 MIX2
+[  360.815329] tasha_codec tasha_codec: dapm: powering up widget RX INT1 MIX2
+[  360.815335] tasha_codec tasha_codec: dapm: powering up widget AIF4 PB
+[  360.818800] tasha_codec tasha_codec: dapm: powering up widget HPHR PA
+[  360.818810] tasha_codec tasha_codec: dapm: powering up widget HPHL PA
+[  360.842103] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget BE_OUT
+[  360.842119] msm-dai-fe soc:qcom,msm-dai-fe: dapm: powering up widget MultiMedia1 Playback
+[  360.842125] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget SLIMBUS_6_RX Audio Mixer
+[  360.842130] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget MM_DL1
+[  360.842135] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget SLIMBUS_6_RX
+[  414.189775] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget BE_OUT
+[  414.189811] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget MM_DL1
+[  414.189826] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget SLIMBUS_6_RX
+[  414.189842] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget SLIMBUS_6_RX Audio Mixer
+[  414.189860] msm-dai-fe soc:qcom,msm-dai-fe: dapm: powering down widget MultiMedia1 Playback
+[  414.314787] tasha_codec tasha_codec: dapm: powering down widget HPHR
+[  414.314836] tasha_codec tasha_codec: dapm: powering down widget HPHL
+[  414.314867] tasha_codec tasha_codec: dapm: powering down widget AIF4 PB
+[  414.337287] tasha_codec tasha_codec: dapm: powering down widget HPHR PA
+[  414.337313] tasha_codec tasha_codec: dapm: powering down widget HPHL PA
+[  414.352810] tasha_codec tasha_codec: dapm: powering down widget SLIM RX3
+[  414.352835] tasha_codec tasha_codec: dapm: powering down widget SLIM RX2
+[  414.352845] tasha_codec tasha_codec: dapm: powering down widget RX INT2 SEC MIX
+[  414.352853] tasha_codec tasha_codec: dapm: powering down widget RX INT1 SEC MIX
+[  414.352863] tasha_codec tasha_codec: dapm: powering down widget RX INT2 MIX2
+[  414.352871] tasha_codec tasha_codec: dapm: powering down widget RX INT1 MIX2
+[  414.352884] tasha_codec tasha_codec: dapm: powering down widget RX INT2 DAC
+[  414.352892] tasha_codec tasha_codec: dapm: powering down widget RX INT1 DAC
+[  414.371743] tasha_codec tasha_codec: dapm: powering down widget SLIM RX3 MUX
+[  414.371773] tasha_codec tasha_codec: dapm: powering down widget SLIM RX2 MUX
+[  414.371786] tasha_codec tasha_codec: dapm: powering down widget RX INT2 INTERP
+[  414.371798] tasha_codec tasha_codec: dapm: powering down widget RX INT1 INTERP
+[  414.371808] tasha_codec tasha_codec: dapm: powering down widget RX INT2 DEM MUX
+[  414.371819] tasha_codec tasha_codec: dapm: powering down widget RX INT1 DEM MUX
+[  414.381929] tasha_codec tasha_codec: dapm: powering down widget RX INT1_2 MUX
+[  414.382309] tasha_codec tasha_codec: dapm: powering down widget RX INT2_2 MUX
+[  414.382675] tasha_codec tasha_codec: dapm: powering down widget AIF4 Playback
+[  414.382691] tasha_codec tasha_codec: dapm: powering down widget RX_BIAS
+[  414.382702] tasha_codec tasha_codec: dapm: powering down widget MCLK
+----------------------------------------------------------------------------------------------------------------
+for record path
+msm8996:/ # tinymix 'MultiMedia1 Mixer SLIM_0_TX' '1'
+for mic i.e adc2 headset-mic                                                                                        
+msm8996:/ # tinymix 'AIF1_CAP Mixer SLIM TX0' '1'                                                                                         
+msm8996:/ # tinymix 'SLIM_0_TX Channels' 'One'                                                                                            
+msm8996:/ # tinymix 'SLIM TX0 MUX' 'DEC0'
+msm8996:/ # tinymix 'ADC MUX0' 'AMIC'
+msm8996:/ # tinymix 'AMIC MUX0' 'ADC2'
+msm8996:/ # tinymix 'IIR0 INP0 MUX' 'DEC0'
+msm8996:/ # tinycap /sdcard/Music/ajay.wav                                                                                                
+Capturing sample: 2 ch, 44100 hz, 16 bit
+^CCaptured 2359296 frames
+--------------------------------------------------------------------------------------------------------
+01-01 04:04:50.193   732  3383 D audio_hw_primary: select_devices for use case (compress-offload-playback2)
+01-01 04:04:50.193   732  3383 D audio_hw_primary: select_devices: out_snd_device(9: headphones-44.1) in_snd_device(0: )
+01-01 04:04:50.217   732  3383 I audio_hw_primary: select_devices Selected apptype: 69936
+played a recorded (tinycap) wave file through app 44100hz sample and it is compress-offload-playback2
+out_snd_device(9: headphones-44.1)
+01-01 06:17:42.171   732  3669 D audio_hw_primary: select_devices for use case (compress-offload-playback2)
+01-01 06:17:42.171   732  3669 D audio_hw_primary: select_devices: out_snd_device(8: headphones) in_snd_device(0: )
+01-01 06:17:42.183   732  3669 I audio_hw_primary: select_devices Selected apptype: 69936
+played a wave file through app which is having 8000hz sample and it is compress-offload-playback2
+ select_devices: out_snd_device(8: headphones)
+01-01 06:18:16.085   732  1005 D audio_hw_primary: select_devices for use case (deep-buffer-playback)
+01-01 06:18:16.085   732  1005 D audio_hw_primary: select_devices: out_snd_device(8: headphones) in_snd_device(0: )
+01-01 06:18:16.101   732  1005 I audio_hw_primary: select_devices Selected apptype: 69936
+Played a recorded  wave file (sound record app) through app and it is deep-buffer-playback
+ select_devices: out_snd_device(8: headphones)
+-------------------------------------------------------------------------------------
+When bluetooth headset connected
+
+01-01 00:39:03.740  3100  3102 I chatty  : uid=1002(bluetooth) /system/bin/wcnss_filter expire 3 lines
+01-01 00:39:03.749  3100  3100 I chatty  : uid=1002(bluetooth) /system/bin/wcnss_filter expire 3 lines
+01-01 00:39:03.760  3100  3102 I chatty  : uid=1002(bluetooth) /system/bin/wcnss_filter expire 3 lines
+01-01 00:39:03.770   738  3185 I bt_a2dp_hw: out_get_format: format 0x4
+01-01 00:39:03.770   738  3185 I bt_a2dp_hw: out_get_channels: channels 0x3
+01-01 00:39:03.770   738  3185 I bt_a2dp_hw: out_get_format: format 0x4
+01-01 00:39:03.770   738  3185 I bt_a2dp_hw: out_get_channels: channels 0x3
+01-01 00:39:03.770  3100  3100 I chatty  : uid=1002(bluetooth) /system/bin/wcnss_filter expire 2 lines
+01-01 00:39:03.770  3100  3100 I WCNSS_FILTER: update_ring_buffer: unlock IN_RING_BUF
+01-01 00:39:03.771   738  3185 I bt_a2dp_hw: out_get_format: format 0x4
+01-01 00:39:03.771   738  3185 I bt_a2dp_hw: out_get_channels: channels 0x3
+01-01 00:39:03.771   738  3185 I bt_a2dp_hw: out_get_format: format 0x4
+01-01 00:39:03.771   738  3185 I bt_a2dp_hw: out_get_channels: channels 0x3
+01-01 00:39:03.781   738  3185 I bt_a2dp_hw: out_get_format: format 0x4
+01-01 00:39:03.781   738  3185 I bt_a2dp_hw: out_get_channels: channels 0x3
+01-01 00:39:03.781   738  3185 I bt_a2dp_hw: out_get_format: format 0x4
+01-01 00:39:03.781   738  3185 I bt_a2dp_hw: out_get_channels: channels 0x3
+01-01 00:39:03.781   738  3185 I bt_a2dp_hw: out_get_format: format 0x4
+01-01 00:39:03.781   738  3185 I bt_a2dp_hw: out_get_channels: channels 0x3
+01-01 00:39:03.781   738  3185 I bt_a2dp_hw: out_get_format: format 0x4
+01-01 00:39:03.781   738  3185 I bt_a2dp_hw: out_get_channels: channels 0x3
+01-01 00:39:03.782  3100  3102 I WCNSS_FILTER: Direction(0): bytes: 855 : bytes_written: 855
+01-01 00:39:03.782  3100  3102 I WCNSS_FILTER: update_ring_buffer: lock OUT_RING_BUF
+01-01 00:39:03.782  3100  3102 I WCNSS_FILTER: update_ring_buffer: unlock OUT_RING_BUF
+01-01 00:39:03.798  3100  3100 I WCNSS_FILTER: Direction(1): bytes: 8 : bytes_written: 8
+01-01 00:39:03.798  3100  3100 I WCNSS_FILTER: update_ring_buffer: lock IN_RING_BUF
+01-01 00:39:03.799  3100  3100 I WCNSS_FILTER: update_ring_buffer: unlock IN_RING_BUF
+01-01 00:39:03.801  3100  3102 I WCNSS_FILTER: Direction(0): bytes: 855 : bytes_written: 855
+01-01 00:39:03.801  3100  3102 I WCNSS_FILTER: update_ring_buffer: lock OUT_RING_BUF
+01-01 00:39:03.801  3100  3102 I WCNSS_FILTER: update_ring_buffer: unlock OUT_RING_BUF
+01-01 00:39:03.812   738  3185 I bt_a2dp_hw: out_get_format: format 0x4
+01-01 00:39:03.812  3100  3100 I WCNSS_FILTER: Direction(1): bytes: 8 : bytes_written: 8
+01-01 00:39:03.812  3100  3100 I WCNSS_FILTER: update_ring_buffer: lock IN_RING_BUF
+01-01 00:39:03.812   738  3185 I bt_a2dp_hw: out_get_channels: channels 0x3
+01-01 00:39:03.812  3100  3100 I WCNSS_FILTER: update_ring_buffer: unlock IN_RING_BUF
+-----------------------------------------------------------
+01-01 00:36:59.495  1133  1156 D BluetoothManagerService: enable():  mBluetooth =null mBinding = false mState = 10
+01-01 00:36:59.496  1133  1156 D BluetoothManagerService: enable returning
+01-01 00:36:59.497  1133  1192 D BluetoothManagerService: Message: 1
+01-01 00:36:59.497  1133  1192 D BluetoothManagerService: MESSAGE_ENABLE: mBluetooth = null
+01-01 00:36:59.513  1495  1495 I sysui_view_visibility: [150,100]
+01-01 00:36:59.559  1133  1192 D BluetoothManagerService: Message: 20
+01-01 00:36:59.560  1133  1192 D BluetoothManagerService: Added callback: android.bluetooth.IBluetoothManagerCallback$Stub$Proxy@4b01dd4:true
+01-01 00:36:59.583  1133  1133 D BluetoothManagerService: Bluetooth Adapter name changed to QCOM-BTD
+01-01 00:36:59.583  1133  1133 D BluetoothManagerService: Stored Bluetooth name: QCOM-BTD
+01-01 00:36:59.594  1133  1133 D BluetoothManagerService: BluetoothServiceConnection: com.android.bluetooth.btservice.AdapterService
+01-01 00:36:59.594  1133  1192 D BluetoothManagerService: Message: 40
+01-01 00:36:59.594  1133  1192 D BluetoothManagerService: MESSAGE_BLUETOOTH_SERVICE_CONNECTED: 1
+01-01 00:36:59.602  1133  1192 D BluetoothManagerService: Calling onBluetoothServiceUp callbacks
+01-01 00:36:59.603  1133  1192 D BluetoothManagerService: Broadcasting onBluetoothServiceUp() to 6 receivers.
+01-01 00:36:59.609  1133  1192 D BluetoothManagerService: Message: 60
+01-01 00:36:59.609  1133  1192 D BluetoothManagerService: MESSAGE_BLUETOOTH_STATE_CHANGE: prevState = 10, newState=14
+01-01 00:36:59.609  1133  1192 D BluetoothManagerService: BLE State Change Intent: 10 -> 14
+01-01 00:36:59.970  1495  1495 I sysui_view_visibility: [111,0]
+01-01 00:37:00.450  1133  1133 I free_storage_changed: 19788828672
+01-01 00:37:00.922  1133  1133 D BluetoothManagerService: Bluetooth Adapter name changed to QCOM-BTD
+01-01 00:37:00.922  1133  1133 D BluetoothManagerService: Stored Bluetooth name: QCOM-BTD
+01-01 00:37:00.942  1133  1192 D BluetoothManagerService: Message: 60
+01-01 00:37:00.942  1133  1192 D BluetoothManagerService: MESSAGE_BLUETOOTH_STATE_CHANGE: prevState = 14, newState=15
+01-01 00:37:00.942  1133  1192 D BluetoothManagerService: Bluetooth is in LE only mode
+01-01 00:37:00.942  1133  1192 D BluetoothManagerService: Binding Bluetooth GATT service
+01-01 00:37:00.946  1133  1192 D BluetoothManagerService: BLE State Change Intent: 14 -> 15
+01-01 00:37:00.950  1133  1133 D BluetoothManagerService: BluetoothServiceConnection: com.android.bluetooth.gatt.GattService
+01-01 00:37:00.951  1133  1192 D BluetoothManagerService: Message: 40
+01-01 00:37:00.951  1133  1192 D BluetoothManagerService: MESSAGE_BLUETOOTH_SERVICE_CONNECTED: 2
+01-01 00:37:00.951  1133  1192 D BluetoothManagerService: BluetoothGatt Service is Up
+01-01 00:37:00.951  1133  1192 D BluetoothManagerService: isBleAppPresent() count: 0
+01-01 00:37:00.957  1133  1192 D BluetoothManagerService: Message: 60
+01-01 00:37:00.957  1133  1192 D BluetoothManagerService: MESSAGE_BLUETOOTH_STATE_CHANGE: prevState = 15, newState=11
+01-01 00:37:00.957  1133  1192 D BluetoothManagerService: BLE State Change Intent: 15 -> 11
+01-01 00:37:00.985     0     0 I init    : Starting service 'btsnoop'...
+01-01 00:37:01.002  1133  1170 I am_pss  : [3001,10068,com.android.music,5417984,4014080,0]
+01-01 00:37:01.108  1645  1787 D QtiSubscriptionController: getPhoneId, received dummy subId 2147483643
+01-01 00:37:01.141  1133  1192 D BluetoothManagerService: Message: 60
+01-01 00:37:01.141  1133  1192 D BluetoothManagerService: MESSAGE_BLUETOOTH_STATE_CHANGE: prevState = 11, newState=12
+01-01 00:37:01.141  1133  1192 D BluetoothManagerService: Broadcasting onBluetoothStateChange(true) to 17 receivers.
+01-01 00:37:01.154  1133  2129 D BluetoothManagerService: checkIfCallerIsForegroundUser: valid=true callingUser=0 parentUser=-10000 foregroundUser=0
+01-01 00:37:01.179  1133  1899 D BluetoothManagerService: checkIfCallerIsForegroundUser: valid=true callingUser=0 parentUser=-10000 foregroundUser=0
+01-01 00:37:01.207  1133  1899 I Telecom : BluetoothPhoneService: queryPhoneState: BPSI.qPS@ACA
+01-01 00:37:01.207  1133  1902 D BluetoothManagerService: checkIfCallerIsForegroundUser: valid=true callingUser=0 parentUser=-10000 foregroundUser=0
+01-01 00:37:01.237  1133  1133 I Telecom : : mReceiver: HEADSET_STATE_CHANGED_ACTION: BM.oR@ACE
+01-01 00:37:01.238  1133  1133 I Telecom : : ==> new state: 1 : BM.oR@ACE
+01-01 00:37:01.356  1133  1192 D BluetoothManagerService: BLE State Change Intent: 11 -> 12
+01-01 00:37:01.359  1133  1133 I Telecom : BluetoothPhoneService: queryPhoneState: BPSI.qPS@ACM
+01-01 00:37:01.359  1133  1133 I Telecom : BluetoothPhoneService: updateHeadsetWithCallState numActive 0, numHeld 0, callState 6, ringing number [da39a3ee5e6b4b0d3255bfef95601890afd80709], ringing type 128: BPSI.qPS@ACM
+01-01 00:37:01.373  1133  1899 D BluetoothManagerService: checkIfCallerIsForegroundUser: valid=true callingUser=0 parentUser=-10000 foregroundUser=0
+01-01 00:37:01.402  1133  2162 D BluetoothManagerService: checkIfCallerIsForegroundUser: valid=true callingUser=0 parentUser=-10000 foregroundUser=0
+01-01 00:37:01.413  1133  2131 D BluetoothManagerService: checkIfCallerIsForegroundUser: valid=true callingUser=0 parentUser=-10000 foregroundUser=0
+01-01 00:37:01.426  1659  1659 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1385 android.content.ContextWrapper.startService:613 android.content.ContextWrapper.startService:613 com.android.settings.bluetooth.DockEventReceiver.beginStartingService:134 com.android.settings.bluetooth.DockEventReceiver.onReceive:115 
+01-01 00:37:01.462  1133  2131 I notification_cancel_all: [1002,3053,com.android.bluetooth,0,0,64,9,NULL]
+01-01 00:37:01.478  1133  1156 D BluetoothManagerService: checkIfCallerIsForegroundUser: valid=true callingUser=0 parentUser=-10000 foregroundUser=0
+01-01 00:37:01.486  1133  2131 D BluetoothManagerService: checkIfCallerIsForegroundUser: valid=true callingUser=0 parentUser=-10000 foregroundUser=0
+01-01 00:37:01.505  1133  1156 D BluetoothManagerService: checkIfCallerIsForegroundUser: valid=true callingUser=0 parentUser=-10000 foregroundUser=0
+01-01 00:37:01.780     0     0 I init    : Starting service 'start_hci_filter'...
+01-01 00:37:02.799  1133  1133 I Telecom : : mReceiver: HEADSET_STATE_CHANGED_ACTION: BM.oR@ACQ
+01-01 00:37:02.799  1133  1133 I Telecom : : ==> new state: 2 : BM.oR@ACQ
+01-01 00:37:02.816  1133  1688 I Telecom : CallAudioRouteStateMachine: Message received: CONNECT_BLUETOOTH=3: BM.oR->CARSM.pM_CONNECT_BLUETOOTH@ACQ_0
+01-01 00:37:02.816  1133  1688 I Telecom : Telecom: Non-call EVENT: AUDIO_ROUTE, Bluetooth connected: BM.oR->CARSM.pM_CONNECT_BLUETOOTH@ACQ_0
+01-01 00:37:02.816  1133  1688 I Telecom : CallAudioRouteStateMachine: Message received: SWITCH_BLUETOOTH=1002: BM.oR->CARSM.pM_CONNECT_BLUETOOTH->CARSM.pM_SWITCH_BLUETOOTH@ACQ_0_0
+01-01 00:37:02.816  1133  1688 I Telecom : Telecom: Non-call EVENT: AUDIO_ROUTE, Leaving state QuiescentEarpieceRoute: BM.oR->CARSM.pM_CONNECT_BLUETOOTH->CARSM.pM_SWITCH_BLUETOOTH@ACQ_0_0
+01-01 00:37:02.816  1133  1688 I Telecom : Telecom: Non-call EVENT: AUDIO_ROUTE, Entering state QuiescentBluetoothRoute: BM.oR->CARSM.pM_CONNECT_BLUETOOTH->CARSM.pM_SWITCH_BLUETOOTH@ACQ_0_0
+01-01 00:37:02.819  1133  1133 I Telecom : WiredHeadsetManager: ACTION_HEADSET_PLUG event, plugged in: false, : WHC.oADA@ACU
+01-01 00:37:02.880  1133  2131 I Telecom : BluetoothPhoneService: queryPhoneState: BPSI.qPS@ACY
+01-01 00:37:02.881  1133  2131 I Telecom : BluetoothPhoneService: updateHeadsetWithCallState numActive 0, numHeld 0, callState 6, ringing number [da39a3ee5e6b4b0d3255bfef95601890afd80709], ringing type 128: BPSI.qPS@ACY
+01-01 00:37:03.307  1133  1133 I Telecom : WiredHeadsetManager: ACTION_HEADSET_PLUG event, plugged in: false, : WHC.oADA@ACc
+01-01 00:37:03.307  1133  1444 I stream_devices_changed: [0,1,128]
+01-01 00:37:03.316  1133  1444 I stream_devices_changed: [2,2,130]
+01-01 00:37:03.318  1133  1444 I stream_devices_changed: [3,2,128]
+01-01 00:37:03.320  1133  1444 I stream_devices_changed: [4,2,130]
+01-01 00:37:03.325  1133  1444 I stream_devices_changed: [6,1,128]
+01-01 00:37:05.003  1495  1618 I sysui_action: [210,3]
+01-01 00:37:05.028  1495  1495 I sysui_view_visibility: [207,100]
+01-01 00:37:05.028  1495  1495 I sysui_histogram: [volume_from_keyguard,0]
+01-01 00:37:06.273     0     0 I input   : AVRCP as /devices/virtual/input/input9
+01-01 00:37:06.522  1495  1495 I sysui_view_visibility: [207,0]
+01-01 00:37:06.532  1495  1618 I sysui_action: [210,-1]
+01-01 00:37:06.861  1133  2131 I WindowManager: Destroying surface Surface(name=VolumeDialog) called by com.android.server.wm.WindowStateAnimator.destroySurface:2014 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:881 com.android.server.wm.WindowState.removeLocked:1449 com.android.server.wm.WindowManagerService.removeWindowInnerLocked:2483 com.android.server.wm.WindowManagerService.removeWindowLocked:2441 com.android.server.wm.WindowManagerService.removeWindowLocked:2310 com.android.server.wm.WindowManagerService.removeWindow:2305 com.android.server.wm.Session.remove:193 
+01-01 00:37:06.867   554   554 I sf_frame_dur: [VolumeDialog,36,1,0,0,0,1,0]
+01-01 00:37:08.357  1645  1658 D QtiSubscriptionController: getPhoneId, received dummy subId 2147483643
+01-01 00:37:08.369  1645  1787 D QtiSubscriptionController: getPhoneId, received dummy subId 2147483643
+01-01 00:37:08.377  1645  1657 D QtiSubscriptionController: getPhoneId, received dummy subId 2147483643
+01-01 00:37:11.297  1495  1495 I sysui_view_visibility: [150,0]
+01-01 00:37:11.299  1495  1495 I sysui_view_visibility: [111,100]
+01-01 00:37:15.828  1495  1495 I sysui_view_visibility: [150,100]
+01-01 00:37:16.292  1495  1495 I sysui_view_visibility: [111,0]
+01-01 00:37:18.530  1495  1495 I sysui_view_visibility: [150,0]
+01-01 00:37:18.533  1495  1495 I sysui_view_visibility: [111,100]
+01-01 00:37:20.874  1495  1495 I sysui_view_visibility: [150,100]
+01-01 00:37:21.323  1495  1495 I sysui_view_visibility: [111,0]
+01-01 00:37:30.325  1133  1133 I Telecom : : mReceiver: HEADSET_STATE_CHANGED_ACTION: BM.oR@ACg
+01-01 00:37:30.325  1133  1133 I Telecom : : ==> new state: 0 : BM.oR@ACg
+01-01 00:37:30.343  1133  1688 I Telecom : CallAudioRouteStateMachine: Message received: DISCONNECT_BLUETOOTH=4: BM.oR->CARSM.pM_DISCONNECT_BLUETOOTH@ACg_0
+01-01 00:37:30.346  1133  1688 I Telecom : Telecom: Non-call EVENT: AUDIO_ROUTE, Bluetooth disconnected: BM.oR->CARSM.pM_DISCONNECT_BLUETOOTH@ACg_0
+01-01 00:37:30.347  1133  1688 I Telecom : CallAudioRouteStateMachine: Message received: SWITCH_BASELINE_ROUTE=1005: BM.oR->CARSM.pM_DISCONNECT_BLUETOOTH->CARSM.pM_SWITCH_BASELINE_ROUTE@ACg_0_0
+01-01 00:37:30.348  1133  1688 I Telecom : CallAudioRouteStateMachine: Message received: SWITCH_EARPIECE=1001: BM.oR->CARSM.pM_DISCONNECT_BLUETOOTH->CARSM.pM_SWITCH_BASELINE_ROUTE->CARSM.pM_SWITCH_EARPIECE@ACg_0_0_0
+01-01 00:37:30.348  1133  1688 I Telecom : Telecom: Non-call EVENT: AUDIO_ROUTE, Leaving state QuiescentBluetoothRoute: BM.oR->CARSM.pM_DISCONNECT_BLUETOOTH->CARSM.pM_SWITCH_BASELINE_ROUTE->CARSM.pM_SWITCH_EARPIECE@ACg_0_0_0
+01-01 00:37:30.348  1133  1688 I Telecom : Telecom: Non-call EVENT: AUDIO_ROUTE, Entering state QuiescentEarpieceRoute: BM.oR->CARSM.pM_DISCONNECT_BLUETOOTH->CARSM.pM_SWITCH_BASELINE_ROUTE->CARSM.pM_SWITCH_EARPIECE@ACg_0_0_0
+01-01 00:37:30.349  1133  1133 I Telecom : WiredHeadsetManager: ACTION_HEADSET_PLUG event, plugged in: false, : WHC.oADR@ACk
+01-01 00:37:30.786  3015  3015 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:905 android.content.ContextWrapper.sendBroadcast:421 android.content.ContextWrapper.sendBroadcast:421 com.caf.fmradio.FMMediaButtonIntentReceiver.onReceive:55 android.app.ActivityThread.handleReceiver:3011 
+01-01 00:37:30.789  1133  2162 I am_wtf  : [0,1133,system_server,-1,ActivityManager,Sending non-protected broadcast com.caf.fmradio.action.AUDIO_BECOMING_NOISY from system 3015:com.caf.fmradio/1000 pkg com.caf.fmradio]
+01-01 00:37:30.824  1133  1170 I am_pss  : [3053,1002,com.android.bluetooth,32484352,17395712,0]
+01-01 00:37:31.524  1133  1444 I stream_devices_changed: [0,128,1]
+01-01 00:37:31.527  1133  1133 I Telecom : WiredHeadsetManager: ACTION_HEADSET_PLUG event, plugged in: false, : WHC.oADR@ACo
+01-01 00:37:31.532  1133  1444 I stream_devices_changed: [2,130,2]
+01-01 00:37:31.534  1133  1444 I stream_devices_changed: [3,128,2]
+01-01 00:37:31.538  1133  1444 I stream_devices_changed: [4,130,2]
+01-01 00:37:31.542  1133  1444 I stream_devices_changed: [6,128,1]
+01-01 00:37:34.008  1133  1170 I am_pss  : [1659,1000,com.android.settings,13860864,11800576,0]
+01-01 00:37:39.061  1133  1597 I Telecom : BluetoothPhoneService: queryPhoneState: BPSI.qPS@ACs
+01-01 00:37:39.061  1133  1597 I Telecom : BluetoothPhoneService: updateHeadsetWithCallState numActive 0, numHeld 0, callState 6, ringing number [da39a3ee5e6b4b0d3255bfef95601890afd80709], ringing type 128: BPSI.qPS@ACs
+01-01 00:37:39.105  1133  1133 I Telecom : : mReceiver: HEADSET_STATE_CHANGED_ACTION: BM.oR@ACw
+01-01 00:37:39.106  1133  1133 I Telecom : : ==> new state: 1 : BM.oR@ACw
+01-01 00:37:40.686  1645  1787 D QtiSubscriptionController: getPhoneId, received dummy subId 2147483643
+01-01 00:37:40.738  1133  1133 I Telecom : : mReceiver: HEADSET_STATE_CHANGED_ACTION: BM.oR@AC0
+01-01 00:37:40.739  1133  1133 I Telecom : : ==> new state: 2 : BM.oR@AC0
+01-01 00:37:40.767  1133  1688 I Telecom : CallAudioRouteStateMachine: Message received: CONNECT_BLUETOOTH=3: BM.oR->CARSM.pM_CONNECT_BLUETOOTH@AC0_0
+01-01 00:37:40.767  1133  1688 I Telecom : Telecom: Non-call EVENT: AUDIO_ROUTE, Bluetooth connected: BM.oR->CARSM.pM_CONNECT_BLUETOOTH@AC0_0
+01-01 00:37:40.768  1133  1688 I Telecom : CallAudioRouteStateMachine: Message received: SWITCH_BLUETOOTH=1002: BM.oR->CARSM.pM_CONNECT_BLUETOOTH->CARSM.pM_SWITCH_BLUETOOTH@AC0_0_0
+01-01 00:37:40.769  1133  1688 I Telecom : Telecom: Non-call EVENT: AUDIO_ROUTE, Leaving state QuiescentEarpieceRoute: BM.oR->CARSM.pM_CONNECT_BLUETOOTH->CARSM.pM_SWITCH_BLUETOOTH@AC0_0_0
+01-01 00:37:40.769  1133  1688 I Telecom : Telecom: Non-call EVENT: AUDIO_ROUTE, Entering state QuiescentBluetoothRoute: BM.oR->CARSM.pM_CONNECT_BLUETOOTH->CARSM.pM_SWITCH_BLUETOOTH@AC0_0_0
+01-01 00:37:40.771  1133  1133 I Telecom : WiredHeadsetManager: ACTION_HEADSET_PLUG event, plugged in: false, : WHC.oADA@AC4
+01-01 00:37:40.883  1133  1597 I Telecom : BluetoothPhoneService: queryPhoneState: BPSI.qPS@AC8
+01-01 00:37:40.885  1133  1597 I Telecom : BluetoothPhoneService: updateHeadsetWithCallState numActive 0, numHeld 0, callState 6, ringing number [da39a3ee5e6b4b0d3255bfef95601890afd80709], ringing type 128: BPSI.qPS@AC8
+01-01 00:37:41.252  1133  1133 I Telecom : WiredHeadsetManager: ACTION_HEADSET_PLUG event, plugged in: false, : WHC.oADA@ADA
+01-01 00:37:41.254  1133  1444 I stream_devices_changed: [0,1,128]
+01-01 00:37:41.259  1133  1444 I stream_devices_changed: [2,2,130]
+01-01 00:37:41.263  1133  1444 I stream_devices_changed: [3,2,128]
+01-01 00:37:41.267  1133  1444 I stream_devices_changed: [4,2,130]
+01-01 00:37:41.272  1133  1444 I stream_devices_changed: [6,1,128]
+01-01 00:37:42.912  1495  1618 I sysui_action: [210,3]
+01-01 00:37:42.935  1495  1495 I sysui_view_visibility: [207,100]
+01-01 00:37:42.936  1495  1495 I sysui_histogram: [volume_from_keyguard,0]
+01-01 00:37:43.397  1495  1495 I sysui_view_visibility: [207,0]
+01-01 00:37:43.400  1495  1618 I sysui_action: [210,-1]
+01-01 00:37:43.549  1495  1495 I sysui_view_visibility: [150,0]
+01-01 00:37:43.550  1495  1495 I sysui_view_visibility: [111,100]
+01-01 00:37:43.720  1133  1155 I WindowManager: Destroying surface Surface(name=VolumeDialog) called by com.android.server.wm.WindowStateAnimator.destroySurface:2014 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:881 com.android.server.wm.WindowState.removeLocked:1449 com.android.server.wm.WindowManagerService.removeWindowInnerLocked:2483 com.android.server.wm.WindowManagerService.removeWindowLocked:2441 com.android.server.wm.WindowManagerService.removeWindowLocked:2310 com.android.server.wm.WindowManagerService.removeWindow:2305 com.android.server.wm.Session.remove:193 
+----------------------------------------------------------------
+dmesg bluetooth output:
+1-01 00:36:59.495  1133  1156 D BluetoothManagerService: enable():  mBluetooth =null mBinding = false mState = 10
+01-01 00:36:59.496  1133  1156 D BluetoothManagerService: enable returning
+01-01 00:36:59.497  1133  1192 D BluetoothManagerService: Message: 1
+01-01 00:36:59.497  1133  1192 D BluetoothManagerService: MESSAGE_ENABLE: mBluetooth = null
+01-01 00:36:59.559  1133  1192 D BluetoothManagerService: Message: 20
+01-01 00:36:59.560  1133  1192 D BluetoothManagerService: Added callback: android.bluetooth.IBluetoothManagerCallback$Stub$Proxy@4b01dd4:true
+01-01 00:36:59.583  1133  1133 D BluetoothManagerService: Bluetooth Adapter name changed to QCOM-BTD
+01-01 00:36:59.583  1133  1133 D BluetoothManagerService: Stored Bluetooth name: QCOM-BTD
+01-01 00:36:59.594  1133  1133 D BluetoothManagerService: BluetoothServiceConnection: com.android.bluetooth.btservice.AdapterService
+01-01 00:36:59.594  1133  1192 D BluetoothManagerService: Message: 40
+01-01 00:36:59.594  1133  1192 D BluetoothManagerService: MESSAGE_BLUETOOTH_SERVICE_CONNECTED: 1
+01-01 00:36:59.602  1133  1192 D BluetoothManagerService: Calling onBluetoothServiceUp callbacks
+01-01 00:36:59.603  1133  1192 D BluetoothManagerService: Broadcasting onBluetoothServiceUp() to 6 receivers.
+01-01 00:36:59.609  1133  1192 D BluetoothManagerService: Message: 60
+01-01 00:36:59.609  1133  1192 D BluetoothManagerService: MESSAGE_BLUETOOTH_STATE_CHANGE: prevState = 10, newState=14
+01-01 00:36:59.609  1133  1192 D BluetoothManagerService: BLE State Change Intent: 10 -> 14
+01-01 00:37:00.922  1133  1133 D BluetoothManagerService: Bluetooth Adapter name changed to QCOM-BTD
+01-01 00:37:00.922  1133  1133 D BluetoothManagerService: Stored Bluetooth name: QCOM-BTD
+01-01 00:37:00.942  1133  1192 D BluetoothManagerService: Message: 60
+01-01 00:37:00.942  1133  1192 D BluetoothManagerService: MESSAGE_BLUETOOTH_STATE_CHANGE: prevState = 14, newState=15
+01-01 00:37:00.942  1133  1192 D BluetoothManagerService: Bluetooth is in LE only mode
+01-01 00:37:00.942  1133  1192 D BluetoothManagerService: Binding Bluetooth GATT service
+01-01 00:37:00.946  1133  1192 D BluetoothManagerService: BLE State Change Intent: 14 -> 15
+01-01 00:37:00.950  1133  1133 D BluetoothManagerService: BluetoothServiceConnection: com.android.bluetooth.gatt.GattService
+01-01 00:37:00.951  1133  1192 D BluetoothManagerService: Message: 40
+01-01 00:37:00.951  1133  1192 D BluetoothManagerService: MESSAGE_BLUETOOTH_SERVICE_CONNECTED: 2
+01-01 00:37:00.951  1133  1192 D BluetoothManagerService: BluetoothGatt Service is Up
+01-01 00:37:00.951  1133  1192 D BluetoothManagerService: isBleAppPresent() count: 0
+01-01 00:37:00.957  1133  1192 D BluetoothManagerService: Message: 60
+01-01 00:37:00.957  1133  1192 D BluetoothManagerService: MESSAGE_BLUETOOTH_STATE_CHANGE: prevState = 15, newState=11
+01-01 00:37:00.957  1133  1192 D BluetoothManagerService: BLE State Change Intent: 15 -> 11
+01-01 00:37:01.141  1133  1192 D BluetoothManagerService: Message: 60
+01-01 00:37:01.141  1133  1192 D BluetoothManagerService: MESSAGE_BLUETOOTH_STATE_CHANGE: prevState = 11, newState=12
+01-01 00:37:01.141  1133  1192 D BluetoothManagerService: Broadcasting onBluetoothStateChange(true) to 17 receivers.
+01-01 00:37:01.154  1133  2129 D BluetoothManagerService: checkIfCallerIsForegroundUser: valid=true callingUser=0 parentUser=-10000 foregroundUser=0
+01-01 00:37:01.179  1133  1899 D BluetoothManagerService: checkIfCallerIsForegroundUser: valid=true callingUser=0 parentUser=-10000 foregroundUser=0
+01-01 00:37:01.207  1133  1899 I Telecom : BluetoothPhoneService: queryPhoneState: BPSI.qPS@ACA
+01-01 00:37:01.207  1133  1902 D BluetoothManagerService: checkIfCallerIsForegroundUser: valid=true callingUser=0 parentUser=-10000 foregroundUser=0
+01-01 00:37:01.237  1133  1133 I Telecom : : mReceiver: HEADSET_STATE_CHANGED_ACTION: BM.oR@ACE
+01-01 00:37:01.238  1133  1133 I Telecom : : ==> new state: 1 : BM.oR@ACE
+01-01 00:37:01.356  1133  1192 D BluetoothManagerService: BLE State Change Intent: 11 -> 12
+01-01 00:37:01.359  1133  1133 I Telecom : BluetoothPhoneService: queryPhoneState: BPSI.qPS@ACM
+01-01 00:37:01.359  1133  1133 I Telecom : BluetoothPhoneService: updateHeadsetWithCallState numActive 0, numHeld 0, callState 6, ringing number [da39a3ee5e6b4b0d3255bfef95601890afd80709], ringing type 128: BPSI.qPS@ACM
+01-01 00:37:01.373  1133  1899 D BluetoothManagerService: checkIfCallerIsForegroundUser: valid=true callingUser=0 parentUser=-10000 foregroundUser=0
+01-01 00:37:01.402  1133  2162 D BluetoothManagerService: checkIfCallerIsForegroundUser: valid=true callingUser=0 parentUser=-10000 foregroundUser=0
+01-01 00:37:01.413  1133  2131 D BluetoothManagerService: checkIfCallerIsForegroundUser: valid=true callingUser=0 parentUser=-10000 foregroundUser=0
+01-01 00:37:01.426  1659  1659 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1385 android.content.ContextWrapper.startService:613 android.content.ContextWrapper.startService:613 com.android.settings.bluetooth.DockEventReceiver.beginStartingService:134 com.android.settings.bluetooth.DockEventReceiver.onReceive:115 
+01-01 00:37:01.478  1133  1156 D BluetoothManagerService: checkIfCallerIsForegroundUser: valid=true callingUser=0 parentUser=-10000 foregroundUser=0
+01-01 00:37:01.486  1133  2131 D BluetoothManagerService: checkIfCallerIsForegroundUser: valid=true callingUser=0 parentUser=-10000 foregroundUser=0
+01-01 00:37:01.505  1133  1156 D BluetoothManagerService: checkIfCallerIsForegroundUser: valid=true callingUser=0 parentUser=-10000 foregroundUser=0
+01-01 00:37:02.799  1133  1133 I Telecom : : mReceiver: HEADSET_STATE_CHANGED_ACTION: BM.oR@ACQ
+01-01 00:37:02.799  1133  1133 I Telecom : : ==> new state: 2 : BM.oR@ACQ
+01-01 00:37:02.816  1133  1688 I Telecom : CallAudioRouteStateMachine: Message received: CONNECT_BLUETOOTH=3: BM.oR->CARSM.pM_CONNECT_BLUETOOTH@ACQ_0
+01-01 00:37:02.816  1133  1688 I Telecom : Telecom: Non-call EVENT: AUDIO_ROUTE, Bluetooth connected: BM.oR->CARSM.pM_CONNECT_BLUETOOTH@ACQ_0
+01-01 00:37:02.816  1133  1688 I Telecom : CallAudioRouteStateMachine: Message received: SWITCH_BLUETOOTH=1002: BM.oR->CARSM.pM_CONNECT_BLUETOOTH->CARSM.pM_SWITCH_BLUETOOTH@ACQ_0_0
+01-01 00:37:02.816  1133  1688 I Telecom : Telecom: Non-call EVENT: AUDIO_ROUTE, Leaving state QuiescentEarpieceRoute: BM.oR->CARSM.pM_CONNECT_BLUETOOTH->CARSM.pM_SWITCH_BLUETOOTH@ACQ_0_0
+01-01 00:37:02.816  1133  1688 I Telecom : Telecom: Non-call EVENT: AUDIO_ROUTE, Entering state QuiescentBluetoothRoute: BM.oR->CARSM.pM_CONNECT_BLUETOOTH->CARSM.pM_SWITCH_BLUETOOTH@ACQ_0_0
+01-01 00:37:02.819  1133  1133 I Telecom : WiredHeadsetManager: ACTION_HEADSET_PLUG event, plugged in: false, : WHC.oADA@ACU
+01-01 00:37:02.880  1133  2131 I Telecom : BluetoothPhoneService: queryPhoneState: BPSI.qPS@ACY
+01-01 00:37:02.881  1133  2131 I Telecom : BluetoothPhoneService: updateHeadsetWithCallState numActive 0, numHeld 0, callState 6, ringing number [da39a3ee5e6b4b0d3255bfef95601890afd80709], ringing type 128: BPSI.qPS@ACY
+01-01 00:37:03.307  1133  1133 I Telecom : WiredHeadsetManager: ACTION_HEADSET_PLUG event, plugged in: false, : WHC.oADA@ACc
+01-01 00:37:06.861  1133  2131 I WindowManager: Destroying surface Surface(name=VolumeDialog) called by com.android.server.wm.WindowStateAnimator.destroySurface:2014 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:881 com.android.server.wm.WindowState.removeLocked:1449 com.android.server.wm.WindowManagerService.removeWindowInnerLocked:2483 com.android.server.wm.WindowManagerService.removeWindowLocked:2441 com.android.server.wm.WindowManagerService.removeWindowLocked:2310 com.android.server.wm.WindowManagerService.removeWindow:2305 com.android.server.wm.Session.remove:193 
+01-01 00:37:30.325  1133  1133 I Telecom : : mReceiver: HEADSET_STATE_CHANGED_ACTION: BM.oR@ACg
+01-01 00:37:30.325  1133  1133 I Telecom : : ==> new state: 0 : BM.oR@ACg
+01-01 00:37:30.343  1133  1688 I Telecom : CallAudioRouteStateMachine: Message received: DISCONNECT_BLUETOOTH=4: BM.oR->CARSM.pM_DISCONNECT_BLUETOOTH@ACg_0
+01-01 00:37:30.346  1133  1688 I Telecom : Telecom: Non-call EVENT: AUDIO_ROUTE, Bluetooth disconnected: BM.oR->CARSM.pM_DISCONNECT_BLUETOOTH@ACg_0
+01-01 00:37:30.347  1133  1688 I Telecom : CallAudioRouteStateMachine: Message received: SWITCH_BASELINE_ROUTE=1005: BM.oR->CARSM.pM_DISCONNECT_BLUETOOTH->CARSM.pM_SWITCH_BASELINE_ROUTE@ACg_0_0
+01-01 00:37:30.348  1133  1688 I Telecom : CallAudioRouteStateMachine: Message received: SWITCH_EARPIECE=1001: BM.oR->CARSM.pM_DISCONNECT_BLUETOOTH->CARSM.pM_SWITCH_BASELINE_ROUTE->CARSM.pM_SWITCH_EARPIECE@ACg_0_0_0
+01-01 00:37:30.348  1133  1688 I Telecom : Telecom: Non-call EVENT: AUDIO_ROUTE, Leaving state QuiescentBluetoothRoute: BM.oR->CARSM.pM_DISCONNECT_BLUETOOTH->CARSM.pM_SWITCH_BASELINE_ROUTE->CARSM.pM_SWITCH_EARPIECE@ACg_0_0_0
+01-01 00:37:30.348  1133  1688 I Telecom : Telecom: Non-call EVENT: AUDIO_ROUTE, Entering state QuiescentEarpieceRoute: BM.oR->CARSM.pM_DISCONNECT_BLUETOOTH->CARSM.pM_SWITCH_BASELINE_ROUTE->CARSM.pM_SWITCH_EARPIECE@ACg_0_0_0
+01-01 00:37:30.349  1133  1133 I Telecom : WiredHeadsetManager: ACTION_HEADSET_PLUG event, plugged in: false, : WHC.oADR@ACk
+01-01 00:37:30.786  3015  3015 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:905 android.content.ContextWrapper.sendBroadcast:421 android.content.ContextWrapper.sendBroadcast:421 com.caf.fmradio.FMMediaButtonIntentReceiver.onReceive:55 android.app.ActivityThread.handleReceiver:3011 
+01-01 00:37:31.527  1133  1133 I Telecom : WiredHeadsetManager: ACTION_HEADSET_PLUG event, plugged in: false, : WHC.oADR@ACo
+01-01 00:37:39.061  1133  1597 I Telecom : BluetoothPhoneService: queryPhoneState: BPSI.qPS@ACs
+01-01 00:37:39.061  1133  1597 I Telecom : BluetoothPhoneService: updateHeadsetWithCallState numActive 0, numHeld 0, callState 6, ringing number [da39a3ee5e6b4b0d3255bfef95601890afd80709], ringing type 128: BPSI.qPS@ACs
+01-01 00:37:39.105  1133  1133 I Telecom : : mReceiver: HEADSET_STATE_CHANGED_ACTION: BM.oR@ACw
+01-01 00:37:39.106  1133  1133 I Telecom : : ==> new state: 1 : BM.oR@ACw
+01-01 00:37:40.738  1133  1133 I Telecom : : mReceiver: HEADSET_STATE_CHANGED_ACTION: BM.oR@AC0
+01-01 00:37:40.739  1133  1133 I Telecom : : ==> new state: 2 : BM.oR@AC0
+01-01 00:37:40.767  1133  1688 I Telecom : CallAudioRouteStateMachine: Message received: CONNECT_BLUETOOTH=3: BM.oR->CARSM.pM_CONNECT_BLUETOOTH@AC0_0
+
+01-01 01:09:35.989  3100  3100 I chatty  : uid=1002(bluetooth) /system/bin/wcnss_filter expire 3 lines
+01-01 01:09:36.000  3100  3102 I chatty  : uid=1002(bluetooth) /system/bin/wcnss_filter expire 3 lines
+01-01 01:09:36.010  3100  3100 I chatty  : uid=1002(bluetooth) /system/bin/wcnss_filter expire 3 lines
+01-01 01:09:36.014   738  3185 I bt_a2dp_hw: out_get_format: format 0x4
+01-01 01:09:36.014   738  3185 I bt_a2dp_hw: out_get_channels: channels 0x3
+01-01 01:09:36.014   738  3185 I bt_a2dp_hw: out_get_format: format 0x4
+01-01 01:09:36.014   738  3185 I bt_a2dp_hw: out_get_channels: channels 0x3
+01-01 01:09:36.014   738  3185 I bt_a2dp_hw: out_get_format: format 0x4
+01-01 01:09:36.014   738  3185 I bt_a2dp_hw: out_get_channels: channels 0x3
+01-01 01:09:36.014   738  3185 I bt_a2dp_hw: out_get_format: format 0x4
+01-01 01:09:36.014   738  3185 I bt_a2dp_hw: out_get_channels: channels 0x3
+
+01-01 01:09:43.129  3053  3117 D A2dpStateMachine: connectedState: processAudioStateEvent state: 0 device A0:60:90:27:B3:74
+01-01 01:09:43.129  3053  3117 D A2dpStateMachine: mPlayingA2dpDevice size is 1
+01-01 01:09:43.129  3053  3117 D A2dpStateMachine: mConnectedDevicesList size is true
+01-01 01:09:43.130  3053  3117 D A2dpStateMachine: Enter broadcastAudioState() 
+01-01 01:09:43.130  3053  3120 V Avrcp   : MESSAGE_SET_A2DP_AUDIO_STATE:11
+01-01 01:09:43.130  3053  3120 V Avrcp   : event for device address A0:60:90:27:B3:74
+01-01 01:09:43.130  3053  3120 I Avrcp   : device found at index 0
+01-01 01:09:43.130  3053  3120 V Avrcp   : updateA2dpAudioState
+01-01 01:09:43.130  3100  3100 I WCNSS_FILTER: Direction(1): bytes: 9 : bytes_written: 9
+01-01 01:09:43.131  3100  3100 I WCNSS_FILTER: update_ring_buffer: lock IN_RING_BUF
+01-01 01:09:43.131  3100  3100 I WCNSS_FILTER: update_ring_buffer: unlock IN_RING_BUF
+01-01 01:09:43.132  3053  3118 D bt_btif : ## a2dp ack : A2DP_CTRL_CMD_SUSPEND, status 0 ##
+01-01 01:09:43.132  3053  3119 D bt_btif : ## a2dp ack : A2DP_CTRL_CMD_NONE, status 0 ##
+01-01 01:09:43.132  3053  3119 E bt_btif : warning : no command pending, ignore ack
+01-01 01:09:43.132  3053  3119 D bt_btif : ## AUDIO PATH DETACHED ##
+01-01 01:09:43.133  3053  3118 W bt_btif : pcm bytes per tick 7056
+01-01 01:09:43.133  3053  3118 D bt_btif : btif_media_thread_handle_cmd: BTIF_MEDIA_STOP_AA_TX DONE
+01-01 01:09:43.133   738  3186 I bthost_ipc: a2dp_command: A2DP COMMAND A2DP_CTRL_CMD_SUSPEND DONE STATUS 0
+01-01 01:09:43.134   738  3186 I bthost_ipc: skt_disconnect: fd 47
+01-01 01:09:43.135  3053  3117 D A2dpStateMachine: A2DP Playing state : device: A0:60:90:27:B3:74 State:10->11
+01-01 01:09:43.136  3053  3117 D A2dpStateMachine: Exit broadcastAudioState() 
+01-01 01:09:43.137  3053  3053 V HeadsetService: HeadsetService -  Received BluetoothA2dp Play State changed
+01-01 01:09:43.138  3053  3114 D HeadsetStateMachine:  Enter Connected processMessage() 
+01-01 01:09:43.138  3053  3114 D HeadsetStateMachine: Connected process message: 18, size: 1
+01-01 01:09:43.138  3053  3114 D HeadsetStateMachine: Enter processIntentA2dpPlayStateChanged()
+01-01 01:09:43.138  3053  3114 D HeadsetStateMachine: A2dp Play State Changed: Current State: 11Prev State: 10A2pSuspend: false
+01-01 01:09:43.138  3053  3114 D HeadsetStateMachine: Exit processIntentA2dpPlayStateChanged()
+01-01 01:09:43.138  3053  3114 D HeadsetStateMachine:  Exit Connected processMessage() 
+01-01 01:09:43.147  3053  3117 I A2dpStateMachine: getScanMode: 21 isScanDisabled: false
+01-01 01:09:43.152  3053  3117 D A2dpStateMachine: Exit Connected processAudioStateEvent() 
+01-01 01:09:43.152  3053  3117 D A2dpStateMachine: Exit Connected processMessage() 
+01-01 01:09:43.169  3100  3100 I WCNSS_FILTER: ibs_recv_ibs_cmd: Received IBS_SLEEP_IND: 0xFE
+01-01 01:09:43.169  3100  3100 I WCNSS_FILTER: update_ring_buffer: lock IN_RING_BUF
+01-01 01:09:43.169  3100  3100 I WCNSS_FILTER: update_ring_buffer: unlock IN_RING_BUF
+01-01 01:09:44.128  3100  3106 I WCNSS_FILTER: ibs_wcnss_bt_device_sleep: TX Awake, Sending SLEEP_IND
+01-01 01:09:44.129  3100  3106 I WCNSS_FILTER: do_write: IBS write: fe
+01-01 01:09:44.129  3100  3106 I WCNSS_FILTER: update_ring_buffer: lock OUT_RING_BUF
+01-01 01:09:44.129  3100  3106 I WCNSS_FILTER: update_ring_buffer: unlock OUT_RING_BUF
+01-01 01:09:44.129  3100  3106 I WCNSS_FILTER: ibs_msm_serial_clock_vote: vote UART CLK OFF using UART driver's ioctl()
+01-01 01:09:44.129  3100  3106 D WCNSS_FILTER: wcnss_release_wakelock
+01-01 01:09:45.127  3100  3100 I WCNSS_FILTER: ibs_recv_ibs_cmd: Received IBS_WAKE_IND: 0xFD
+01-01 01:09:45.127  3100  3100 I WCNSS_FILTER: ibs_msm_serial_clock_vote: vote UART CLK ON using UART driver's ioctl()
+01-01 01:09:45.136  3100  3100 D WCNSS_FILTER: wcnss_acquire_wakelock
+01-01 01:09:45.137  3100  3100 I WCNSS_FILTER: ibs_recv_ibs_cmd: Writing IBS_WAKE_ACK
+01-01 01:09:45.137  3100  3100 I WCNSS_FILTER: do_write: IBS write: fc
+01-01 01:09:45.138  3100  3100 I WCNSS_FILTER: update_ring_buffer: lock OUT_RING_BUF
+01-01 01:09:45.138  3100  3100 I WCNSS_FILTER: update_ring_buffer: unlock OUT_RING_BUF
+01-01 01:09:45.138  3100  3100 I WCNSS_FILTER: update_ring_buffer: lock IN_RING_BUF
+01-01 01:09:45.138  3100  3100 I WCNSS_FILTER: update_ring_buffer: unlock IN_RING_BUF
+01-01 01:09:45.138  3100  3100 I WCNSS_FILTER: ibs_recv_ibs_cmd: Received IBS_WAKE_IND: 0xFD
+01-01 01:09:45.138  3100  3100 I WCNSS_FILTER: ibs_recv_ibs_cmd: Writing IBS_WAKE_ACK
+--------------------------------------------------------------------------------
+01-01 00:31:55.032   738   738 I sound_trigger_platform: platform_stdev_init: acdb_init: msm8996-tasha-db-snd-card
+01-01 00:31:55.032   738   738 D ACDB-LOADER: ACDB -> already initialized, exit
+01-01 00:31:55.032   738   738 D sound_trigger_platform: platform_stdev_init Opening device /dev/snd/hwC0D1000
+01-01 00:31:55.033   738   738 D sound_trigger_platform: get_codec_version: codec version WCD9335_2_0
+01-01 00:31:55.034   738   738 I sound_trigger_hw: stdev_get_properties
+01-01 00:31:55.034   738   738 I SoundTriggerHwService: loaded default module Sound Trigger HAL, handle 1
+01-01 00:31:55.045     0     0 E init    : property_set("ro.qualcomm.bluetooth.nap", "false") failed
+01-01 00:31:55.092     0     0 E init    : property_set("ro.bluetooth.sap", "false") failed
+01-01 00:31:55.117   805   805 E mm-camera: <SENSOR><ERROR> 198: sensor_probe: [ov2281]CFG_SINIT_PROBE failed
+01-01 00:31:55.117   805   805 E mm-camera: <SENSOR><ERROR> 370: sensor_init_xml_probe: failed: to probe ov2281
+01-01 00:31:55.140     0     0 E init    : property_set("ro.bluetooth.dun", "false") failed
+01-01 00:31:55.184     0     0 E init    : property_set("ro.qualcomm.bluetooth.hsp", "false") failed
+01-01 00:31:55.224     0     0 E init    : property_set("ro.qualcomm.bluetooth.hfp", "false") failed
+01-01 00:31:55.253   733   733 E Typeface: Error mapping font file /system/fonts/DroidSansFallback.ttf
+01-01 00:31:55.267   735   735 E Typeface: Error mapping font file /system/fonts/DroidSansFallback.ttf
+01-01 00:31:55.276     0     0 E         : msm_qti_pp_get_rms_value_control, back not active to query rms be_idx:3
+01-01 00:31:55.285     0     0 E init    : property_set("ro.qualcomm.bluetooth.pbap", "true") failed
+01-01 00:31:55.288     0     0 E msm_voice_sound_focus_get: Error getting Sound Focus Params, err=-22
+01-01 00:31:55.288     0     0 E msm_voice_source_tracking_get: Error getting Source Tracking Params, err=-22
+01-01 00:31:55.288     0     0 E msm_audio_get_copp_idx_from_port_id: Invalid FE, exiting
+01-01 00:31:55.288     0     0 E msm_audio_sound_focus_get: Could not get copp idx for port_id=16385
+01-01 00:31:55.288     0     0 E msm_audio_get_copp_idx_from_port_id: Invalid FE, exiting
+01-01 00:31:55.288     0     0 E msm_audio_source_tracking_get: Could not get copp idx for port_id=16385
+01-01 00:31:55.288     0     0 E msm_voice_sound_focus_get: Error getting Sound Focus Params, err=-22
+01-01 00:31:55.288     0     0 E msm_voice_source_tracking_get: Error getting Source Tracking Params, err=-22
+01-01 00:31:55.288     0     0 E msm_audio_get_copp_idx_from_port_id: Invalid FE, exiting
+01-01 00:31:55.288     0     0 E msm_audio_sound_focus_get: Could not get copp idx for port_id=4101
+01-01 00:31:55.288     0     0 E msm_audio_get_copp_idx_from_port_id: Invalid FE, exiting
+01-01 00:31:55.288     0     0 E msm_audio_source_tracking_get: Could not get copp idx for port_id=4101
+01-01 00:31:55.289     0     0 E         : msm_pcm_volume_ctl_get substream runtime not found
+01-01 00:31:55.289     0     0 E         : msm_pcm_volume_ctl_get substream runtime not found
+01-01 00:31:55.289     0     0 E         : msm_pcm_volume_ctl_get substream runtime not found
+01-01 00:31:55.289     0     0 E msm_compr_audio_effects_config_get: stream or effects inactive
+01-01 00:31:55.290     0     0 E         : msm_pcm_volume_ctl_get substream runtime not found
+01-01 00:31:55.290     0     0 E msm_compr_audio_effects_config_get: stream or effects inactive
+01-01 00:31:55.290     0     0 E msm_compr_audio_effects_config_get: stream or effects inactive
+
+01-01 03:42:39.090  3100  3100 I WCNSS_FILTER: Direction(1): bytes: 8 : bytes_written: 8
+01-01 03:42:39.092  3100  3100 I WCNSS_FILTER: update_ring_buffer: lock IN_RING_BUF
+01-01 03:42:39.092  3100  3100 I WCNSS_FILTER: update_ring_buffer: unlock IN_RING_BUF
+01-01 03:42:39.099  3100  3102 I WCNSS_FILTER: Direction(0): bytes: 855 : bytes_written: 855
+01-01 03:42:39.099  3100  3102 I WCNSS_FILTER: update_ring_buffer: lock OUT_RING_BUF
+01-01 03:42:39.099  3100  3102 I WCNSS_FILTER: update_ring_buffer: unlock OUT_RING_BUF
+01-01 03:42:39.111  3100  3100 I WCNSS_FILTER: Direction(1): bytes: 8 : bytes_written: 8
+01-01 03:42:39.111  3100  3100 I WCNSS_FILTER: update_ring_buffer: lock IN_RING_BUF
+01-01 03:42:39.111  3100  3100 I WCNSS_FILTER: update_ring_buffer: unlock IN_RING_BUF
+01-01 03:42:39.113   738  3609 I bt_a2dp_hw: out_get_format: format 0x4
+01-01 03:42:39.113   738  3609 I bt_a2dp_hw: out_get_channels: channels 0x3
+01-01 03:42:39.113   738  3609 I bt_a2dp_hw: out_get_format: format 0x4
+01-01 03:42:39.113   738  3609 I bt_a2dp_hw: out_get_channels: channels 0x3
+01-01 03:42:39.114   738  3609 I bt_a2dp_hw: out_get_format: format 0x4
+01-01 03:42:39.114   738  3609 I bt_a2dp_hw: out_get_channels: channels 0x3
+01-01 03:42:39.114   738  3609 I bt_a2dp_hw: out_get_format: format 0x4
+01-01 03:42:39.114   738  3609 I bt_a2dp_hw: out_get_channels: channels 0x3
+-----------------------------------------------------------------------------------------------------------------------
+dmesg output when play a wav file through app
+[12264.771736] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added MM_DL7 in widget list pos 0
+[12264.771752] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added SLIMBUS_6_RX Audio Mixer in widget list pos 1
+[12264.771759] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added SLIMBUS_6_RX in widget list pos 2
+[12264.771767] msm-dai-q6-dev soc:qcom,msm-dai-q6:qcom,msm-dai-q6-sb-6-rx: ASoC: added Slimbus6 Playback in widget list pos 3
+[12264.771772] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added BE_OUT in widget list pos 4
+[12264.783185] tasha_codec tasha_codec: dapm: powering up widget HPHR
+[12264.783197] tasha_codec tasha_codec: dapm: powering up widget HPHL
+[12264.783203] tasha_codec tasha_codec: dapm: powering up widget RX_BIAS
+[12264.783208] tasha_codec tasha_codec: dapm: powering up widget MCLK
+[12264.811148] tasha_codec tasha_codec: dapm: powering up widget AIF4 Playback
+[12264.811158] tasha_codec tasha_codec: dapm: powering up widget SLIM RX3 MUX
+[12264.811164] tasha_codec tasha_codec: dapm: powering up widget SLIM RX2 MUX
+[12264.811170] tasha_codec tasha_codec: dapm: powering up widget RX INT2 INTERP
+[12264.811176] tasha_codec tasha_codec: dapm: powering up widget RX INT1 INTERP
+[12264.811181] tasha_codec tasha_codec: dapm: powering up widget RX INT2 DEM MUX
+[12264.811185] tasha_codec tasha_codec: dapm: powering up widget RX INT1 DEM MUX
+[12264.815525] tasha_codec tasha_codec: dapm: powering up widget RX INT1_2 MUX
+[12264.815849] tasha_codec tasha_codec: dapm: powering up widget RX INT2_2 MUX
+[12264.816089] tasha_codec tasha_codec: dapm: powering up widget RX INT2 DAC
+[12264.816095] tasha_codec tasha_codec: dapm: powering up widget RX INT1 DAC
+[12264.825678] tasha_codec tasha_codec: dapm: powering up widget SLIM RX3
+[12264.825690] tasha_codec tasha_codec: dapm: powering up widget SLIM RX2
+[12264.825696] tasha_codec tasha_codec: dapm: powering up widget RX INT2 SEC MIX
+[12264.825701] tasha_codec tasha_codec: dapm: powering up widget RX INT1 SEC MIX
+[12264.825706] tasha_codec tasha_codec: dapm: powering up widget RX INT2 MIX2
+[12264.825711] tasha_codec tasha_codec: dapm: powering up widget RX INT1 MIX2
+[12264.825718] tasha_codec tasha_codec: dapm: powering up widget AIF4 PB
+[12264.829743] tasha_codec tasha_codec: dapm: powering up widget HPHR PA
+[12264.829758] tasha_codec tasha_codec: dapm: powering up widget HPHL PA
+[12264.864574] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget BE_OUT
+[12264.864586] msm-dai-fe soc:qcom,msm-dai-fe: dapm: powering up widget MultiMedia7 Playback
+[12264.864592] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget SLIMBUS_6_RX Audio Mixer
+[12264.864597] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget MM_DL7
+[12264.864601] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget SLIMBUS_6_RX
+[12265.475500] q6asm_callback: cmd = 0x10bce returned error = 0xa
+[12265.480652] __q6asm_cmd: DSP returned error[ADSP_ENOTREADY] opcode 68558
+[12265.488840] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget BE_OUT
+[12265.488857] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget MM_DL7
+[12265.488864] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget SLIMBUS_6_RX
+[12265.488872] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget SLIMBUS_6_RX Audio Mixer
+[12265.488880] msm-dai-fe soc:qcom,msm-dai-fe: dapm: powering down widget MultiMedia7 Playback
+[12265.492665] tasha_codec tasha_codec: dapm: powering down widget HPHR
+[12265.492681] tasha_codec tasha_codec: dapm: powering down widget HPHL
+[12265.492689] tasha_codec tasha_codec: dapm: powering down widget AIF4 PB
+[12265.500940] tasha_codec tasha_codec: dapm: powering down widget HPHR PA
+[12265.500954] tasha_codec tasha_codec: dapm: powering down widget HPHL PA
+[12265.514633] tasha_codec tasha_codec: dapm: powering down widget SLIM RX3
+[12265.514646] tasha_codec tasha_codec: dapm: powering down widget SLIM RX2
+[12265.514651] tasha_codec tasha_codec: dapm: powering down widget RX INT2 SEC MIX
+[12265.514656] tasha_codec tasha_codec: dapm: powering down widget RX INT1 SEC MIX
+[12265.514661] tasha_codec tasha_codec: dapm: powering down widget RX INT2 MIX2
+[12265.514665] tasha_codec tasha_codec: dapm: powering down widget RX INT1 MIX2
+[12265.514672] tasha_codec tasha_codec: dapm: powering down widget RX INT2 DAC
+[12265.514676] tasha_codec tasha_codec: dapm: powering down widget RX INT1 DAC
+[12265.526538] tasha_codec tasha_codec: dapm: powering down widget SLIM RX3 MUX
+[12265.526552] tasha_codec tasha_codec: dapm: powering down widget SLIM RX2 MUX
+[12265.526557] tasha_codec tasha_codec: dapm: powering down widget RX INT2 INTERP
+[12265.526562] tasha_codec tasha_codec: dapm: powering down widget RX INT1 INTERP
+[12265.526566] tasha_codec tasha_codec: dapm: powering down widget RX INT2 DEM MUX
+[12265.526571] tasha_codec tasha_codec: dapm: powering down widget RX INT1 DEM MUX
+[12265.534767] tasha_codec tasha_codec: dapm: powering down widget RX INT1_2 MUX
+[12265.535040] tasha_codec tasha_codec: dapm: powering down widget RX INT2_2 MUX
+[12265.535297] tasha_codec tasha_codec: dapm: powering down widget AIF4 Playback
+[12265.535309] tasha_codec tasha_codec: dapm: powering down widget RX_BIAS
+[12265.535317] tasha_codec tasha_codec: dapm: powering down widget MCLK
+--------------------------------------------------------------------------------------------------------
+dmesg for record a wav file through tinycap
+[14465.476619] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added MM_UL1 in widget list pos 0
+[14465.476633] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added AUDIO_REF_EC_UL1 MUX in widget list pos 1
+[14465.476641] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added MultiMedia1 Mixer in widget list pos 2
+[14465.476648] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added SLIMBUS_0_TX in widget list pos 3
+[14465.476656] msm-dai-q6-dev soc:qcom,msm-dai-q6:qcom,msm-dai-q6-sb-0-tx: ASoC: added Slimbus Capture in widget list pos 4
+[14465.476661] msm-pcm-routing soc:qcom,msm-pcm-routing: ASoC: added BE_IN in widget list pos 5
+[14465.476748] Ajayq6 msm_pcm_open 536
+[14465.479402] afe_get_cal_topology_id: [AFE_TOPOLOGY_CAL] not initialized for this port 16385
+[14465.511023] tasha_codec tasha_codec: dapm: powering up widget AMIC2
+[14465.511065] tasha_codec tasha_codec: dapm: powering up widget MCLK TX
+[14465.566139] tasha_codec tasha_codec: dapm: powering up widget MIC BIAS2
+[14465.574040] tasha_codec tasha_codec: dapm: powering up widget AIF1 Capture
+[14465.574096] tasha_codec tasha_codec: dapm: powering up widget ADC2
+[14465.575750] tasha_codec tasha_codec: dapm: powering up widget ANCRight Headset Mic
+[14465.575801] tasha_codec tasha_codec: dapm: powering up widget ANCLeft Headset Mic
+[14465.575842] tasha_codec tasha_codec: dapm: powering up widget Headset Mic
+[14465.575878] tasha_codec tasha_codec: dapm: powering up widget SLIM TX0 MUX
+[14465.575910] tasha_codec tasha_codec: dapm: powering up widget AMIC MUX0
+[14465.575946] tasha_codec tasha_codec: dapm: powering up widget ADC MUX0
+[14465.589529] tasha_codec tasha_codec: dapm: powering up widget AIF1_CAP Mixer
+[14465.589595] tasha_codec tasha_codec: dapm: powering up widget AIF1 CAP
+[14465.636510] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget BE_IN
+[14465.636580] msm-dai-fe soc:qcom,msm-dai-fe: dapm: powering up widget MultiMedia1 Capture
+[14465.636617] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget MultiMedia1 Mixer
+[14465.636651] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget MM_UL1
+[14465.636681] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering up widget SLIMBUS_0_TX
+[14504.275693] event_handler: reclaimed all bufs
+[14504.294446] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget BE_IN
+[14504.294516] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget MM_UL1
+[14504.294550] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget SLIMBUS_0_TX
+[14504.294589] msm-pcm-routing soc:qcom,msm-pcm-routing: dapm: powering down widget MultiMedia1 Mixer
+[14504.294626] msm-dai-fe soc:qcom,msm-dai-fe: dapm: powering down widget MultiMedia1 Capture
+[14504.322035] tasha_codec tasha_codec: dapm: powering down widget AMIC2
+[14504.322110] tasha_codec tasha_codec: dapm: powering down widget AIF1 CAP
+[14504.338197] tasha_codec tasha_codec: dapm: powering down widget AIF1_CAP Mixer
+[14504.338269] tasha_codec tasha_codec: dapm: powering down widget ADC2
+[14504.339662] tasha_codec tasha_codec: dapm: powering down widget ANCRight Headset Mic
+[14504.339706] tasha_codec tasha_codec: dapm: powering down widget ANCLeft Headset Mic
+[14504.339737] tasha_codec tasha_codec: dapm: powering down widget Headset Mic
+[14504.339769] tasha_codec tasha_codec: dapm: powering down widget MIC BIAS2
+[14504.350894] tasha_codec tasha_codec: dapm: powering down widget SLIM TX0 MUX
+[14504.350963] tasha_codec tasha_codec: dapm: powering down widget AMIC MUX0
+[14504.351006] tasha_codec tasha_codec: dapm: powering down widget ADC MUX0
+[14504.356999] tasha_codec tasha_codec: dapm: powering down widget AIF1 Capture
+[14504.357079] tasha_codec tasha_codec: dapm: powering down widget MCLK TX
+-----------------------------------------------------------------
+  <path name="speaker">
+        <ctl name="SLIM RX0 MUX" value="AIF_MIX1_PB" />
+        <ctl name="SLIM RX1 MUX" value="AIF_MIX1_PB" />
+        <ctl name="SLIM_0_RX Channels" value="Two" />
+        <ctl name="RX INT7_1 MIX1 INP0" value="RX0" />
+        <ctl name="RX INT8_1 MIX1 INP0" value="RX1" />
+        <ctl name="SpkrLeft COMP Switch" value="1" />
+        <ctl name="SpkrRight COMP Switch" value="1" />
+        <ctl name="SpkrLeft BOOST Switch" value="1" />
+        <ctl name="SpkrRight BOOST Switch" value="1" />
+        <ctl name="SpkrLeft VISENSE Switch" value="1" />
+        <ctl name="SpkrRight VISENSE Switch" value="1" />
+        <ctl name="SpkrLeft SWR DAC_Port Switch" value="1" />
+        <ctl name="SpkrRight SWR DAC_Port Switch" value="1" />
+
+
+tinymix 'SLIM RX0 MUX''AIF_MIX1_PB'
+tinymix 'SLIM RX1 MUX' 'AIF_MIX1_PB'
+tinymix 'SLIM_0_RX Channels' 'Two'
+tinymix 'RX INT7_1 MIX1 INP0' 'RX0'
+tinymix 'RX INT8_1 MIX1 INP0' 'RX1'
+tinymix 'SpkrLeft COMP Switch' '1'
+tinymix 'SpkrRight COMP Switch' '1'
+tinymix 'SpkrLeft BOOST Switch' '1'
+tinymix 'SpkrRight BOOST Switch' '1'
+tinymix 'SpkrLeft VISENSE Switch' '1'
+tinymix 'SpkrRight VISENSE Switch' '1'
+tinymix 'SpkrLeft SWR DAC_Port Switch' '1'
+tinymix 'SpkrRight SWR DAC_Port Switch' '1'
+
+
+
+
+        <ctl name="SLIM RX1 MUX" value="AIF_MIX1_PB" />
+        <ctl name="SLIM_0_RX Channels" value="Two" />
+        <ctl name="RX INT7_1 MIX1 INP0" value="RX0" />
+        <ctl name="RX INT8_1 MIX1 INP0" value="RX1" />
+        <ctl name="SpkrLeft COMP Switch" value="1" />
+        <ctl name="SpkrRight COMP Switch" value="1" />
+        <ctl name="SpkrLeft BOOST Switch" value="1" />
+        <ctl name="SpkrRight BOOST Switch" value="1" />
+        <ctl name="SpkrLeft VISENSE Switch" value="1" />
+        <ctl name="SpkrRight VISENSE Switch" value="1" />
+        <ctl name="SpkrLeft SWR DAC_Port Switch" value="1" />
+        <ctl name="SpkrRight SWR DAC_Port Switch" value="1" />
+--------------------------------------------------------------
+ <path name="headset-mic">
+        <path name="adc2" />
+tinymix 'ADC2 Volume' '12' 
+<path name="adc2">
+        "AIF1_CAP Mixer SLIM TX0" "1"/>
+        "SLIM_0_TX Channels" "One" />
+        "SLIM TX0 MUX""DEC0" />
+        "ADC MUX0" "AMIC" />
+        "AMIC MUX0" "ADC2" />
+        "IIR0 INP0 MUX" "DEC0" />
+------------------------------------------------------------------
+Through music app played a wav file:verbose logs enabled
+
+130|msm8996:/ # logcat -b all | grep audio_hw_primary                                                                                        
+01-01 00:23:57.454   741  3132 V audio_hw_primary: out_write: writing buffer (1280 bytes) to compress device returned 1280
+01-01 00:23:57.454   741  3132 V audio_hw_primary: copl(0xec24e200): writing buffer (1280 bytes) to compress device
+01-01 00:23:57.494   741  3132 V audio_hw_primary: out_write: writing buffer (1280 bytes) to compress device returned 1280
+01-01 00:23:57.495   741  3132 V audio_hw_primary: copl(0xec24e200): writing buffer (1280 bytes) to compress device
+01-01 00:23:57.534   741  3132 V audio_hw_primary: out_write: writing buffer (1280 bytes) to compress device returned 1280
+
+
+01-01 00:24:29.573   741  3132 V audio_hw_primary: out_write: writing buffer (1280 bytes) to compress device returned 1280
+01-01 00:24:29.574   741  3132 V audio_hw_primary: out_get_latency: Latency 50
+01-01 00:24:29.594   741  3132 V audio_hw_primary: out_get_latency: Latency 50
+
+
+01-01 00:24:30.479   741  3132 V audio_hw_primary: copl(0xec24e200): writing buffer (1280 bytes) to compress device
+01-01 00:24:30.497   741  3132 V audio_hw_primary: out_write: writing buffer (1280 bytes) to compress device returned 1280
+01-01 00:24:30.498   741  3132 D audio_hw_primary: out_standby: enter: stream (0xec24e200) usecase(4: compress-offload-playback2)
+01-01 00:24:30.511   741  3132 D audio_hw_primary: copl(0xec24e200):standby
+01-01 00:24:30.667   741  3132 V audio_hw_primary: stop_output_stream: enter: usecase(4: compress-offload-playback2)
+01-01 00:24:30.678   741  3132 V audio_hw_primary: disable_audio_route: enter: usecase(4)
+01-01 00:24:30.679   741  3132 D audio_hw_primary: disable_audio_route: reset and update mixer path: compress-offload-playback2 headphones
+01-01 00:24:30.693   741  3132 V audio_hw_primary: disable_audio_route: exit
+01-01 00:24:30.694   741  3132 D audio_hw_primary: disable_snd_device: snd_device(8: headphones)
+01-01 00:24:30.725   741  3132 V audio_hw_primary: stop_output_stream: exit: status(0)
+01-01 00:24:30.725   741  3132 D audio_hw_primary: out_standby: exit
+01-01 00:25:21.145   741  1455 D audio_hw_primary: adev_set_parameters: enter: screen_state=off
+01-01 00:25:21.145   741  1455 V audio_hw_primary: adev_set_parameters: exit with code(0)
+
+
+
+01-01 02:15:48.017   729   729 D audio_hw_primary: adev_open_output_stream: enter: format(0x1) sample_rate(48000) channel_mask(0x3) devices(0x2) flags(0x8)        stream_handle(0xe617f800)
+01-01 02:15:48.017   729   729 V audio_hw_primary: adev_open_output_stream devices:2, format:1, out->sample_rate:48000,out->bit_width:16 out->format:1 out->flags:8, flags:8
+01-01 02:15:48.017   729   729 D audio_hw_primary: adev_open_output_stream: Stream (0xe617f800) picks up usecase (deep-buffer-playback)
+01-01 02:15:48.017   729   729 V audio_hw_primary: adev_open_output_stream: exit
+01-01 02:15:48.017   729   729 V audio_hw_primary: out_get_latency: Latency 80
+01-01 02:15:48.017   729   729 V audio_hw_primary: out_get_latency: Latency 80
+01-01 02:15:48.018   729   970 D audio_hw_primary: out_set_parameters: enter: usecase(0: deep-buffer-playback) kvpairs: routing=2
+01-01 02:15:48.018   729   970 V audio_hw_primary: out_set_parameters: exit: code(0)
+01-01 02:15:48.019   729   970 V audio_hw_primary: out_get_latency: Latency 80
+01-01 02:15:48.019   729   970 D audio_hw_primary: out_standby: enter: stream (0xe617f800) usecase(0: deep-buffer-playback)
+01-01 02:15:48.019   729   970 D audio_hw_primary: out_standby: exit
+01-01 02:15:48.021   729   729 D audio_hw_primary: adev_open_output_stream: enter: format(0x1) sample_rate(48000) channel_mask(0x3) devices(0x10000) flags(0)        stream_handle(0xe617fc00)
+01-01 02:15:48.021   729   729 V audio_hw_primary: adev_open_output_stream devices:65536, format:1, out->sample_rate:48000,out->bit_width:16 out->format:1 out->flags:0, flags:0
+01-01 02:15:48.021   729   729 D audio_hw_primary: adev_open_output_stream: Stream (0xe617fc00) picks up usecase (afe-proxy-playback)
+01-01 02:15:48.021   729   729 V audio_hw_primary: adev_open_output_stream: exit
+01-01 02:15:48.021   729   729 V audio_hw_primary: out_get_latency: Latency 64
+01-01 02:15:48.021   729   729 V audio_hw_primary: out_get_latency: Latency 64
+01-01 02:15:48.022   729   972 D audio_hw_primary: out_set_parameters: enter: usecase(38: afe-proxy-playback) kvpairs: routing=65536
+01-01 02:15:48.022   729   972 V audio_hw_primary: out_set_parameters: exit: code(0)
+01-01 02:15:48.022   729   972 V audio_hw_primary: out_get_latency: Latency 64
+01-01 02:15:48.022   729   972 D audio_hw_primary: out_standby: enter: stream (0xe617fc00) usecase(38: afe-proxy-playback)
+01-01 02:15:48.022   729   972 D audio_hw_primary: out_standby: exit
+01-01 02:15:48.024   729   729 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0xc) devices(0x80002000)        stream_handle(0xe6d514c0) io_handle(14) source(1) format 1
+01-01 02:15:48.024   729   729 V audio_hw_primary: adev_open_input_stream: exit
+01-01 02:15:48.026   729   729 D audio_hw_primary: adev_close_input_stream: enter:stream_handle(0xe6d514c0)
+01-01 02:15:48.026   729   729 D audio_hw_primary: in_standby: enter: stream (0xe6d514c0) usecase(16: audio-record)
+01-01 02:15:48.026   729   729 V audio_hw_primary: in_standby: exit:  status(0)
+01-01 02:15:48.026   729   729 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0xfc) devices(0x80000004)        stream_handle(0xe6d514c0) io_handle(22) source(1) format 1
+01-01 02:15:48.026   729   729 V audio_hw_primary: adev_open_input_stream: exit
+01-01 02:15:48.027   729   729 D audio_hw_primary: adev_close_input_stream: enter:stream_handle(0xe6d514c0)
+01-01 02:15:48.027   729   729 D audio_hw_primary: in_standby: enter: stream (0xe6d514c0) usecase(16: audio-record)
+01-01 02:15:48.027   729   729 V audio_hw_primary: in_standby: exit:  status(0)
+01-01 02:15:48.027   729   729 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(192000) channel_mask(0x8000000f) devices(0x80000004)        stream_handle(0xe6d514c0) io_handle(30) source(1) format 5
+01-01 02:15:48.027   729   729 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0x8000000f) devices(0x80000004)        stream_handle(0xe6d514c0) io_handle(30) source(1) format 1
+01-01 02:15:48.027   729   729 V audio_hw_primary: adev_open_input_stream: exit
+01-01 02:15:48.028   729   729 D audio_hw_primary: adev_close_input_stream: enter:stream_handle(0xe6d514c0)
+01-01 02:15:48.028   729   729 D audio_hw_primary: in_standby: enter: stream (0xe6d514c0) usecase(16: audio-record)
+01-01 02:15:48.028   729   729 V audio_hw_primary: in_standby: exit:  status(0)
+01-01 02:15:48.028   729   729 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0xc) devices(0x80000040)        stream_handle(0xe6d514c0) io_handle(38) source(1) format 1
+01-01 02:15:48.028   729   729 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0xc) devices(0x80000040)        stream_handle(0xe6d514c0) io_handle(38) source(1) format 1
+01-01 02:15:53.121   729   966 V audio_hw_primary: out_get_latency: Latency 8
+01-01 02:15:53.121   729   970 V audio_hw_primary: out_get_latency: Latency 80
+01-01 02:15:53.122   729   968 V audio_hw_primary: out_get_latency: Latency 10
+01-01 02:15:53.122   729   972 V audio_hw_primary: out_get_latency: Latency 64
+01-01 02:15:53.123   729  1438 D audio_hw_primary: adev_set_mic_mute state 0
+01-01 02:15:53.430   729  1438 D audio_hw_primary: adev_set_parameters: enter: A2dpSuspended=false
+01-01 02:15:53.430   729  1438 V audio_hw_primary: adev_set_parameters: exit with code(0)
+01-01 02:15:54.518   729   729 D audio_hw_primary: adev_set_mic_mute state 0
+01-01 02:15:56.112   729   994 D audio_hw_primary: adev_open_output_stream: enter: format(0x6) sample_rate(8000) channel_mask(0x1) devices(0x4) flags(0x2001)        stream_handle(0xe5a7e200)
+01-01 02:15:56.112   729   994 V audio_hw_primary: DIRECT_PCM usecase ... usecase selected 4 
+01-01 02:15:56.112   729   994 V audio_hw_primary: adev_open_output_stream: offloaded output offload_info version 0001 bit rate 0
+01-01 02:15:56.112   729   994 V audio_hw_primary: check_and_set_gapless_mode:
+01-01 02:15:56.112   729   994 V audio_hw_primary: adev_open_output_stream devices:4, format:6, out->sample_rate:8000,out->bit_width:24 out->format:6 out->flags:2001, flags:2001
+01-01 02:15:56.112   729   994 D audio_hw_primary: adev_open_output_stream: Stream (0xe5a7e200) picks up usecase (compress-offload-playback2)
+01-01 02:15:56.112   729   994 V audio_hw_primary: adev_open_output_stream: exit
+01-01 02:15:56.113   729   994 V audio_hw_primary: out_get_latency: Latency 50
+01-01 02:15:56.113   729   994 V audio_hw_primary: out_get_latency: Latency 50
+01-01 02:15:56.114   729   994 D audio_hw_primary: adev_open_output_stream: enter: format(0x1000000) sample_rate(8000) channel_mask(0x1) devices(0x4) flags(0x31)        stream_handle(0xe5a7e600)
+01-01 02:15:56.114   729   994 V audio_hw_primary: Compress Offload usecase .. usecase selected 3
+01-01 02:15:56.115   729   994 V audio_hw_primary: adev_open_output_stream: offloaded output offload_info version 0001 bit rate 0
+01-01 02:15:56.115   729   994 V audio_hw_primary: check_and_set_gapless_mode:
+01-01 02:15:56.115   729   994 V audio_hw_primary: adev_open_output_stream devices:4, format:1000000, out->sample_rate:8000,out->bit_width:0 out->format:16777216 out->flags:31, flags:31
+01-01 02:15:56.115   729   994 D audio_hw_primary: adev_open_output_stream: Stream (0xe5a7e600) picks up usecase (compress-offload-playback)
+01-01 02:15:56.115   729   994 V audio_hw_primary: adev_open_output_stream: exit
+01-01 02:15:56.115   729   994 V audio_hw_primary: out_set_callback
+01-01 02:15:56.115   729   994 V audio_hw_primary: out_get_latency: Latency 50
+01-01 02:15:56.115   729   994 V audio_hw_primary: out_get_latency: Latency 50
+01-01 02:15:56.118   729  1982 V audio_hw_primary: offload_thread_loop
+01-01 02:15:56.118   729  1982 V audio_hw_primary: offload_thread_loop offload_cmd_list 1 out->offload_state 0
+01-01 02:15:56.118   729  1982 V audio_hw_primary: offload_thread_loop SLEEPING
+01-01 02:15:56.118   729   994 D audio_hw_primary: adev_open_output_stream: enter: format(0x1) sample_rate(8000) channel_mask(0x1) devices(0x4) flags(0x801)        stream_handle(0xe5a7ea00)
+01-01 02:15:56.118   729   994 V audio_hw_primary: adev_open_output_stream devices:4, format:1, out->sample_rate:8000,out->bit_width:16 out->format:1 out->flags:801, flags:801
+01-01 02:15:56.118   729   994 E audio_hw_primary: adev_open_output_stream: Primary output is already opened
+01-01 02:15:56.118   729   994 D audio_hw_primary: adev_open_output_stream: exit: ret -17
+01-01 02:15:56.119   729   894 D audio_hw_primary: adev_set_parameters: enter: connect=4
+01-01 02:15:56.119   729   894 V audio_hw_primary: adev_set_parameters: exit with code(0)
+01-01 02:15:56.119   729  1984 V audio_hw_primary: offload_thread_loop
+01-01 02:15:56.119   729  1984 V audio_hw_primary: offload_thread_loop offload_cmd_list 1 out->offload_state 0
+01-01 02:15:56.119   729  1984 V audio_hw_primary: offload_thread_loop SLEEPING
+01-01 02:15:56.121   729  1983 D audio_hw_primary: out_standby: enter: stream (0xe5a7e200) usecase(4: compress-offload-playback2)
+01-01 02:15:56.121   729  1983 D audio_hw_primary: out_standby: exit
+01-01 02:15:56.123   729  1983 D audio_hw_primary: out_set_parameters: enter: usecase(4: compress-offload-playback2) kvpairs: closing=true
+01-01 02:15:56.123   729  1983 V audio_hw_primary: parse_compress_metadata new encoder delay 0 and padding 0
+01-01 02:15:56.123   729  1983 V audio_hw_primary: out_set_parameters: exit: code(0)
+01-01 02:15:56.124   729   994 D audio_hw_primary: out_set_parameters: enter: usecase(4: compress-offload-playback2) kvpairs: exiting=1
+01-01 02:15:56.124   729   994 V audio_hw_primary: parse_compress_metadata new encoder delay 0 and padding 0
+01-01 02:15:56.124   729   994 V audio_hw_primary: out_set_parameters: exit: code(0)
+01-01 02:15:56.126   729   994 D audio_hw_primary: adev_close_output_stream: enter:stream_handle(0xe5a7e200)
+01-01 02:15:56.126   729   994 D audio_hw_primary: out_standby: enter: stream (0xe5a7e200) usecase(4: compress-offload-playback2)
+01-01 02:15:56.126   729   994 D audio_hw_primary: out_standby: exit
+01-01 02:15:56.126   729   994 V audio_hw_primary: send_offload_cmd_l 0
+01-01 02:15:56.126   729  1982 V audio_hw_primary: offload_thread_loop RUNNING
+01-01 02:15:56.126   729  1982 V audio_hw_primary: offload_thread_loop offload_cmd_list 0 out->offload_state 0
+01-01 02:15:56.126   729  1982 V audio_hw_primary: offload_thread_loop STATE 0 CMD 0 out->compr 0x0
+01-01 02:15:56.127   729   994 V audio_hw_primary: adev_close_output_stream: exit
+01-01 02:15:56.127   729  1988 D audio_hw_primary: out_set_parameters: enter: usecase(3: compress-offload-playback) kvpairs: closing=true
+01-01 02:15:56.128   729  1988 V audio_hw_primary: parse_compress_metadata new encoder delay 0 and padding 0
+01-01 02:15:56.128   729  1988 V audio_hw_primary: out_set_parameters: exit: code(0)
+01-01 02:15:56.128   729   994 D audio_hw_primary: out_set_parameters: enter: usecase(3: compress-offload-playback) kvpairs: exiting=1
+01-01 02:15:56.128   729   994 V audio_hw_primary: parse_compress_metadata new encoder delay 0 and padding 0
+01-01 02:15:56.128   729   994 V audio_hw_primary: out_set_parameters: exit: code(0)
+01-01 02:15:56.128   729  1988 V audio_hw_primary: out_drain
+01-01 02:15:56.128   729  1988 V audio_hw_primary: send_offload_cmd_l 1
+01-01 02:15:56.128   729  1984 V audio_hw_primary: offload_thread_loop RUNNING
+01-01 02:15:56.128   729  1984 V audio_hw_primary: offload_thread_loop offload_cmd_list 0 out->offload_state 0
+01-01 02:15:56.128   729  1984 V audio_hw_primary: offload_thread_loop STATE 0 CMD 1 out->compr 0x0
+01-01 02:15:56.128   729  1984 E audio_hw_primary: offload_thread_loop: Compress handle is NULL
+01-01 02:15:56.129   729  1984 V audio_hw_primary: offload_thread_loop offload_cmd_list 1 out->offload_state 0
+01-01 02:15:56.129   729  1984 V audio_hw_primary: offload_thread_loop SLEEPING
+01-01 02:15:56.129   729   994 D audio_hw_primary: adev_close_output_stream: enter:stream_handle(0xe5a7e600)
+01-01 02:15:56.129   729   994 D audio_hw_primary: out_standby: enter: stream (0xe5a7e600) usecase(3: compress-offload-playback)
+01-01 02:15:56.129   729   994 D audio_hw_primary: out_standby: exit
+01-01 02:15:56.129   729   994 V audio_hw_primary: send_offload_cmd_l 0
+01-01 02:15:56.129   729  1984 V audio_hw_primary: offload_thread_loop RUNNING
+01-01 02:15:56.129   729  1984 V audio_hw_primary: offload_thread_loop offload_cmd_list 0 out->offload_state 0
+01-01 02:15:56.130   729  1984 V audio_hw_primary: offload_thread_loop STATE 0 CMD 0 out->compr 0x0
+01-01 02:15:56.130   729   994 V audio_hw_primary: adev_close_output_stream: exit
+01-01 02:15:56.133   729   966 D audio_hw_primary: out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: routing=0
+01-01 02:15:56.134   729   966 V audio_hw_primary: out_set_parameters: exit: code(0)
+01-01 02:15:56.152   729   968 D audio_hw_primary: out_set_parameters: enter: usecase(12: audio-ull-playback) kvpairs: routing=0
+01-01 02:15:56.152   729   968 V audio_hw_primary: out_set_parameters: exit: code(0)
+01-01 02:15:56.155   729   970 D audio_hw_primary: out_set_parameters: enter: usecase(0: deep-buffer-playback) kvpairs: routing=0
+01-01 02:15:56.155   729   970 V audio_hw_primary: out_set_parameters: exit: code(0)
+01-01 02:15:56.159   729   972 D audio_hw_primary: out_set_parameters: enter: usecase(38: afe-proxy-playback) kvpairs: routing=0
+01-01 02:15:56.159   729   972 V audio_hw_primary: out_set_parameters: exit: code(0)
+01-01 02:15:56.165   729   994 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0xc) devices(0x80000010)        stream_handle(0xe5a046c0) io_handle(54) source(1) format 1
+01-01 02:15:56.165   729   994 V audio_hw_primary: adev_open_input_stream: exit
+01-01 02:15:56.166   729   994 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(192000) channel_mask(0x8000000f) devices(0x80000010)        stream_handle(0xe5a04780) io_handle(62) source(1) format 5
+01-01 02:15:56.167   729   994 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0x8000000f) devices(0x80000010)        stream_handle(0xe5a04780) io_handle(62) source(1) format 1
+01-01 02:15:56.167   729   994 V audio_hw_primary: adev_open_input_stream: exit
+01-01 02:15:56.169   729  1995 D audio_hw_primary: in_standby: enter: stream (0xe5a046c0) usecase(16: audio-record)
+01-01 02:15:56.169   729  1995 V audio_hw_primary: in_standby: exit:  status(0)
+01-01 02:15:56.169   729  1995 D audio_hw_primary: in_standby: enter: stream (0xe5a046c0) usecase(16: audio-record)
+01-01 02:15:56.169   729  1995 V audio_hw_primary: in_standby: exit:  status(0)
+01-01 02:15:56.172   729   894 D audio_hw_primary: adev_set_parameters: enter: connect=-2147483632
+01-01 02:15:56.173   729   894 V audio_hw_primary: adev_set_parameters: exit with code(0)
+01-01 02:15:56.174   729   994 D audio_hw_primary: adev_close_input_stream: enter:stream_handle(0xe5a04780)
+01-01 02:15:56.174   729   994 D audio_hw_primary: in_standby: enter: stream (0xe5a04780) usecase(16: audio-record)
+01-01 02:15:56.174   729   994 V audio_hw_primary: in_standby: exit:  status(0)
+01-01 02:15:56.176   729   994 D audio_hw_primary: adev_close_input_stream: enter:stream_handle(0xe5a046c0)
+01-01 02:15:56.176   729   994 D audio_hw_primary: in_standby: enter: stream (0xe5a046c0) usecase(16: audio-record)
+01-01 02:15:56.176   729   994 V audio_hw_primary: in_standby: exit:  status(0)
+01-01 02:15:56.436   729   729 D audio_hw_primary: adev_set_parameters: enter: A2dpSuspended=false
+01-01 02:15:56.436   729   729 V audio_hw_primary: adev_set_parameters: exit with code(0)
+01-01 02:16:06.427   729   994 D audio_hw_primary: adev_set_parameters: enter: screen_state=on
+01-01 02:16:06.427   729   994 V audio_hw_primary: adev_set_parameters: exit with code(0)
+01-01 02:16:06.465   729   729 D audio_hw_primary: adev_set_parameters: enter: screen_state=off
+01-01 02:16:06.466   729   729 V audio_hw_primary: adev_set_parameters: exit with code(0)
+
+------------------------------------------------------------------------------------------------------------------------------------
+played a wav file using music app:without verbose logs
+
+
+msm8996:/ # logcat -b all | grep select_devices                                                                                              
+01-01 02:38:40.687   738  3089 D audio_hw_primary: select_devices for use case (compress-offload-playback2)
+01-01 02:38:40.687   738  3089 D audio_hw_primary: select_devices: out_snd_device(8: headphones) in_snd_device(0: )
+01-01 02:38:40.695   738  3089 I audio_hw_primary: select_devices Selected apptype: 69936
+01-01 02:38:40.698   738  3089 D audio_hw_primary: select_devices: done
+^Z[4] + Stopped              logcat -b all | grep select_devices 
+msm8996:/ # 
+msm8996:/ # logcat -b all | grep audio_hw_primary                                                                                            
+01-01 02:36:00.514   738   738 D audio_hw_primary: adev_open: enter
+01-01 02:36:01.371   738   738 D audio_hw_primary: adev_open_output_stream: enter: format(0x1) sample_rate(48000) channel_mask(0x3) devices(0x2) flags(0x6)        stream_handle(0xecc7f000)
+01-01 02:36:01.371   738   738 D audio_hw_primary: adev_open_output_stream: Stream (0xecc7f000) picks up usecase (low-latency-playback)
+01-01 02:36:01.404   738   965 D audio_hw_primary: out_standby: enter: stream (0xecc7f000) usecase(1: low-latency-playback)
+01-01 02:36:01.404   738   965 D audio_hw_primary: out_standby: exit
+01-01 02:36:01.405   738   965 D audio_hw_primary: out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: routing=2
+01-01 02:36:01.406   738   738 D audio_hw_primary: adev_open_output_stream: enter: format(0x1) sample_rate(48000) channel_mask(0x3) devices(0x2) flags(0x104)        stream_handle(0xecc7f400)
+01-01 02:36:01.407   738   738 D audio_hw_primary: adev_open_output_stream: Stream (0xecc7f400) picks up usecase (audio-ull-playback)
+01-01 02:36:01.408   738   967 D audio_hw_primary: out_set_parameters: enter: usecase(12: audio-ull-playback) kvpairs: routing=2
+01-01 02:36:01.408   738   967 D audio_hw_primary: out_standby: enter: stream (0xecc7f400) usecase(12: audio-ull-playback)
+01-01 02:36:01.408   738   967 D audio_hw_primary: out_standby: exit
+01-01 02:36:01.410   738   738 D audio_hw_primary: adev_open_output_stream: enter: format(0x1) sample_rate(48000) channel_mask(0x3) devices(0x2) flags(0x8)        stream_handle(0xecc7f800)
+01-01 02:36:01.410   738   738 D audio_hw_primary: adev_open_output_stream: Stream (0xecc7f800) picks up usecase (deep-buffer-playback)
+01-01 02:36:01.411   738   968 D audio_hw_primary: out_standby: enter: stream (0xecc7f800) usecase(0: deep-buffer-playback)
+01-01 02:36:01.411   738   968 D audio_hw_primary: out_standby: exit
+01-01 02:36:01.411   738   968 D audio_hw_primary: out_set_parameters: enter: usecase(0: deep-buffer-playback) kvpairs: routing=2
+01-01 02:36:01.421   738   738 D audio_hw_primary: adev_open_output_stream: enter: format(0x1) sample_rate(48000) channel_mask(0x3) devices(0x10000) flags(0)        stream_handle(0xecc7fc00)
+01-01 02:36:01.421   738   738 D audio_hw_primary: adev_open_output_stream: Stream (0xecc7fc00) picks up usecase (afe-proxy-playback)
+01-01 02:36:01.422   738   971 D audio_hw_primary: out_set_parameters: enter: usecase(38: afe-proxy-playback) kvpairs: routing=65536
+01-01 02:36:01.423   738   971 D audio_hw_primary: out_standby: enter: stream (0xecc7fc00) usecase(38: afe-proxy-playback)
+01-01 02:36:01.423   738   971 D audio_hw_primary: out_standby: exit
+01-01 02:36:01.425   738   738 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0xc) devices(0x80002000)        stream_handle(0xed8514c0) io_handle(14) source(1) format 1
+01-01 02:36:01.426   738   738 D audio_hw_primary: adev_close_input_stream: enter:stream_handle(0xed8514c0)
+01-01 02:36:01.426   738   738 D audio_hw_primary: in_standby: enter: stream (0xed8514c0) usecase(16: audio-record)
+01-01 02:36:01.426   738   738 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0xfc) devices(0x80000004)        stream_handle(0xed8514c0) io_handle(22) source(1) format 1
+01-01 02:36:01.433   738   738 D audio_hw_primary: adev_close_input_stream: enter:stream_handle(0xed8514c0)
+01-01 02:36:01.433   738   738 D audio_hw_primary: in_standby: enter: stream (0xed8514c0) usecase(16: audio-record)
+01-01 02:36:01.434   738   738 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(192000) channel_mask(0x8000000f) devices(0x80000004)        stream_handle(0xed8514c0) io_handle(30) source(1) format 5
+01-01 02:36:01.434   738   738 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0x8000000f) devices(0x80000004)        stream_handle(0xed8514c0) io_handle(30) source(1) format 1
+01-01 02:36:01.435   738   738 D audio_hw_primary: adev_close_input_stream: enter:stream_handle(0xed8514c0)
+01-01 02:36:01.435   738   738 D audio_hw_primary: in_standby: enter: stream (0xed8514c0) usecase(16: audio-record)
+01-01 02:36:01.435   738   738 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0xc) devices(0x80000040)        stream_handle(0xed8514c0) io_handle(38) source(1) format 1
+01-01 02:36:01.435   738   738 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0xc) devices(0x80000040)        stream_handle(0xed8514c0) io_handle(38) source(1) format 1
+01-01 02:36:06.359   738   738 D audio_hw_primary: adev_set_mic_mute state 0
+01-01 02:36:06.653   738   738 D audio_hw_primary: adev_set_parameters: enter: A2dpSuspended=false
+01-01 02:36:07.748   738  1445 D audio_hw_primary: adev_set_mic_mute state 0
+01-01 02:36:09.172   738   738 D audio_hw_primary: adev_open_output_stream: enter: format(0x6) sample_rate(8000) channel_mask(0x1) devices(0x4) flags(0x2001)        stream_handle(0xec154200)
+01-01 02:36:09.172   738   738 D audio_hw_primary: adev_open_output_stream: Stream (0xec154200) picks up usecase (compress-offload-playback2)
+01-01 02:36:09.173   738   738 D audio_hw_primary: adev_open_output_stream: enter: format(0x1000000) sample_rate(8000) channel_mask(0x1) devices(0x4) flags(0x31)        stream_handle(0xec154600)
+01-01 02:36:09.173   738   738 D audio_hw_primary: adev_open_output_stream: Stream (0xec154600) picks up usecase (compress-offload-playback)
+01-01 02:36:09.174   738   738 D audio_hw_primary: adev_open_output_stream: enter: format(0x1) sample_rate(8000) channel_mask(0x1) devices(0x4) flags(0x801)        stream_handle(0xec154a00)
+01-01 02:36:09.174   738   738 E audio_hw_primary: adev_open_output_stream: Primary output is already opened
+01-01 02:36:09.174   738   738 D audio_hw_primary: adev_open_output_stream: exit: ret -17
+01-01 02:36:09.174   738   914 D audio_hw_primary: adev_set_parameters: enter: connect=4
+01-01 02:36:09.186   738  1956 D audio_hw_primary: out_set_parameters: enter: usecase(4: compress-offload-playback2) kvpairs: closing=true
+01-01 02:36:09.186   738  1956 D audio_hw_primary: out_standby: enter: stream (0xec154200) usecase(4: compress-offload-playback2)
+01-01 02:36:09.186   738  1956 D audio_hw_primary: out_standby: exit
+01-01 02:36:09.187   738   738 D audio_hw_primary: out_set_parameters: enter: usecase(4: compress-offload-playback2) kvpairs: exiting=1
+01-01 02:36:09.188   738   738 D audio_hw_primary: adev_close_output_stream: enter:stream_handle(0xec154200)
+01-01 02:36:09.188   738   738 D audio_hw_primary: out_standby: enter: stream (0xec154200) usecase(4: compress-offload-playback2)
+01-01 02:36:09.188   738   738 D audio_hw_primary: out_standby: exit
+01-01 02:36:09.189   738  1960 D audio_hw_primary: out_set_parameters: enter: usecase(3: compress-offload-playback) kvpairs: closing=true
+01-01 02:36:09.190   738   738 D audio_hw_primary: out_set_parameters: enter: usecase(3: compress-offload-playback) kvpairs: exiting=1
+01-01 02:36:09.190   738   738 D audio_hw_primary: adev_close_output_stream: enter:stream_handle(0xec154600)
+01-01 02:36:09.190   738   738 D audio_hw_primary: out_standby: enter: stream (0xec154600) usecase(3: compress-offload-playback)
+01-01 02:36:09.190   738   738 D audio_hw_primary: out_standby: exit
+01-01 02:36:09.191   738  1958 E audio_hw_primary: offload_thread_loop: Compress handle is NULL
+01-01 02:36:09.192   738   965 D audio_hw_primary: out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: routing=0
+01-01 02:36:09.193   738   967 D audio_hw_primary: out_set_parameters: enter: usecase(12: audio-ull-playback) kvpairs: routing=0
+01-01 02:36:09.194   738   968 D audio_hw_primary: out_set_parameters: enter: usecase(0: deep-buffer-playback) kvpairs: routing=0
+01-01 02:36:09.195   738   971 D audio_hw_primary: out_set_parameters: enter: usecase(38: afe-proxy-playback) kvpairs: routing=0
+01-01 02:36:09.203   738  1026 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0xc) devices(0x80000010)        stream_handle(0xec48d6c0) io_handle(54) source(1) format 1
+01-01 02:36:09.203   738  1026 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(192000) channel_mask(0x8000000f) devices(0x80000010)        stream_handle(0xec48d780) io_handle(62) source(1) format 5
+01-01 02:36:09.204   738  1026 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0x8000000f) devices(0x80000010)        stream_handle(0xec48d780) io_handle(62) source(1) format 1
+01-01 02:36:09.204   738   914 D audio_hw_primary: adev_set_parameters: enter: connect=-2147483632
+01-01 02:36:09.213   738  1969 D audio_hw_primary: in_standby: enter: stream (0xec48d6c0) usecase(16: audio-record)
+01-01 02:36:09.214   738  1969 D audio_hw_primary: in_standby: enter: stream (0xec48d6c0) usecase(16: audio-record)
+01-01 02:36:09.217   738  1026 D audio_hw_primary: adev_close_input_stream: enter:stream_handle(0xec48d780)
+01-01 02:36:09.217   738  1026 D audio_hw_primary: in_standby: enter: stream (0xec48d780) usecase(16: audio-record)
+01-01 02:36:09.219   738  1026 D audio_hw_primary: adev_close_input_stream: enter:stream_handle(0xec48d6c0)
+01-01 02:36:09.219   738  1026 D audio_hw_primary: in_standby: enter: stream (0xec48d6c0) usecase(16: audio-record)
+01-01 02:36:09.664   738   738 D audio_hw_primary: adev_set_parameters: enter: A2dpSuspended=false
+01-01 02:36:19.494   738   738 D audio_hw_primary: adev_set_parameters: enter: screen_state=on
+01-01 02:36:19.551   738  1026 D audio_hw_primary: adev_set_parameters: enter: screen_state=off
+01-01 02:36:28.665   738   738 D audio_hw_primary: adev_set_parameters: enter: screen_state=on
+01-01 02:37:49.497   738  1026 D audio_hw_primary: adev_set_parameters: enter: screen_state=off
+01-01 02:38:26.537   738  1026 D audio_hw_primary: adev_set_parameters: enter: screen_state=on
+01-01 02:38:40.650   738  1445 D audio_hw_primary: adev_open_output_stream: enter: format(0x1) sample_rate(8000) channel_mask(0x3) devices(0x4) flags(0x2001)        stream_handle(0xecbfee00)
+01-01 02:38:40.650   738  1445 D audio_hw_primary: adev_open_output_stream: Stream (0xecbfee00) picks up usecase (compress-offload-playback2)
+01-01 02:38:40.653   738  3089 D audio_hw_primary: out_standby: enter: stream (0xecbfee00) usecase(4: compress-offload-playback2)
+01-01 02:38:40.653   738  3089 D audio_hw_primary: out_standby: exit
+01-01 02:38:40.663   738  3089 D audio_hw_primary: out_set_parameters: enter: usecase(4: compress-offload-playback2) kvpairs: routing=4
+01-01 02:38:40.686   738  3089 D audio_hw_primary: start_output_stream: enter: stream(0xecbfee00)usecase(4: compress-offload-playback2) devices(0x4)
+01-01 02:38:40.687   738  3089 D audio_hw_primary: select_devices for use case (compress-offload-playback2)
+01-01 02:38:40.687   738  3089 D audio_hw_primary: select_devices: out_snd_device(8: headphones) in_snd_device(0: )
+01-01 02:38:40.688   738  3089 D audio_hw_primary: check_usecases_codec_backend:becf: force routing 1
+01-01 02:38:40.688   738  3089 D audio_hw_primary: check_usecases_codec_backend:becf: (40) check_usecases curr device: headphones, usecase device: backends match 0
+01-01 02:38:40.688   738  3089 D audio_hw_primary: check_usecases_codec_backend:becf: check_usecases num.of Usecases to switch 0
+01-01 02:38:40.688   738  3089 D audio_hw_primary: enable_snd_device: snd_device(8: headphones)
+01-01 02:38:40.695   738  3089 I audio_hw_primary: select_devices Selected apptype: 69936
+01-01 02:38:40.696   738  3089 D audio_hw_primary: enable_audio_route: apply mixer and update path: compress-offload-playback2 headphones
+01-01 02:38:40.698   738  3089 D audio_hw_primary: select_devices: done
+01-01 02:38:40.775   738  3089 D audio_hw_primary: start_output_stream: exit
+01-01 02:38:40.775   738  3089 D audio_hw_primary: copl(0xecbfee00):send new gapless metadata
+01-01 02:39:15.197   738  3089 D audio_hw_primary: out_standby: enter: stream (0xecbfee00) usecase(4: compress-offload-playback2)
+01-01 02:39:15.210   738  3089 D audio_hw_primary: copl(0xecbfee00):standby
+01-01 02:39:15.319   738  3089 D audio_hw_primary: disable_audio_route: reset and update mixer path: compress-offload-playback2 headphones
+01-01 02:39:15.325   738  3089 D audio_hw_primary: disable_snd_device: snd_device(8: headphones)
+01-01 02:39:15.353   738  3089 D audio_hw_primary: out_standby: exit
+01-01 02:39:43.365   738  1026 D audio_hw_primary: adev_set_parameters: enter: screen_state=off
+----------------------------------------------------------------------------------
+played a wav file using tinyplay command:without verbose logs
+for tinyplay tinymix settings
+tinymix 'SLIMBUS_6_RX Audio Mixer MultiMedia1' '1'
+for headphones          
+tinymix 'SLIM RX2 MUX' 'AIF4_PB'          
+tinymix 'SLIM RX3 MUX' 'AIF4_PB'                                  
+tinymix 'SLIM_6_RX Channels' 'Two'                                
+tinymix 'RX INT1_2 MUX' 'RX2'                                      
+tinymix 'RX INT2_2 MUX' 'RX3'                                      
+tinymix 'RX INT1 DEM MUX' 'CLSH_DSM_OUT'                          
+tinymix 'RX INT2 DEM MUX' 'CLSH_DSM_OUT'
+
+
+msm8996:/ # logcat -b all | grep audio_hw_primary                                                                                            
+01-01 02:46:30.348   741   741 D audio_hw_primary: adev_open: enter
+01-01 02:46:31.066   741   741 D audio_hw_primary: adev_open_output_stream: enter: format(0x1) sample_rate(48000) channel_mask(0x3) devices(0x2) flags(0x6)        stream_handle(0xf02ff000)
+01-01 02:46:31.066   741   741 D audio_hw_primary: adev_open_output_stream: Stream (0xf02ff000) picks up usecase (low-latency-playback)
+01-01 02:46:31.157   741   954 D audio_hw_primary: out_standby: enter: stream (0xf02ff000) usecase(1: low-latency-playback)
+01-01 02:46:31.157   741   954 D audio_hw_primary: out_standby: exit
+01-01 02:46:31.159   741   954 D audio_hw_primary: out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: routing=2
+01-01 02:46:31.177   741   741 D audio_hw_primary: adev_open_output_stream: enter: format(0x1) sample_rate(48000) channel_mask(0x3) devices(0x2) flags(0x104)        stream_handle(0xf02ff400)
+01-01 02:46:31.178   741   741 D audio_hw_primary: adev_open_output_stream: Stream (0xf02ff400) picks up usecase (audio-ull-playback)
+01-01 02:46:31.182   741   957 D audio_hw_primary: out_set_parameters: enter: usecase(12: audio-ull-playback) kvpairs: routing=2
+01-01 02:46:31.182   741   957 D audio_hw_primary: out_standby: enter: stream (0xf02ff400) usecase(12: audio-ull-playback)
+01-01 02:46:31.182   741   957 D audio_hw_primary: out_standby: exit
+01-01 02:46:31.195   741   741 D audio_hw_primary: adev_open_output_stream: enter: format(0x1) sample_rate(48000) channel_mask(0x3) devices(0x2) flags(0x8)        stream_handle(0xf02ff800)
+01-01 02:46:31.195   741   741 D audio_hw_primary: adev_open_output_stream: Stream (0xf02ff800) picks up usecase (deep-buffer-playback)
+01-01 02:46:31.196   741   959 D audio_hw_primary: out_standby: enter: stream (0xf02ff800) usecase(0: deep-buffer-playback)
+01-01 02:46:31.196   741   959 D audio_hw_primary: out_standby: exit
+01-01 02:46:31.198   741   959 D audio_hw_primary: out_set_parameters: enter: usecase(0: deep-buffer-playback) kvpairs: routing=2
+01-01 02:46:31.201   741   741 D audio_hw_primary: adev_open_output_stream: enter: format(0x1) sample_rate(48000) channel_mask(0x3) devices(0x10000) flags(0)        stream_handle(0xf02ffc00)
+01-01 02:46:31.201   741   741 D audio_hw_primary: adev_open_output_stream: Stream (0xf02ffc00) picks up usecase (afe-proxy-playback)
+01-01 02:46:31.204   741   961 D audio_hw_primary: out_set_parameters: enter: usecase(38: afe-proxy-playback) kvpairs: routing=65536
+01-01 02:46:31.204   741   961 D audio_hw_primary: out_standby: enter: stream (0xf02ffc00) usecase(38: afe-proxy-playback)
+01-01 02:46:31.204   741   961 D audio_hw_primary: out_standby: exit
+01-01 02:46:31.207   741   741 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0xc) devices(0x80002000)        stream_handle(0xf0ed14c0) io_handle(14) source(1) format 1
+01-01 02:46:31.216   741   741 D audio_hw_primary: adev_close_input_stream: enter:stream_handle(0xf0ed14c0)
+01-01 02:46:31.216   741   741 D audio_hw_primary: in_standby: enter: stream (0xf0ed14c0) usecase(16: audio-record)
+01-01 02:46:31.216   741   741 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0xfc) devices(0x80000004)        stream_handle(0xf0ed14c0) io_handle(22) source(1) format 1
+01-01 02:46:31.219   741   741 D audio_hw_primary: adev_close_input_stream: enter:stream_handle(0xf0ed14c0)
+01-01 02:46:31.219   741   741 D audio_hw_primary: in_standby: enter: stream (0xf0ed14c0) usecase(16: audio-record)
+01-01 02:46:31.219   741   741 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(192000) channel_mask(0x8000000f) devices(0x80000004)        stream_handle(0xf0ed14c0) io_handle(30) source(1) format 5
+01-01 02:46:31.219   741   741 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0x8000000f) devices(0x80000004)        stream_handle(0xf0ed14c0) io_handle(30) source(1) format 1
+01-01 02:46:31.220   741   741 D audio_hw_primary: adev_close_input_stream: enter:stream_handle(0xf0ed14c0)
+01-01 02:46:31.221   741   741 D audio_hw_primary: in_standby: enter: stream (0xf0ed14c0) usecase(16: audio-record)
+01-01 02:46:31.221   741   741 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0xc) devices(0x80000040)        stream_handle(0xf0ed14c0) io_handle(38) source(1) format 1
+01-01 02:46:31.221   741   741 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0xc) devices(0x80000040)        stream_handle(0xf0ed14c0) io_handle(38) source(1) format 1
+01-01 02:46:37.065   741  1444 D audio_hw_primary: adev_set_mic_mute state 0
+01-01 02:46:37.425   741  1444 D audio_hw_primary: adev_set_parameters: enter: A2dpSuspended=false
+01-01 02:46:38.850   741   741 D audio_hw_primary: adev_set_mic_mute state 0
+01-01 02:46:41.262   741  1444 D audio_hw_primary: adev_open_output_stream: enter: format(0x6) sample_rate(8000) channel_mask(0x1) devices(0x4) flags(0x2001)        stream_handle(0xefb7b200)
+01-01 02:46:41.262   741  1444 D audio_hw_primary: adev_open_output_stream: Stream (0xefb7b200) picks up usecase (compress-offload-playback2)
+01-01 02:46:41.268   741  1993 D audio_hw_primary: out_standby: enter: stream (0xefb7b200) usecase(4: compress-offload-playback2)
+01-01 02:46:41.268   741  1993 D audio_hw_primary: out_standby: exit
+01-01 02:46:41.270   741  1444 D audio_hw_primary: adev_open_output_stream: enter: format(0x1000000) sample_rate(8000) channel_mask(0x1) devices(0x4) flags(0x31)        stream_handle(0xefb7b600)
+01-01 02:46:41.270   741  1444 D audio_hw_primary: adev_open_output_stream: Stream (0xefb7b600) picks up usecase (compress-offload-playback)
+01-01 02:46:41.275   741  1444 D audio_hw_primary: adev_open_output_stream: enter: format(0x1) sample_rate(8000) channel_mask(0x1) devices(0x4) flags(0x801)        stream_handle(0xefb7ba00)
+01-01 02:46:41.275   741  1444 E audio_hw_primary: adev_open_output_stream: Primary output is already opened
+01-01 02:46:41.275   741  1444 D audio_hw_primary: adev_open_output_stream: exit: ret -17
+01-01 02:46:41.275   741   876 D audio_hw_primary: adev_set_parameters: enter: connect=4
+01-01 02:46:41.277   741  1993 D audio_hw_primary: out_set_parameters: enter: usecase(4: compress-offload-playback2) kvpairs: closing=true
+01-01 02:46:41.278   741  1444 D audio_hw_primary: out_set_parameters: enter: usecase(4: compress-offload-playback2) kvpairs: exiting=1
+01-01 02:46:41.279   741  1444 D audio_hw_primary: adev_close_output_stream: enter:stream_handle(0xefb7b200)
+01-01 02:46:41.279   741  1444 D audio_hw_primary: out_standby: enter: stream (0xefb7b200) usecase(4: compress-offload-playback2)
+01-01 02:46:41.279   741  1444 D audio_hw_primary: out_standby: exit
+01-01 02:46:41.282   741  1997 D audio_hw_primary: out_set_parameters: enter: usecase(3: compress-offload-playback) kvpairs: closing=true
+01-01 02:46:41.283   741  1444 D audio_hw_primary: out_set_parameters: enter: usecase(3: compress-offload-playback) kvpairs: exiting=1
+01-01 02:46:41.283   741  1995 E audio_hw_primary: offload_thread_loop: Compress handle is NULL
+01-01 02:46:41.284   741  1444 D audio_hw_primary: adev_close_output_stream: enter:stream_handle(0xefb7b600)
+01-01 02:46:41.284   741  1444 D audio_hw_primary: out_standby: enter: stream (0xefb7b600) usecase(3: compress-offload-playback)
+01-01 02:46:41.284   741  1444 D audio_hw_primary: out_standby: exit
+01-01 02:46:41.288   741   954 D audio_hw_primary: out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: routing=0
+01-01 02:46:41.295   741   957 D audio_hw_primary: out_set_parameters: enter: usecase(12: audio-ull-playback) kvpairs: routing=0
+01-01 02:46:41.301   741   959 D audio_hw_primary: out_set_parameters: enter: usecase(0: deep-buffer-playback) kvpairs: routing=0
+01-01 02:46:41.306   741   961 D audio_hw_primary: out_set_parameters: enter: usecase(38: afe-proxy-playback) kvpairs: routing=0
+01-01 02:46:41.475   741  1444 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0xc) devices(0x80000010)        stream_handle(0xefb049c0) io_handle(54) source(1) format 1
+01-01 02:46:41.476   741  2105 D audio_hw_primary: in_standby: enter: stream (0xefb049c0) usecase(16: audio-record)
+01-01 02:46:41.477   741  1444 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(192000) channel_mask(0x8000000f) devices(0x80000010)        stream_handle(0xefb04a80) io_handle(62) source(1) format 5
+01-01 02:46:41.477   741  1444 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(48000) channel_mask(0x8000000f) devices(0x80000010)        stream_handle(0xefb04a80) io_handle(62) source(1) format 1
+01-01 02:46:41.478   741   876 D audio_hw_primary: adev_set_parameters: enter: connect=-2147483632
+01-01 02:46:41.479   741  1444 D audio_hw_primary: adev_close_input_stream: enter:stream_handle(0xefb04a80)
+01-01 02:46:41.479   741  1444 D audio_hw_primary: in_standby: enter: stream (0xefb04a80) usecase(16: audio-record)
+01-01 02:46:41.483   741  2105 D audio_hw_primary: in_standby: enter: stream (0xefb049c0) usecase(16: audio-record)
+01-01 02:46:41.488   741  1444 D audio_hw_primary: adev_close_input_stream: enter:stream_handle(0xefb049c0)
+01-01 02:46:41.489   741  1444 D audio_hw_primary: in_standby: enter: stream (0xefb049c0) usecase(16: audio-record)
+01-01 02:46:41.501   741  1443 D audio_hw_primary: adev_set_parameters: enter: A2dpSuspended=false
+01-01 02:46:51.111   741  1444 D audio_hw_primary: adev_set_parameters: enter: screen_state=on
+01-01 02:46:51.202   741   985 D audio_hw_primary: adev_set_parameters: enter: screen_state=off
+--------------------------------------------------------------------------------------------------
+without headset played a wav file:
+msm8996:/ # dmesg                                                                                                                            
+[ 1412.838171] q6asm_callback: cmd = 0x10bcd returned error = 0x1
+[ 1412.843328] __q6asm_cmd: DSP returned error[ADSP_EFAILED] opcode 68557
+[ 1412.959446] tasha_codec tasha_codec: ASoC: PRE_PMU: RX INT1 DAC event failed: -22
+[ 1413.002076] afe_get_cal_topology_id: [AFE_TOPOLOGY_CAL] not initialized for this port 16396
+
+
+sound/soc/soc-dapm.c:1330:			dev_err(w->dapm->dev, "ASoC: %s: %s event failed: %d\n",
+
+
+
+
+
+
+
+
