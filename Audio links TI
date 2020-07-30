@@ -1,0 +1,158 @@
+----------------------******************TI Audio links*************************--------------------------------
+https://e2e.ti.com/support/audio/f/6/t/785737    //FAQ in Audio
+https://e2e.ti.com/support/audio/f/6/t/913208   //PCM2903C: Do I need configure Frequency/bitRate/Encoding to a special value to raise Volume(already 100%)
+https://e2e.ti.com/search?author=284555   //Audio Issues
+https://e2e.ti.com/support/audio/f/6/t/912783  //TLV320ADC3101-Q1: digital mic interface
+https://e2e.ti.com/support/audio/f/6/t/913402  //PCM1808: power up sequence
+https://e2e.ti.com/support/audio/f/6/t/908752  //TLV320AIC3204: Using the ADC portion of the AIC3204 at 192kSps with filter B
+https://e2e.ti.com/support/audio/f/6/t/911653  //TLV320AIC3268: Accessing the ADC and DAC without using the DSP
+https://e2e.ti.com/tags/TLV320AIC3262
+https://www.youtube.com/watch?v=Vjm--AqG04Y   //Audio fundamentals
+https://e2e.ti.com/support/audio/f/6/t/730910?tisearch=e2e-sitesearch&keymatch=headset%25252525252520detection%25252525252520in%25252525252520twl6040   //*******---------TLV320AIC3109EVM-K: headset detection issue----------**********************
+https://e2e.ti.com/support/audio/f/6/t/673804?tisearch=e2e-sitesearch&keymatch=headset%25252525252525252520detection%25252525252525252520in%25252525252525252520twl6040     //Headset Detection
+https://e2e.ti.com/support/legacy_forums/omap/f/849/p/397509/1406031?tisearch=e2e-sitesearch&keymatch=headset%25252525252520detection%25252525252520in%25252525252520twl6040#1406031  //**********-------OMAP4460 Blaze tablet 4 mic capture has audio capture losses--***********
+https://e2e.ti.com/support/legacy_forums/omap/f/849/t/350700?tisearch=e2e-sitesearch&keymatch=headset%2525252525252520detection%2525252525252520in%2525252525252520twl6040   //Issues with TWL6040 HMIC capture
+https://e2e.ti.com/support/legacy_forums/omap/f/849/t/297280?tisearch=e2e-sitesearch&keymatch=headset%252525252525252520detection%252525252525252520in%252525252525252520twl6040   //Import ALSA on Android 4.0 for PandaBoard ES
+https://e2e.ti.com/support/audio/f/6/p/903592/3341863?tisearch=e2e-sitesearch&keymatch=headset%20jack%20detection%20in%20twl6040#3341863   //TLV320AIC3104: TLV320AIC3104the difference between the detection of microphone (without headphone) and headset (mic + headphone)
+https://e2e.ti.com/support/audio/f/6/t/701078?tisearch=e2e-sitesearch&keymatch=headset%2525252525252520jack%2525252525252520detection%2525252525252520in%2525252525252520twl6040  //TLV320AIC3120: Headset detection related
+https://e2e.ti.com/support/audio/f/6/t/601970?tisearch=e2e-sitesearch&keymatch=headset%252525252525252520jack%252525252525252520detection%252525252525252520in%252525252525252520twl6040   //TLV320AIC3104-Q1: Cellular+stereo headset connection, unused analog inputs
+https://e2e.ti.com/support/audio/f/6/p/855208/3180402?tisearch=e2e-sitesearch&keymatch=headset%252520jack%252520detection%252520in%252520twl6040#3180402   //TLV320AIC3254: Does headset detection work for headphones without a microphone
+https://e2e.ti.com/support/legacy_forums/omap/f/849/t/290739?tisearch=e2e-sitesearch&keymatch=mcpdm  //OMAP4460 McPDM Audio noise problem
+https://e2e.ti.com/support/processors/f/791/p/241574/2070417?tisearch=e2e-sitesearch&keymatch=mcpdm#2070417  //How to enable McBSP in DM814X under linux kernel
+https://e2e.ti.com/support/legacy_forums/embedded/linux/f/354/t/282369?tisearch=e2e-sitesearch&keymatch=mcpdm  //how to integrate MCBSP3 interface to audio codec TLV320aic3106
+https://e2e.ti.com/support/legacy_forums/omap/f/849/t/274287?tisearch=e2e-sitesearch&keymatch=mcpdm  //we design the omap4460 +6032+6041 board , the twl6041 not wrok
+https://e2e.ti.com/support/legacy_forums/omap/f/849/p/258490/917910?tisearch=e2e-sitesearch&keymatch=mcpdm#917910  //Problem in Integrating TLV320AIC3104 codec with OMAP4460 (serial data is not coming on DIN pin)
+https://e2e.ti.com/support/legacy_forums/omap/f/849/p/249757/874237?tisearch=e2e-sitesearch&keymatch=mcpdm#874237  //Audio codecs using McBSP
+https://e2e.ti.com/support/legacy_forums/omap/f/849/t/388381?tisearch=e2e-sitesearch&keymatch=mcpdm  //using tinycap headset loopback not working
+https://e2e.ti.com/support/legacy_forums/embedded/linux/f/354/t/347096  //Linux Debugging
+https://e2e.ti.com/support/legacy_forums/omap/f/885/t/296063?tisearch=e2e-sitesearch&keymatch=ASoC%2520no%2520backend%2520DAI%2520enable //**********-----------Omap5432: ASoC: no backend DAIs enabled for OMAP ABE Media1************----------------------
+https://e2e.ti.com/support/audio/f/6/p/178354/652610?tisearch=e2e-quicksearch&keymatch=ASoC%20no%20backend%20DAI%20enable#652610  //TLV320AIC3100 LP no valid playback on 3.0.x kernel
+https://e2e.ti.com/support/audio/f/6/t/780831?tisearch=e2e-quicksearch&keymatch=ASoC%20no%20backend%20DAI%20enable //Linux/PCM5121: integrating driver into apq8009-i2s.c machine driver
+https://e2e.ti.com/support/audio/f/6/p/630142/2324450?tisearch=e2e-sitesearch&keymatch=ASoC%252520no%252520backend%252520DAI%252520enable#2324450   //Linux/TAS2552SW-LINUX: How to use ALSA System on Chip (ASoC)
+https://e2e.ti.com/support/processors/f/791/t/730812?tisearch=e2e-sitesearch&keymatch=ASoC%25252525252520no%25252525252520backend%25252525252520DAI%25252525252520enable   //Linux/AM5718: Codec interface issue
+https://e2e.ti.com/support/audio/f/6/p/178354/652610?tisearch=e2e-sitesearch&keymatch=ASoC%20no%20backend%20DAI%20enable#652610  //
+TLV320AIC3100 LP no valid playback on 3.0.x kernel
+https://e2e.ti.com/support/legacy_forums/embedded/linux/f/354/p/148881/561006?tisearch=e2e-sitesearch&keymatch=ASoC%252525252520no%252525252520backend%252525252520DAI%252525252520enable#561006 //ALSA support of multiple Tx and RX channels on one McASP(McASP0) in DM8148
+https://e2e.ti.com/support/audio/f/6/t/794560?tisearch=e2e-sitesearch&keymatch=ASoC%2525252525252520no%2525252525252520backend%2525252525252520DAI%2525252525252520enable  //Linux/TLV320AIC32: Errors with setting sysclk
+https://e2e.ti.com/support/audio/f/6/p/630142/2324450?tisearch=e2e-quicksearch&keymatch=ASoC%20no%20backend%20DAI%20enable#2324450  //-----------******Linux/TAS2552SW-LINUX: How to use ALSA System on Chip (ASoC)**********------------------
+https://e2e.ti.com/support/audio/f/6/t/504710?tisearch=e2e-quicksearch&keymatch=jack%20detection  //TLV320AIC3104 aux jack detection possible
+https://e2e.ti.com/support/audio/f/6/t/839140?tisearch=e2e-quicksearch&keymatch=jack%20detection  //TLV320AIC3104: Please tell me how to update microphone bias by detecting microphone jack connection
+https://e2e.ti.com/support/switches-multiplexers/f/388/t/775078?tisearch=e2e-quicksearch&keymatch=jack%20detection //TS3A227E: detection of line out cable
+https://e2e.ti.com/support/switches-multiplexers/f/388/t/904514?tisearch=e2e-quicksearch&keymatch=jack%20detection //-------------**************TS3A226AE: Question of Phone Jack Detection Mechanism of the TS3A226AE****************-----------------
+https://e2e.ti.com/support/audio/f/6/t/911829     //PCM1870: Need ADC I2S for microphone
+https://e2e.ti.com/support/audio/f/6/t/911803   //TAS6424-Q1: MCLK input rate change influence
+https://e2e.ti.com/support/audio/f/6/t/911796  //TPA3251: connection with audio jack
+https://e2e.ti.com/support/audio/f/6/t/912610     //LM49370: PCM to I2S solution
+---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
+https://01.org/linuxgraphics/forum/graphics-installer-discussions/why-cant-i-get-sound-through-hdmi-intel-nuc-ubuntu-16.04-nor  //---------*****************HDMI audio not working properly on APL NUC *********-------------------------------------------------
+https://bbs.archlinux.org/viewtopic.php?id=207085 //HDMI audio not working properly on APL NUC
+speaker-test -D hdmi:CARD=PCH,DEV=0 -c 2 -r 44100
+Well we have a different kernel (of different version) from fedora? And i915 is the one of the most frequently borked kernel driver...
+
+Didn't you you said with "-r 44100" you get no sound, but without it (so it's 48000) you get sound? That's why I suggest you to set default-sample-rate to 48000 in daemon.conf explicitly, because Pulse use 44100 by default.
+
+Oh, I get your idea. So, I'll try it now...
+
+EDIT
+Oh, man, you are a god! All works fine now! I think that I can put SOLVED in thread name!
+But I have a few questions.
+
+1) Is it normal to set up default sample rate to 48k while my mp3's are in 44.1k? Does pulse retranslate stream somehow?
+2) Should I change something after future updates? May be some fix will be released or it's default settings?
+Well I can neither say it's "normal" or "not normal". It just depends on whether your sink support / perform well on handling 44.1kHz signal, and which are most of your sources in. Though if you CPU is really old/low-end, you might feel that the resampling add a bit of burden to it.
+
+You can specified the resampling algorithm used by pulse by setting "resample-method" in the same daemon.conf. The default is speex-float-1. Should be a nice balance between work load and quality. `man 5 pulse-daemon.conf` for all the possible values.
+
+Well you can try to unset it (comment out the line so it goes back to the default 44100) after some kernel updates. Maybe it will get fixed someday/how, maybe it won't. You can file a bug report here: https://bugs.freedesktop.org/enter_bug.cgi?product=DRI (DRM/Intel) if you are sure you TV/monitor is capable of playing 44.1kHz signal.
+
+This should tell what sampling rate your sink supports (though afaik it's not always correct):
+
+[tom@localhost ~]$ cat /proc/asound/card*/eld#0.*
+monitor_present		1
+eld_valid		1
+monitor_name		EV2336W
+     
+connection_type		DisplayPort
+eld_version		[0x2] CEA-861D or below
+edid_version		[0x3] CEA-861-B, C or D
+manufacture_id		0xc315
+product_id		0x2390
+port_id			0x800
+support_hdcp		0
+support_ai		0
+audio_sync_delay	0
+speakers		[0x1] FL/FR
+sad_count		1
+sad0_coding_type	[0x1] LPCM
+sad0_channels		2
+sad0_rates		[0x6e0] 32000 44100 48000 88200 96000
+sad0_bits		[0xe0000] 16 20 24
+So mine support 32000, 44100, 48000, 88200 and 9600
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+https://askubuntu.com/questions/886512/baytrail-audio-port-asoc-no-backend-dais-enabled-for-baytrail-audio-port   ---------***********ASoC no backend DAI enable for dirana port *********************-------------------
+https://bugzilla.kernel.org/show_bug.cgi?id=115201
+
+Sachin Mokashi 2016-06-21 06:23:28 UTC
+The following error about the missing backend DAI is due to the missing Alsamixer settings:
+
+[   23.165318]  Baytrail Audio Port: ASoC: no backend DAIs enabled for Baytrail Audio Port
+
+In this driver we use DPCM, which means that you have to route Front End
+to a BackEnd and then only you can open a device. Without linking to BE it
+will fail.
+
+Would you please post the output of the command "aplay -l" to check if a sound card is getting created or not. 
+
+If it is getting created, the output of "aplay -l" should look something like:
+
+card 0: baytrailcraudio [baytrailcraudio], device 0: Baytrail Audio (*) []
+   Subdevices: 1/1
+   Subdevice #0: subdevice #0
+
+If sound card is getting created, you can proceed with executing the following amixer commands:
+
+For Playback:
+
+#DSP routing
+amixer -c0 sset 'codec_out0 mix 0 pcm0_in' on
+amixer -c0 sset 'media0_out mix 0 media1_in' on
+amixer -c0 sset 'media1_in Gain 0' 80% 
+amixer -c0 sset 'media1_in Gain 0 Ramp Delay' 50
+amixer -c0 sset 'media1_in Gain 0' off
+amixer -c0 sset 'pcm0_in Gain 0' 80% 
+amixer -c0 sset 'pcm0_in Gain 0 Ramp Delay' 50
+amixer -c0 sset 'pcm0_in Gain 0' off
+amixer -c0 sset 'codec_out0 Gain 0' 80%
+amixer -c0 sset 'codec_out0 Gain 0 Ramp Delay' 50
+amixer -c0 sset 'codec_out0 Gain 0' off
+
+#Codec routing
+amixer -c0 sset "DAC MIXL INF1" on
+amixer -c0 sset "DAC MIXR INF1" on
+amixer -c0 sset "Stereo DAC MIXL DAC L1" on
+amixer -c0 sset "Stereo DAC MIXR DAC R1" on
+amixer -c0 sset "SPK MIXL DAC L1" on
+amixer -c0 sset "SPK MIXR DAC R1" on
+amixer -c0 sset "SPOL MIX SPKVOL L" on
+amixer -c0 sset "SPOR MIX SPKVOL R" on
+amixer -c0 sset "SPOL MIX DAC L1" on
+amixer -c0 sset "SPOR MIX DAC R1" on
+amixer -c0 sset "Speaker L" on
+amixer -c0 sset "Speaker R" on
+amixer -c0 sset "Headphone" off
+amixer -c0 sset "Ext Spk" on
+
+Hope this helps!
+https://stackoverflow.com/users/5729184/sachin-mokashi   //for issues in device drivers 
+https://github.com/sachinmokashi?tab=overview&from=2019-12-01&to=2019-12-31    //Audio intel code
+https://bugzilla.kernel.org/show_bug.cgi?id=195811
+https://forums.linuxmint.com/viewtopic.php?t=312795
+-------------------------------------------------------------------------------------------------------------------------
+what is codec?why we need codec?
+https://www.lifewire.com/what-exactly-is-odec-2483426
+what is i2s(Inter IC sound)?
+https://en.wikipedia.org/wiki/I%C2%B2Ss
+
+

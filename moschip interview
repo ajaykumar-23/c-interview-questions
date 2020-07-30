@@ -1,0 +1,76 @@
+C-------------------------TECHNICAL ROUND I -------------------------- (2 hours 45 min -very lengthy round i have ever had) 
+Q1) Introduce yourself technically. 
+Q2) Asked about my projects.
+Q3) Asked about my educational background. 
+Q4) How will you proceed if the kernel source code that you downloaded does not support your board? What are the steps you will take? 
+Q5) Write all the directories in linux that will be visible to you on your system and the directories of your kernel source code that you have downloaded. Differentiate between both. (Here he asked me whether I am sure of my answers that I wrote wherein I was too confused ) 
+Q6) What is procfs ? What is the importance of procfs? Why it has got that name? 
+Q7) What is sysfs ? 
+Q8) What does /dev contain? 
+Q9) How do you create node for a block device? 
+Q10)How do you automatically get major number without using udev ? (He asked bcoz I answered udev will automatically update. He wants me to answer by not using udev functions) 
+Q11)Can the same number be used for creating nodes for both char and block devices? 
+Q12)Draw the block diagram for a char device driver implementation? (I explained about char device driver by writing all steps. He then asked me further questions ) 
+Q13)Where file_operations have been used in registration? ( I answered cdev_init(my_cdev,&my_fops) and wrote all steps) 
+Q14)What happens if you pass major number as 0 in register_chrdev_region()? 
+Q15)Can you make your low-level driver directly interact with application without using core layer ? Is core layer mandatory? ( He asked me this question because I drew the block diagram for keyboard low-level driver with core layer and HLD) 
+Q16)You have registered your file_operations with VFS layer. What about ISR routine and how will you register ? 
+Q17)How your driver initialization will take place? What is the entry point for a driver? (I answered abt init and exit routines and drivers, modules and kernel service routines do not have pids. So they are invoked in process contexts. He then asked again questions) 
+Q18)What is a PCB? 
+Q19)What is a Stack section? 
+Q20)How will be variables allocated in memory? How will you access heap? 
+Q21)How many types of interrupts are there? (I answered software and hardware. I also said abt Bottom halves) 
+Q22)What is the difference betw. various BHs and where do you apply? 
+Q23)Is there any precaution for softirqs running simultaneously? Why and how do you solve? (I answered: applying synchronization techniques for shared access) 
+Q24)Difference betw. various synchronization techinques and when do you need? 
+Q25)Why semaphores are not used for ISRs? 
+Q26)How do you implement threads? 
+Q27)What is the basic difference betw. multiple processes and multiple child processes? 
+Q28)Did you write any applications? ( I said no.) 
+Q29)Write a small application to read 4 bytes and write 4 bytes for my device /dev/ttyS0. (As it was very simple. I wrote it and he then stopped as if he were satisied by my answers. A Very long interview!) 
+-------------------------TECHNICAL ROUND II -------------------------- (30 min) 
+Q1) Introduce about yourself and about your work so far. 
+Q2) Questions on all my projects. 
+Q3) Few questions about my background. 
+Q4) How would you allocate memory in kernel? 
+Q5) Write a data structure with integer and character as its elements. 
+Q6) What is the size of this data structure? (I answered about structure padding as he was expecting the same answer from me) 
+Q7) Allocate memory in heap by using the above data structure. How will you allocate then in stack? 
+Q8) Initialize the above data structure. Implement a function by using which print the values of the data structure elements. 
+Q9) Asked me to correct some logic about deleting a given node in linked list. 
+Q10)Asked some personal questions and some discussion went on package
+ ****** END OF INTERVIEW AT 4.24PM****** 
+MOST DIFFICULT QUESTION: Comparison of the source code with the current kernel running on my system
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+http://embedded-thoughts.blogspot.com/2013/07/qualcomm-interview-questions.html                    //Important
+
+1. Advantages of a macro over a function?
+Macro gets to see the Compilation environment.
+It is expanded by the preprocessor.
+For example, you can't do this without macros:
+#define PRINT(EXPR) printf( #EXPR "=%d\n", EXPR)
+PRINT( 5+6*7 ) // expands into printf("5+6*7=%d", 5+6*7 );
+You can define your mini language with macros:
+#define strequal(A,B) (!strcmp(A,B))
+Macros are a necessary evils of life. The purists don't like them, but without it no real work gets done.
+2. Difference between const char* p and char const* p
+In const char* p, the character pointed by 'p' is constant, so you cant change the value of character pointed by p but you can make 'p' refer to some other location.
+in char const* p, the ptr 'p' is constant not the character referenced by it, so you cant make 'p' to reference to any other location but you can change the value of the char pointed by 'p'.
+3. Can a variable be both const and volatile?
+Yes. The const modifier means that this code cannot change the value of the variable, but that does not mean that the value cannot be changed by means outside this code. If a variable is both const and
+volatile, the two modifiers can appear in either order.
+4. How are pointer variables initialized?
+Pointer variable are initialized by one of the following two ways
+- Static memory allocation
+- Dynamic memory allocation
+5. When should a type cast not be used?
+A type cast should not be used to override a const or volatile declaration. Overriding these type modifiers can cause the program to fail to run correctly.
+A type cast should not be used to turn a pointer to one type of structure or data type into another. In the rare events in which this action is beneficial, using a union to hold the values makes the programmer's intentions clearer.
+
+------------------------------------------------------------------------------------------------------------------------------------
+http://venkateshabbarapu.blogspot.com/?view=flipcard
+http://linuxdevicedrivercinterviewqs.blogspot.com/2015/03/linux-device-driverembedded-c-interview.html
+http://www.mbeddedc.com/2017/03/basic-49-embedded-c-interview-questions.html
+http://embeddedprograms.com/                 //Interrupt mechanism
+http://vijaynetwork.com/files/c-interview-questions.html
