@@ -1,0 +1,407 @@
+Following are the Xilinx Interview Questions for a Linux device driver developer post:
+Round #1 of Xilinx interview questions
+The first round was basic C questions and some of the Linux kernel questions.
+
+Q1: How comfortable are you in C and data structures?
+Q2: What is structure padding?
+Q3: Write a program to detect if a system is little-endian or big-endian?
+Q4: Can you write a program to convert big-endian to little-endian?
+Q5: Why do we use copy_to_user() in kernel programs?
+Q6: Why volatile keyword is used?
+Round #2 of Xilinx interview questions
+This was a short round and contain some generic and some specific questions to topics I have worked on my career.
+
+Q1: Why do you want to change your job?
+Q2: Have you notified your manager about your problems?
+Q3: How a particular driver is called or loaded for a device?
+Q4: Explain basic driver architecture.
+Q5: How did you design your driver?
+Q6: What is static and dynamic module linking in Linux kernel?
+Q7: How an interrupt from your device propagates to the IRQ handler that you registered?
+Round #3 of Xilinx interview questions
+The interviewer was keep on questioning me on my understanding of complete system hierarchy and where do my driver sits in the system.
+This was really an interesting round.
+
+Q1: In which domain you worked?
+Q2: What is SCSI?
+Q3: How do data transfer happen in between the system and your controller?
+Q4: Who initiates the data transfer?
+Q5: How your driver is invoked by the system?
+Q6: Can you explain the complete I/O propagation path?
+Q7: What is PCI SR-IOV?
+Q8: How did you implement SR-IOV in your driver?
+Q9: How did you detect from your driver that you are dealing with a physical function or a virtual function?
+Q10: What is Scatter/Gather?
+Q11: Why do you need a Scatter/Gather?
+Q12: Can you write a C program to remove a node from a single linked list?
+Q13: What is little-endian and big-endian and how do you detect if your system is little-endian or big-endian? [Repeated question from Round #1]
+Round #4 of Xilinx interview questions
+This was again a short round. The interviewer just introduced himself and explained where I will be working if I will be selected.
+As he was a Director of Hardware IP cores, so he just asked some of the basic questions from Linux device driver concepts.
+
+Q1: How a an I/O propagates from an application to your driver? [Repeated question from Round #3]
+Q2: How your driver is probed?
+Round #5 of Xilinx interview questions
+This was again a technical round with some of the questions repeated from other rounds.
+
+Q1: Big-endian and little-endian? [Repeated question from Round #1 and #3]
+Q2: How to convert a Big-endian DWORD to little-endian? [Repeated question from Round #1]
+Q3: Have you worked in a multi-threaded environment?
+Q4: What is synchronization in kernel?
+Q5: What is sysfs in Linux?
+Q6: Have you ever worked with kernel crash dumps?
+Q7: What is NULL pointer de-referencing?
+After this there was a final HR round. There were typical HR questions and nothing extra on this part. I hope this will give you some idea on where to concentrate before appearing for Xilinix interview.
+
+Stay tuned for more Interview questions, tips and tricks and more device driver and web programming stuffs.
+-------------------------------------------------------------------
+what is codec?why we need codec?
+pthread_join and pthread_exit
+https://stackoverflow.com/questions/20824229/when-to-use-pthread-exit-and-when-to-use-pthread-join-in-linux
+------------------------------
+https://www.tutorialsdaddy.com/category/linux-device-drivers/    //Device Drivers Questions and Answers
+1.kmalloc arguments?
+https://www.kernel.org/doc/htmldocs/kernel-api/API-kmalloc.html
+https://www.tutorialsdaddy.com/linux-device-drivers/kmalloc-vs-vmalloc/      //kmalloc vs vmalloc
+ans:void * kmalloc (size_t size,gfp_t flags);
+size_t size:how many bytes of memory are required.
+gfp_t flags:the type of memory to allocate
+kmalloc is the normal method of allocating memory for objects smaller than page size in the kernel.(Linux supports two page sizes: Normal-sized pages, which I believe are 4kB by default on all architectures, though some architectures allow other values, e.g. 16kB on ARM64 or 8kB, 16kB or 64kB on IA64)
+The flags argument may be one of:
+GFP_USER - Allocate memory on behalf of user. May sleep.
+GFP_KERNEL - Allocate normal kernel ram. May sleep.
+GFP_ATOMIC - Allocation will not sleep. May use emergency pools. For example, use this inside interrupt handlers.
+
+2.Interrupt handler?top half and bottom half?
+https://www.fsl.cs.sunysb.edu/kernel-api/re667.html
+https://stackoverflow.com/questions/41257268/what-request-irq-does-internally
+Ans:soft irq,work queue,tasklet and threaded irq are bottom halves.
+request_irq — allocate an interrupt line
+int request_irq (unsigned int irq,irq_handler_t  handler,unsigned long irqflags,const char *devname,void *dev_id);
+Arguments:
+irq
+Interrupt line to allocate
+
+handler
+Function to be called when the IRQ occurs
+
+irqflags
+Interrupt type flags
+
+devname
+An ascii name for the claiming device
+
+dev_id
+A cookie passed back to the handler function
+
+Description:
+This call allocates interrupt resources and enables the interrupt line and IRQ handling. From the point this call is made your handler function may be invoked. Since your handler function must clear any interrupt the board raises, you must take care both to initialise your hardware and to set up the interrupt handler in the right order.
+
+Dev_id must be globally unique. Normally the address of the device data structure is used as the cookie. Since the handler receives this value it makes sense to use it.
+
+If your interrupt is shared you must pass a non NULL dev_id as this is required when freeing the interrupt.
+
+Flags:
+IRQF_SHARED	Interrupt is shared IRQF_DISABLED	Disable local interrupts while processing IRQF_SAMPLE_RANDOM	The interrupt can be used for entropy
+
+
+3.playback path from drivers to codec?
+4.apla command?how pcm open?
+5.a pointer to an array of five integers?function pointer?
+Ans: int (*ptr)[5];  //pointer to an array  (array pointer)
+     int *ptr[3];   //array of pointers (pointer array)
+6.interrupt arguments?request_irq argumnts?
+7.FE DAi and BE DAI how connect?
+8.what is codec?why we need codec?
+9.i2s,i2c
+10.synchronizzation techniques in linux?
+11.process vs thread?
+https://www.guru99.com/difference-between-process-and-thread.html
+12.storage classes with examples?
+13.structure and union?structure padding?
+14.diff b/w pthread_exit and pthread_join?
+15.*a=10;pf("%d\n",*a); output?
+16.bottom halves?
+17.what is thread?pthread_create arguments?
+18.volatile keyword with example?
+https://aticleworld.com/understanding-volatile-qualifier-in-c/
+19.can we use static in structure elements?
+Ans:https://www.quora.com/Why-is-it-not-possible-to-define-a-static-member-inside-a-struct-in-C
+You can't take static inside structure as it is derived datatype. When memory is allocated to any structure variable, it is in continuous location. We can that It is structure's characteristics. 
+If it were allowed to take one member static, then it is against this characteristics because static variables will be stored in data section and other non static variables will be stored in other region with respect to its scope; resulting into non-continous memory.
+Though it is allowed in class in C++.
+20.int *const ptr vs int const* ptr
+https://stackoverflow.com/questions/1143262/what-is-the-difference-between-const-int-const-int-const-and-int-const
+https://www.geeksforgeeks.org/difference-between-const-int-const-int-const-and-int-const/
+21.static linking vs dynamic linking in c?
+https://medium.com/swlh/linux-basics-static-libraries-vs-dynamic-libraries-a7bcf8157779
+22.Audio Drivers Flow?
+https://programmer.group/linux-audio-driver-iii-call-flow-of-pcm-interface.html
+23.ALSA Architecture?
+https://en.wikipedia.org/wiki/Advanced_Linux_Sound_Architecture
+https://www.alsa-project.org/main/index.php/Asoundrc
+https://stackoverflow.com/questions/8922044/confusion-in-aplay-command
+https://www.alsa-project.org/wiki/ALSA_topology
+http://imi.aau.dk/~sd/phd/index.php?title=Minivosc  //Audio Drivers
+http://ben-collins.blogspot.com/2010/04/writing-alsa-driver.html
+https://processors.wiki.ti.com/index.php/AM335x-PSP_04.06.00.06_Features_and_Performance_Guide  //Alsa Drivers
+24.softirq vs workqueue vs tasklet?
+https://topic.alibabacloud.com/a/the-difference-between-softirq-tasklet-and-workqueue-_softirq_8_8_20295582.html
+25.Android crash debugging using rampdump parser
+https://sumancluster.wordpress.com/2015/10/05/android-crash-debugging-using-rampdump-parser/
+26.Kernel Module introduction and How to debug kernel by adding debug statements?
+https://sumancluster.wordpress.com/2015/06/16/kernel-modules-introduction/
+https://www.kernel.org/doc/local/pr_debug.txt
+printk(): never
+
+pr_debug(): always good
+
+dev_dbg(): prefered when you have a struct device object
+
+netdev_dbg(): prefered when you have a struct netdevice object
+
+[something]_dbg(): prefered when you have a that something object
+-------------------------------------------------------------------------------------------
+Eximus Design:
+1.How program memory allocated after a.out?
+http://www.vishalchovatiya.com/how-c-program-stored-in-ram-memory/
+https://www.freecodecamp.org/news/understand-your-programs-memory-92431fa8c6b/
+https://books.google.co.in/books?id=kCTMFpEcIOwC&pg=PA207&lpg=PA207&dq=after+a.out+how+the+program+got+memory+allocated&source=bl&ots=zwMzTQSwkJ&sig=ACfU3U2MxSfIvFYGdBVNaCBaTTWlBQkLPw&hl=en&sa=X&ved=2ahUKEwjJiZOA1b_qAhVnyTgGHe22CRsQ6AEwC3oECA4QAQ#v=onepage&q=after%20a.out%20how%20the%20program%20got%20memory%20allocated&f=false
+2.How sound card is registered?Where the sound card is registered?
+https://blog.csdn.net/l289123557/article/details/79028255
+3.where is codec connected to the chip?
+4.snd_pcm_ops structure what it contain?
+5.Memory interleaved and non interleaved?
+6.Android audio flow?when you play a song how it goes to app to drivers?
+7.What audio finger do?
+8.How date is transfer to upper layes?what is the last function in HAL?
+9.ALSA Architecture?ALSA tree?
+10.If a have a new codec, how to register it?steps to register codec?
+11,race condition?How to avoid race condtion?
+https://stackoverflow.com/questions/34510/what-is-a-race-condition
+12.Deadlock?how to avoid?
+https://stackoverflow.com/questions/34512/what-is-a-deadlock
+13.starvation?how to avoid?
+https://stackoverflow.com/questions/1162587/what-is-starvation
+14.priority inverson?priority inheritance?
+https://stackoverflow.com/questions/4252158/what-is-priority-inversion
+15.Access a global static variable from another file in C?
+https://stackoverflow.com/questions/1973162/access-a-global-static-variable-from-another-file-in-c
+16.what is the use of static function?
+https://www.interviewsansar.com/use-of-static-function-in-c-program/
+https://stackoverflow.com/questions/558122/what-is-a-static-function-in-c
+https://www.quora.com/What-is-the-static-function-in-C-and-how-is-it-used
+17.print odd and even numbers using 2 threads using mutex in C?
+https://stackoverflow.com/questions/22004690/print-odd-and-even-numbers-using-2-threads-using-mutex-in-c
+-----------------------------------------------
+ALSA:
+http://ccppcoding.blogspot.com/2013/04/android-multimedia-codecs.html  //What is codec?why we need codec?
+https://stackoverflow.com/questions/40346132/how-to-properly-set-up-alsa-device //how to open alsa device
+http://www.sabi.co.uk/Notes/linuxSoundALSA.html    //ALSA Notes Important
+https://alsa.opensrc.org/AlsaTips       //ALSA Tips for debugging
+https://alsa.opensrc.org/Troubleshooting
+https://www.alsa-project.org/wiki/Minivosc   //ALSA material all about alsa
+https://www.alsa-project.org/wiki/Minivosc#Understanding_ALSA_driver_architecture  //ALSA Architecture	
+http://prog3.com/sbdm/blog/adazone/article/details/40820795   //ASoC Architecture Machine
+http://prog3.com/sbdm/blog/adazone/article/details/40820765   //ALSA ASoC 
+http://prog3.com/sbdm/blog/adazone/article/details/46893399  //Audio programming guide in linux
+http://prog3.com/sbdm/blog/adazone/article/category/1470089/10  //ALSA Important and Interrupts
+http://prog3.com/sbdm/blog/adazone/article/details/44831385  //i2s,pcm,ac97
+http://prog3.com/sbdm/blog/adazone/article/details/44671117  //Device Tree
+http://prog3.com/sbdm/blog/adazone/article/details/42100089    //platform device drivers
+http://prog3.com/sbdm/blog/adazone/article/details/42100067  //platform device driver total analysis
+http://prog3.com/sbdm/blog/adazone/article/details/39292411  //Android Audio System
+http://prog3.com/sbdm/blog/adazone/article/details/45688563  //How to find reason for kernel crash
+https://coderinsight.blogspot.com/2014/07/android-multimedia-media-player-states.html   //Android multimedia mediaplayer states
+http://ccppcoding.blogspot.com/2013/03/         //Linuc ipc mechanisms pipes,message queue and shared memory
+https://www.cnblogs.com/muhe221/tag/Semaphore/    //IPC mechanism,semaphore
+https://www.emertxe.com/trainings/technical-resource-library/embedded-systems/linux-internals-network-programming-course-contents/linux-user-internals-programming-interview-essentials/    //Linux internals interview questions
+http://ccppcoding.blogspot.com/2013/04/       //Git and c questions with answers (programs)
+http://ccppcoding.blogspot.com/2013/01/   //Audio module changes in different android versions
+http://ccppcoding.blogspot.com/2012/11/     //Audio and c interview questions important
+http://ccppcoding.blogspot.com/2012/09/    //c questions inline,structures etc.
+https://www.youtube.com/watch?v=DWDxKHhEn6g   //c interview questions
+https://www.youtube.com/watch?v=OIn4QeGEnjo&t=6s  //c interview questions
+https://www.geeksforgeeks.org/write-a-c-program-to-print-geeks-for-geeks-without-using-a-semicolon/?ref=lbp  //c most asked interview quens
+http://ccppcoding.blogspot.com/2012/08/   //very important for c interview questions (must read before interview)
+https://www.programiz.com/c-programming/examples   //c interview questions
+http://ccppcoding.blogspot.com/search/label/Audio  //Audio material
+https://www.cnblogs.com/muhe221/category/670204.html  //Audio links HAL,Media player etc.
+http://gopinaths.gitlab.io/post/android-audio-framework-architecture/   //Android audio framework
+http://gopinaths.gitlab.io/post/custom_hardware_codec_in_android/  //How to add codec to android framework
+http://gopinaths.gitlab.io/post/audio_codec_in_linux/        //porting codec in linux bsp
+https://quandarypeak.com/2013/08/androids-stagefright-media-player-architecture/   //stragefright player
+https://edwardlu0904.wordpress.com/2015/09/05/the-factory-pattern-in-android-mediaplayerfactory/     //Mediaplayer in android
+---------------------------------------------------------------
+votary Questions
+1.Dangling pointer
+2.valgrind cross compile
+3.dynamic memory allocation for 2d array
+4.inline function and difference b/w inline,macro
+5.how to see binary file symbols
+6.differnce b/w mutex and binary semaphore
+7.contex switching
+8.even or odd using bitwise operator
+9.#include<stdio.h> header file is included two times what happen?(#define and #undefine macro)
+10.What is Device Tree?
+http://shareinterviewexperience.blogspot.com/2013/12/satish-interview-with-votarytech-on.html
+http://shareinterviewexperience.blogspot.com/2013/
+--------------------------------------------------
+LinuxJunkies telegram group Questions?
+
+1.How many of you know about Hard IRQ and soft IRQ in Linux? Why we need soft IRQ? How they implemented and behave in Linux?
+2.Can anyone tell how the flow goes from hard irq to soft irq and further?
+3.What happen when we free the pointer two times in memory allocation?
+segmentation fault
+4.How spinlock is different then these two?
+5.What other things we should avoid using in interrupt handlers?
+6.What does malloc(0) return and how free(addr) works?
+Free will use pointer passed in argument to look for metadata allocated by malloc and then remove that metadata which will free the bytes which are registered during malloc. But still pointer will continue point to that memory until you explicitly make it null
+Actually at OS level what happens when we use malloc function that time OS assigned one tag to that particular memory block which is assigned through malloc function.
+After using the free function that tag was removed at memory block by the OS which means those memory block now free and it can be use by others resources.
+7.In which context softirq runs?Why workquque uses sleep? In which context it runs?
+ soft irqs run in Interrupt context.Workqueue runs in process context and you can use blocking function inside it according to your requirements.
+8.What is the use of static function in drivers code? I saw in many functions having static at the beginning?
+Static function is used for restricted that function scope within file only.
+To restrict the use of that function to that file. Still there are some MACROs through which one can export functions to different driver files. 
+e.g. EXPORT_SYMBOL()
+9.what if we don't define these functions with static? What could be a possible impact?
+10.Can anyone explain physical address and virtual addresses in detail with real time example?
+11.Difference between GFP_ATOMIC and GFP_KERNEL?
+12.Why same Tasklet can not run simultaneously on multiple CPU core?
+13.malloc(0) what it returns?
+https://stackoverflow.com/questions/2022335/whats-the-point-of-malloc0
+14.Android boot sequence?
+https://learnlinuxconcepts.blogspot.com/2014/10/this-blog-is-to-help-those-students-and.html
+15.how to find out memory leaks without using any tool?
+https://stackoverflow.com/questions/22316506/debugging-memory-leak-issues-without-any-tool
+16.How system call work?
+https://stackoverflow.com/questions/24036214/how-does-a-system-call-work
+https://stackoverflow.com/questions/499188/how-is-the-system-call-in-linux-implemented
+17.Can we modify a static variable in another c file?
+https://www.quora.com/In-C-programming-is-a-static-variable-from-one-file-able-to-be-accessed-from-another-file
+https://stackoverflow.com/questions/1973162/access-a-global-static-variable-from-another-file-in-c
+18.How free() successfully frees the memory without knowing the size?
+https://stackoverflow.com/questions/1518711/how-does-free-know-how-much-to-free
+19.How to call exported kernel module functions from another module?
+https://stackoverflow.com/questions/12311867/how-to-call-exported-kernel-module-functions-from-another-module/44614246
+-----------------------------------------------------------------------
+Qualcomm Questions:
+1.Alsa architecture
+2.Most challenging bug
+3.Flinger -
+Audio mixing , multi steraming
+Audio sampling rate conversion in flinger
+4.Audio interface selection -> primary devices, usb, bluetooth ….
+5.How audio will be sent to flinger from decoder - ans:- using shared memory
+6.How use case wil be selected in flinger - ans;- by using audio policy manager file
+7.What details are mentioned in audio policy manager  file
+8.Hardware codec and software code differences.
+https://avnation.tv/hardwaresoftware-codec-comparison/
+9.which usecase wil use sw code and which  usecase wil use hw codec
+10.Buffer sizes of all usecases
+11.Echo cancellation in voice call
+12.How audio data will be sent to kernel from hal --- ans: platform driver will create the dma buffers?
+13.ASoC Framework?
+https://blog.csdn.net/qq_41936794/article/details/106350645
+14.When sound playing through headset and i want to play through speaker where should it changes path?             //Important
+ANS:https://android.googlesource.com/kernel/msm/+/refs/heads/android-msm-coral-4.14-r-beta-1/Documentation/sound/soc/dpcm.rst
+Audio is being played to the Headset. After a while the user removes the headset
+and audio continues playing on the speakers.
+Playback on PCM0 to Headset would look like :-
+::
+                      *************
+  PCM0 <============> *           * <====DAI0=====> Codec Headset
+                      *           *
+  PCM1 <------------> *           * <----DAI1-----> Codec Speakers
+                      *   DSP     *
+  PCM2 <------------> *           * <----DAI2-----> MODEM
+                      *           *
+  PCM3 <------------> *           * <----DAI3-----> BT
+                      *           *
+                      *           * <----DAI4-----> DMIC
+                      *           *
+                      *           * <----DAI5-----> FM
+                      *************
+The headset is removed from the jack by user so the speakers must now be used :-
+::
+                      *************
+  PCM0 <============> *           * <----DAI0-----> Codec Headset
+                      *           *
+  PCM1 <------------> *           * <====DAI1=====> Codec Speakers
+                      *   DSP     *
+  PCM2 <------------> *           * <----DAI2-----> MODEM
+                      *           *
+  PCM3 <------------> *           * <----DAI3-----> BT
+                      *           *
+                      *           * <----DAI4-----> DMIC
+                      *           *
+                      *           * <----DAI5-----> FM
+                      *************
+The audio driver processes this as follows :-
+1. Machine driver receives Jack removal event.
+2. Machine driver OR audio HAL disables the Headset path.
+3. DPCM runs the PCM trigger(stop), hw_free(), shutdown() operations on DAI0
+   for headset since the path is now disabled.
+4. Machine driver or audio HAL enables the speaker path.
+5. DPCM runs the PCM ops for startup(), hw_params(), prepapre() and
+   trigger(start) for DAI1 Speakers since the path is enabled.
+In this example, the machine driver or userspace audio HAL can alter the routing
+and then DPCM will take care of managing the DAI PCM operations to either bring
+the link up or down. Audio playback does not stop during this transition.
+----------------------------
+1.audio project explanation
+2.i2s,how many lines for i2s.
+3.bitwise flip positions 3 and 6 in unsigned char a;  a=00001010 in only in two cycles or instructions.
+4.input is 01001011 and ouput must be 10011011
+5.how you will write a machine driver.
+6.what is codec driver you worked on.
+7.what is platform driver you used ?
+8.what is the bug you solved recently?
+9.what is machine driver?
+10.what is codec chipset you worked on?
+11.sampling rate,bit depth and buffer size?
+https://support.focusrite.com/hc/en-gb/articles/115004120965-Sample-Rate-Bit-Depth-Buffer-Size-Explained
+--------------------------------------------------------------------------------------------------
+Linux System programming by Bovet       //Global egde Questions
+Linux Device Drivers by Rubini  https://lwn.net/Kernel/LDD3/
+C programming by Dennies Richie
+1.Struct tag{
+              int a;
+	      char b;
+              float c;
+		};
+ptr poniter pointing to structure.
+what is the sizeof(ptr) and sizeof(*ptr)?
+2.structure padding?why structure padding?
+3.Booting process in Kernel and Android?(fastboot for android bootloader)
+4.What is the Storage class?Types of storage classes with example?
+5.Static linking and dynamic linking in c?
+https://cs-fundamentals.com/tech-interview/c/difference-between-static-and-dynamic-linking
+6.what is header file?what it contain?where is function defination store?
+https://stackoverflow.com/questions/2184646/what-is-the-point-of-header-files-in-c
+https://stackoverflow.com/questions/24483848/what-exactly-happens-when-a-header-file-is-included
+7.compilation steps in c?(preprocessor,compiler,assembler,linker)
+8.int arr[10]={1,0,1,1,1,0,0,1,1,0};
+  output:int arr[10]={0,0,0,0,0,1,1,1,1,1};
+9.int arr[n]={1,2,2,3,4,5,1,3,4.......}
+output:array having repeated elements need to find the non repeat element?
+sol:int count=0;
+for(i=0;i<n;i++)
+if(a[i]&1==a[i])
+{
+count++;
+printf("element");
+}
+else
+{
+printf("element");
+}
+10.sleep vs delay?
+https://stackoverflow.com/questions/31589464/difference-between-delay-and-sleep-in-c
+11.why thread is a light weight?
+https://stackoverflow.com/questions/2267545/why-are-threads-called-lightweight-processes
+12.i2c vs spi?
+https://medium.com/@rjrajbir24/difference-between-i2c-and-spi-i2c-vs-spi-c6a68d7242c4
+13.uart vs i2c vs spi?
+https://www.seeedstudio.com/blog/2019/09/25/uart-vs-i2c-vs-spi-communication-protocols-and-uses/comment-page-1/
