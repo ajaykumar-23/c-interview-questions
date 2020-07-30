@@ -1,0 +1,22 @@
+1.Find duplicate element in the array and remove that elememt?
+2.What is Multithreading?
+3.Whats are pops and clicks?How to minimise pops and clicks?How you debug that issue?
+4.Explain about Jack detection?How you implement this feature?
+5.What is Board bring up?
+6.ALSA drivers?
+7.How pcm open?
+8.What is codec,machine and platform drivers?
+9.HAL layer?What is happen is HAL layer?
+10.what is audio policy manager,audio flinger?what they do?why we use them?
+11.How you debug the issue Asoc no backend dais on gpmrb and hdmi not working properly on apl nuc?How do you say that bug related to drivers only?
+12.How front end and back end dais are connected?
+13.what is low power codec?
+14.what is DAPM?I2s?
+15.Memory leak?
+16.Difference b/w malloc and calloc?
+17.Linkedlist?
+18.kernel threads?
+19.Have you write any driver?Do you change any driver code?
+20.Do you merge any patches?code changes?
+21.Do you know any data structures like stack,queue,tree and graphs?
+

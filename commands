@@ -1,0 +1,56 @@
+1947  unzip 8096_Open-Q_820_Android_BSP-N-3.3.zip 
+ 1948  ls -lrt
+ 1949  cd android/
+ 1950  ls -lrt
+ 1951  cd 8096_Open-Q_820_Android_BSP-N-3.3/
+ 1952  ls -lrt
+ 1953  cd ..
+ 1954  ls
+ 1955  repo sync -cj4 -q --no-tags
+ 1956  cd 8096_Open-Q_820_Android_BSP-N-3.3/
+ 1957  repo sync -cj4 -q --no-tags
+ 1958  ls
+ 1959  cd ..
+ 1960  ls
+ 1961  repo init -u git://codeaurora.org/platform/manifest.git -b release -m LA.UM.5.5.r1-01300-8x96.0.xml
+ 1962  repo init
+ 1963  repo init -u git://codeaurora.org/platform/manifest.git -b release -m LA.UM.5.5.r1-01300-8x96.0.xml
+ 1964  repo sync -cj4 -q --no-tags
+ 1965  df -h
+ 1966  sudo ntfsfix /dev/sda2 
+ 1967  cd /media/ajay/E2F47593F4756AA5 
+ 1968  ls
+ 1969  df -h
+ 1970  lsblk
+ 1971  du -h
+ 1972  df -h
+ 1973  cd Downloads/
+ 1974  ssd file_example_WAV_2MG.wav 
+ 1975  ssx file_example_WAV_2MG.wav 
+ 1976  xxd file_example_WAV_2MG.wav 
+ 1977  clear
+ 1978  xxd file_example_WAV_2MG.wav 
+ 1979  ls -l
+ 1980  ls
+ 1981  ls -lrt
+ 1982  ls -l file.wav 
+ 1983  cd Downloads/
+ 1984  xxd file_example_WAV_2MG.wav 
+ 1985  cd Downloads/
+ 1986  xxd file_example_WAV_2MG.wav 
+ 1987  xxd file_example_WAV_2MG.wav | less
+ 1988  xxd file_example_WAV_2MG.wav > riff
+ 1989  cat riff 
+ 1990  vim riff 
+ 1991  xxd file_example_WAV_2MG.wav > riff
+ 1992  xxd file_example_WAV_2MG.wav 
+ 1993  ls
+ 1994  xxd file_example_WAV_2MG.wav 
+ 1995  ls -lrt
+ 1996  vim riff
+ 1997  arecord file.wav -r 48000
+ 1998  xxd file.wav 
+ 1999  xxd file.wav | less
+ 2000  lsblk
+ 2001  history
+

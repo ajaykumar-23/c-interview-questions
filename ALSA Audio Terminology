@@ -1,0 +1,258 @@
+DSDT:Differentiated System Description Table
+ACPI:Advanced Configuration and Power Interface
+McASP:Multichannel Audio Serial Port
+McBSP:Multichannel Buffered Serial Port
+SLIMbus:Serial Low-power Inter-chip Media Bus
+-----------------
+Audio policy servies:	
+Android Audio Manager (Audio management policy, AudioPolicyService)
+Audio policy service is a service responsible for all actions that require a policy decision to be made first, such as opening a new I/O audio stream, re-routing after a change, and stream volume management. This audio policy source code is located in the below path.
+The media server contains audio services, which contains the code that actually interacts with the HAL layer. This part of the content is compiled into the library libaudioflinger.so, which is the local service part of the Audio system.
+frameworks/av/services/audiopolicy
+The main roles of audio policy service are,
+
+keep track of current system state (removable device connections, phone state, user requests etc.,
+System state changes and user actions are notified to audio policy manager with methods of the audio_policy.
+Audio Flinger:
+It is a system service which starts during boot and enables the platform for audio related use-cases in the following ways.
+1.     Provide the access interface for the upper layer for using Audio.
+2.     Uses the HAL to manage the audio devices.
+In terms of the distribution of functions, AudioPolicyService() is the policy maker. It decides some of the important things like.
+1.     When to open the audio interface device.
+2.     What kind of Stream-type audio corresponds to what device etc.
+AudioFlinger is the executor of the strategy defined and decided and does some of the following tasks.
+1.     How to communicate specifically with the audio device.
+2.     How to maintain the audio sstate sanity in the existing system.
+3.     How to deal with the mixture of multiple audio streams, etc.
+The audio interfaces supported by the Audio system [AudioFlinger] fall into three categories.
+Audio_hardware_module_id_primary
+            ''        id_a2dp
+	    ''        id_usb
+Each audio device interface supported implements a corresponding shared library.
+
+So how does AudioFlinger know which interfaces are supported by the current device and which specific audio devices are supported by each interface?
+One of the main responsibilities of AudioPolicyService() is to guide AudioFlinger to load device interfaces according to user configuration.
+
+AudioPolicyManagerBase () (Details later) reads the contents of the file of audio_policy.conf and then opens the above three types of audio interfaces (if they exist).
+1.When we play back or record any audio Stream which one should I choose?
+
+These decision-making tasks are done by AudioPolicyService.
+Let us see how the AudioFlinger opens an Output channel (an audiointerface may contain a number of output).
+Open the audio output channel The corresponding interface in AF is openOutput().
+We break this function in some steps as below.
+
+1.     findSuitableHwDev_l:  Find the corresponding audio interface.
+2.     outHwDev->hwDevice(): Load the corresponding Hal for the interface.
+3.     outHwDev->openOutputStream: Open an output stream for the device.
+4.     new OffloadThread/ new OffloadThread/ new MixerThread: Create PlaybackThread/Mixer/Offload thread depending on the audio_output_flags_t.
+5.     thread->ioConfigChanged(AUDIO_OUTPUT_OPENED): notify client processes of the new output creation.
+6.     mPrimaryHardwareDev->hwDevice()->set_mode.
+We have seen that outHwDev is used to store an open audio interface device. Its data type is audio_hw_device_t, which is a set of attributes that an audio interface device specified by the HAL should have, as follows.
+set_master_volume, set_mode, and open_output_stream provide interfaces for setting the audio volume for the master interface, setting the audio mode type (such as AUDIO_MODE_RINGTONE, AUDIO_MODE_IN_CALL, and so on), and opening the output data stream.
+After AudioFlinger::openOutput() the channel is already open. The next question in the puzzle is who is going to put something in the channel?
+
+This is PlaybackThread.
+
+Let us look at two different situations.
+
+1.     DirectOutput : If you do not need to mix the streams.
+2.     Mixer: Need to mix the streams.
+These two situations give birth to two kind of threads “DirectOutputThread” and “MixerThread”, respectively.
+
+overall summary:
+When the AudioPolicyManagerBase is constructed, it will analyze the audio interfaces (primary, a2dp, and usb) in the system according to the audio_policy.conf provided by the user, and then load the corresponding library files of the audio interface through AudioFlinger::loadHwModule and open them in sequence. Output(openOutput) and input(openInput)
+
+We have analyzed in detail what openOutput does, including opening an audio_stream_out_t channel, generating an AudioStreamOut object, and creating a new PlaybackThread.
+
+As long as AudioTrack and AudioFlinger continue to pass data, the entire audio playback continues.
+AudioPolicyService is a major service of the Android audio system. It works in conjunction with the AudioFlinger for all audio use-cases be it playback or recording. AudioPolicyService starts at boot during the mediaserver loading in the same way as AudioFlinger does.
+
+Some Questions which might arise immediately with respect to AudioPolicyService  could be.
+
+What is AudioPolicyService ?
+
+Why should it exist?
+How is the underlying Audio HAL layer integrated into Android?
+
+We can answer all of the above by looking into the code etc,
+
+However, Let us answer the above questions with couple of questions itself.
+
+“After inserting the headphones, how does the sound change from the initial external speaker or output  to the headphone output?”
+
+“How does the volume from calls/music etc get adjusted?”
+
+The answer to some/all of these questions lies in a better understanding of the AudioPolicyService.
+
+
+We earlier explained earlier that AudioFlinger only executes the policy which is framed or decided by the AudioPolicyService.
+https://strayinsights.blogspot.com/2018/05/android-audio-tutorial-part-six.html    //*******Important*******************
+------------------------------------------------------------------------------------------------------------------------------------
+Device Drivers video by xilinx:
+https://www.xilinx.com/video/soc/linux-device-drivers-part-1-the-basics.html
+https://www.xilinx.com/video/soc/linux-device-drivers-part-2-platform-character-drivers.html
+https://www.xilinx.com/video/soc/linux-dma-in-device-drivers.html
+https://www.kernel.org/doc/Documentation/driver-model/platform.txt
+https://www.youtube.com/watch?v=QIO2pJqMxjE //How to Avoid Writing Device Drivers for Embedded Linux
+https://www.youtube.com/watch?v=juGNPLdjLH4  //How Do Linux Kernel Drivers Work
+------------------------------------------------------------------------------------------------------------------------------------
+ALSA:
+https://blog.csdn.net/zyuanyun/article/details/59170418       //important all info about codec,machine and platform drivers and how snd card is registered
+https://kernel.readthedocs.io/en/sphinx-samples/writing-an-alsa-driver.html  //Writing an alsa driver
+https://ez.analog.com/audio/f/q-a/3356/ssm2518-codec-bclk-used-as-mclk    //bit clock calculation
+http://prog3.com/sbdm/blog/adazone/article/details/40820795   //ASoC Architecture Machine
+http://prog3.com/sbdm/blog/adazone/article/details/40820765   //ALSA ASoC 
+http://prog3.com/sbdm/blog/adazone/article/details/46893399  //Audio programming guide in linux
+http://prog3.com/sbdm/blog/adazone/article/category/1470089/10  //ALSA Important and Interrupts
+http://prog3.com/sbdm/blog/adazone/article/details/44831385  //i2s,pcm,ac97
+http://prog3.com/sbdm/blog/adazone/article/details/44671117  //Device Tree
+http://prog3.com/sbdm/blog/adazone/article/details/42100089    //platform device drivers
+http://prog3.com/sbdm/blog/adazone/article/details/42100067  //platform device driver total analysis
+http://prog3.com/sbdm/blog/adazone/article/details/39292411  //Android Audio System
+http://prog3.com/sbdm/blog/adazone/article/details/45688563  //How to find reason for kernel crash
+----------------------------------------------------------------------------------------------------------------------------------------
+Audio Basics:
+
+https://blog.csdn.net/jkan2001/article/details/52985329
+
+https://blog.csdn.net/safrans/article/details/8564168
+
+https://so.csdn.net/so/search/s.do?q=ALSA&t=blog&u=DroidPhone All ALSA Information
+
+https://blog.csdn.net/z2066411585/article/details/99089141 difference b/w -Dhwplug:0,0 and -Dhw:0,0
+
+https://blog.csdn.net/qq_18998145/article/details/103234944 ALSA summary
+
+https://so.csdn.net/so/search/s.do?q=ALSA&t=blog&o=&s=&l=&f=all&viparticle= ALSA
+
+https://blog.csdn.net/hanbo622/article/details/44703623 PLL and MCLK calculation
+
+https://blog.csdn.net/lp542718520/article/details/70234312 playback,capture,call and voip flow
+
+https://blog.csdn.net/xgbing/article/details/72856978 Android Audio flow
+
+https://blog.csdn.net/sinat_37817094/article/details/80817559 aplay complete flow in ALSA
+
+https://blog.csdn.net/a372048518/article/details/79007746 analysis of ALSA driver and AsoC
+
+https://blog.csdn.net/reille/article/details/5845913 Porting of ALSA architecture
+
+https://blog.csdn.net/MARTINGANG/article/details/8145615 relationship b/w alsalib and alsadriver
+
+http://www.programmersought.com/article/88641997501/
+
+http://www.programmersought.com/article/17131820767/
+
+http://www.programmersought.com/article/2465118051/ ioctl
+
+http://www.programmersought.com/article/5229833225/ How to add new codec
+
+http://www.programmersought.com/article/7359589698/ pcm
+
+http://www.programmersought.com/article/2847794657/
+
+http://www.programmersought.com/article/6396800897/ overview of alsa architecture
+
+http://www.programmersought.com/article/2420780773/ relationship b/w codec,dai and platform
+
+http://www.programmersought.com/article/7214349580/
+
+http://www.programmersought.com/article/9249775491/;jsessionid=F212C5D28852DF3D2D64789EB9094406 machine driver
+
+http://www.programmersought.com/article/37511364240/ soundcard creation
+
+http://www.programmersought.com/article/4478751727/ Asoc driver framework
+
+http://www.programmersought.com/article/2847794657/;jsessionid=EE2FC900F0534B5BC16D95C6918C7897
+
+http://www.programmersought.com/article/7359589698/;jsessionid=EE2FC900F0534B5BC16D95C6918C7897
+
+https://blog.csdn.net/droidphone/article/details/6308006
+
+http://www.programmersought.com/article/9557772336/ Asoc drive analysis
+
+http://www.programmersought.com/article/39271443/ Asoc platform
+
+http://www.programmersought.com/article/40061448/ Asoc codec
+
+http://www.programmersought.com/article/9249775491/ Asoc machine
+
+http://www.programmersought.com/article/4927541982/ alsamixer
+
+http://www.programmersought.com/article/96302012552/ usage of alsamixer
+
+http://www.programmersought.com/article/3507102490/ device tree
+
+http://www.programmersought.com/article/77102059079/
+
+http://www.programmersought.com/article/5534815175/
+
+http://www.programmersought.com/article/4439132013/
+
+Trace 32 Debugger:
+
+https://so.csdn.net/so/search/s.do?q=trace32%E4%BD%BF%E7%94%A8&t=blog&o=&s=&l=&f=&viparticle=
+
+https://blog.csdn.net/u010875635/article/details/84875567 trace32 steps
+
+https://blog.csdn.net/aaa886868/article/details/101140906 trace32 uses
+
+https://blog.csdn.net/zhenwenxian/article/details/6578349 trace32 on ARM dump analysis
+
+Underrun and overrun in ALSA:
+
+https://blog.csdn.net/Qidi_Huang/article/details/53100493
+
+https://blog.csdn.net/qidi_huang/article/details/54020326
+
+Jack Detection:
+
+http://www.programmersought.com/article/4077704335/ jack detection log file
+
+
+http://www.programmersought.com/article/91081210879/ jack detection
+
+
+
+Kernel layer processing mechanism:
+The Kernel layer plugs and unplugs the InputEvent processing mainly through input_report_key/input_report_switch(include/linux/input.h). In actual use, ASOC has packaged the corresponding for us. The Jack interface function can be used as long as it conforms to the specification. Here are a few common interface functions (/sound/soc/soc-jack.c).
+
+int snd_soc_jack_new(structsnd_soc_codec *codec, 
+
+const char *id, int type, struct snd_soc_jack *jack)
+
+
+
+Generate a new jack object, defining its type to be detected, which is the type of device that may be inserted. Generally defined as SND_JACK_HEADSET, the rest can also add SND_JACK_LINEOUT, SND_JACK_AVOUT, etc. according to the type of interface support.
+
+This function calls snd_jack_new, and in snd_jack_new you can see that the input_allocate_device() is allocated to the input device, and the input event can be generated later.
+
+int snd_soc_jack_add_pins(structsnd_soc_jack jack,intcount, truct snd_soc_jack_pin *pins)
+
+Add the previously defined pins to the dapm widgets for easy dapm management. This step does not have any connection with InputEvent. It can be called. The main purpose is to define the headset socket as widgets and add dapm to save power.
+
+Viod snd_soc_jack_report(structsnd_soc_jack *jack, int status, int mask)
+
+Report the jack plug-in status, mainly to complete the following two tasks:
+
+a) Update the status of the dapm pin that was previously added by snd_soc_jack_add_pins according to the plug-in status, and power-on and power-off management.
+
+b) Call snd_jack_report, in which the input event is reported to the upper layer via input_report_key/input_report_switch.
+
+Based on the above function, the following methods can be used to implement the headset insertion detection based on the InputEvent mechanism:
+
+a) snd_soc_jack_new create jack object
+
+b) snd_soc_jack_add_pins adds it to dapm wigets
+
+c) Apply for the headset plug-in interrupt through request irq. In the interrupt handler function, determine whether the headset is plugged in or unplugged by detecting the line high level. Read the codec register to determine whether it is a headset or a headphone.
+
+d) call snd_soc_jack_report to send an InputEvent based on the result of the judgment
+
+In addition, ASOC provides a packaged function to implement the functions of steps c) and d) above:
+
+int snd_soc_jack_add_gpios(struct snd_soc_jack *jack, int count,
+
+struct snd_soc_jack_gpio *gpios)
+
+This function requests GPIO and GPIO-related interrupts via a standard GPIO driver and provides a uniform interrupt handler to report events. This function is only available when the headset is disconnected to GPIO and the GPIO driver is a Linux standard driver, and mic detection is not supported.

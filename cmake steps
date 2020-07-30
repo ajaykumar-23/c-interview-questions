@@ -1,0 +1,54 @@
+CMake is a tool designed to help you build and test your software. It is now more popular than ever and is now supported by some major IDEs and libraries, including Android Studio, CLion, QtCreator or Visual Studio.
+=========================================
+$ What is a CMake? Can you give one example?
+$$ How to automate source code build?
+$$$ What is CMake used for?
+$$$$ What is the difference between make and CMake?
+$$$$$ What does CMake install do?
+$$$$$$ How do I set up CMake?
+=========================================
+Answer:
+#
+The Makefiles provide a build system that can be used to manage the and clean programs that are written in any programming language. 
+CMake is a cross-platform Makefile generator. CMake automatically generates the Makefiles for your project. 
+
+##
+When it helps most?
+
+* When Makefiles become complex.
+eg. Particularly when building projects that have multiple 
+subdirectories 
+* Projects that are to be deployed to multiple platforms
+eg. Windows, Linux
+
+Introduction to CMake by Example
+######################################################
+1. Download Package from the following site.
+https://cmake.org/download/
+
+2. Install package from the command line:
+
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:george-edison55/cmake-3.x
+sudo apt-get update
+sudo apt-get install cmake
+
+3. Compile it yourself
+sudo apt-get install build-essential
+wget http://www.cmake.org/files/v3.2/cmake...
+tar xf cmake-3.2.2.tar.gz
+cd cmake-3.2.2
+./configure
+make
+
+4. cd /home/rofique/Youtube_Materials/0007.CMake_Example/CMakeFiles
+5.cmake .
+6. more Makefile
+7. ls -l square_root
+-rwxr-xr-x 1 rofique rofique 8480 Apr 27 18:35 square_root
+8. tree
+6. ./square_root 625
+##############################
+The square root of :625 is :25
+##############################
+🅿🆂🆈🅲🅷🅸🅲🅿🆁🅾🅶🆁🅰🅼🅼🅴🆁🆂🇵​🇸​🇾​🇨​🇭​🇮​🇨​🇵​🇷​🇴​🇬​🇷​🇦​🇲​🇲​🇪​🇷​🇸​
