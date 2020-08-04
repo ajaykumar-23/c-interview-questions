@@ -1,0 +1,11 @@
+diff --git a/first.c b/first.c
+index 620d846..3d17e98 100644
+--- a/first.c
++++ b/first.c
+@@ -2,5 +2,5 @@
+ int main()
+ {
+ printf("Hello world tooo\n");
+-printf("good bye\n");
++printf("good bye......\n");
+ }
